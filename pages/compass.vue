@@ -7,11 +7,11 @@
 
                 <img src="/Survey.png" class="mx-auto max-w-80 lg:max-w-96 h-auto mt-10 p-6">
                 <div class="mt-10 mb-8 flex items-center justify-center gap-x-6">
-                    <NuxtLink to="/question1" class="rounded-md uppercase bg-gradient-to-tr from-indigo-500 to-indigo-800 px-6 py-3 text-2xl font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                    <NuxtLink to="/questions" class="rounded-md uppercase bg-gradient-to-tr from-indigo-500 to-indigo-800 px-6 py-3 text-2xl font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                         yes, i’d love to!
                     </NuxtLink>
                 </div>
-                <NuxtLink to="/question1" class="rounded-md uppercase bg-gradient-to-tr from-indigo-200 to-indigo-400 px-6 py-3 text-2xl font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                <NuxtLink to="/questions" class="rounded-md uppercase bg-gradient-to-tr from-indigo-200 to-indigo-400 px-6 py-3 text-2xl font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                     no, i wanna play...
                 </NuxtLink>
             </div>
