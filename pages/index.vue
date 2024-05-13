@@ -13,10 +13,13 @@
 
                 <img src="/Voting.png" class="mx-auto  lg:max-w-96 h-auto mt-10 p-6">
                 <div class="mt-10 mb-4 flex items-center justify-center gap-x-6">
-                    <a href="#"
-                        class="rounded-md bg-gradient-to-tr from-indigo-500 to-indigo-800 px-10 py-3 text-4xl font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">PLAY</a>
+                    <NuxtLink to="compass" class="rounded-md bg-gradient-to-tr from-indigo-500 to-indigo-800 px-10 py-3 text-4xl font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                        PLAY
+                    </NuxtLink>
                 </div>
-                <a href="#" class="text-2xl font-light leading-6 text-gray-600">Learn more</a>
+                <NuxtLink to="compass" class="text-2xl font-light leading-6 text-gray-600">
+                    <a href="#">Learn more</a>
+                </NuxtLink>
             </div>
         </div>
         <div class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-40rem)]"
@@ -28,14 +31,6 @@
 </template>
 <script setup>
 const user = useSupabaseUser()
-console.log(user)
-
-useHead({
-    title: 'Agora - The Election Game',
-    meta: [
-        { name: 'description', content: 'My amazing site.' }
-    ],
-})
 </script>
 <style>
 </style>
