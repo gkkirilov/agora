@@ -13,12 +13,12 @@
 
                 <img src="/Voting.png" class="mx-auto  lg:max-w-96 h-auto mt-10 p-6">
                 <div class="mt-10 mb-4 flex items-center justify-center gap-x-6">
-                    <NuxtLink to="compass" class="rounded-md bg-gradient-to-tr from-indigo-500 to-indigo-800 px-10 py-3 text-4xl font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                    <NuxtLink to="/intro" class="rounded-md bg-gradient-to-tr from-indigo-500 to-indigo-800 px-10 py-3 text-4xl font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                         PLAY
                     </NuxtLink>
                 </div>
-                <NuxtLink to="compass" class="text-2xl font-light leading-6 text-gray-600">
-                    <a href="#">Learn more</a>
+                <NuxtLink to="/intro" class="text-2xl font-light leading-6 text-gray-600">
+                    Learn more
                 </NuxtLink>
             </div>
         </div>

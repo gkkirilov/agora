@@ -26,8 +26,8 @@ export default defineNuxtConfig({
     prefix: ''
   },
   supabase: {
-    url: 'https://lmestjkqmdxeqwmkwrwa.supabase.co',
-    key: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxtZXN0amtxbWR4ZXF3bWt3cndhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTA3OTU0MzIsImV4cCI6MjAyNjM3MTQzMn0.l8RUi4QGwGdti58UAbSobmyUSp9SuPxgRNGKGSVduhs',
+    url: 'https://feeekmidhmjdpntdvafv.supabase.co',
+    key: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZlZWVrbWlkaG1qZHBudGR2YWZ2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTU2MzMzODMsImV4cCI6MjAzMTIwOTM4M30.LCtHPNVkI9_1GHwsVmzK5e5bhfoYfOvq1hMdwpvy4Co',
     redirectOptions: {
       include: ['/admin(/*)?']
     }
