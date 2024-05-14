@@ -53,11 +53,11 @@ const shuffledAnswers = ref([])
 var politicalParty =  computed(() => {
    if (politicalScore.value >= 4) {
          return 'Right'
-   } else if(politicalScore.value > 2 && politicalScore.value < 4) {
+   } else if(politicalScore.value >= 2 && politicalScore.value < 4) {
       return 'Moderate Right'
    } else if(politicalScore.value > -2 && politicalScore.value < 2) {
       return 'Moderate'
-   } else if(politicalScore.value > -4 && politicalScore.value < -2) {
+   } else if(politicalScore.value > -4 && politicalScore.value <= -2) {
       return 'Moderate Left'
    } else if(politicalScore.value <= -4) {
       return 'Left'
