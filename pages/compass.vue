@@ -7,9 +7,11 @@
             <div class="flex justify-center items-center gap-x-6 bg-gray-200 py-2.5 rounded-lg px-3">
                <div class="text-sm leading-6 text-gray-900">
                   <strong class="font-semibold">Current Score: {{ politicalScore }}</strong>
-                  <div>-3 and below = Left leaning</div>
-                  <div>3+ and above = Right leaning</div>
-                  <div>-3 to +3 = Moderate</div>
+                  <div>-4 and below = Left</div>
+                  <div>-4 to -2  = Moderate Left</div>
+                  <div>-2 to +2  = Moderate</div>
+                  <div>+2 to +4 = Moderate Right</div>
+                  <div>4 and above = Right</div>
                </div>
             </div>
             <!-- End banner -->
@@ -29,7 +31,7 @@
                </transition-group>
             </div>
             <div v-else-if="completed" class="text-4xl mt-20">
-               Well done! <br> <span class="font-bold mt-4">You are ....</span>
+               Well done! <br> <span class="font-bold mt-4">You are {{ politicalParty }}</span>
             </div>
          </div>
       </div>
@@ -46,6 +48,29 @@ const currentQuestion = ref(0)
 const completed = ref(false)
 const selectedQuestions = ref([])
 const shuffledAnswers = ref([])
+
+
+var politicalParty =  computed(() => {
+   // <div>-4 and below = Left</div>
+   //                <div>-3 to -1  = Moderate Left</div>
+   //                <div>-1 to +1  = Moderate</div>
+   //                <div>2 to 3.5 = Moderate Right</div>
+   //                <div>4+ and above = Right</div>
+   if (politicalScore.value >= 4) {
+         return 'Right'
+   } else if(politicalScore.value > 1 && politicalScore.value < 4) {
+      return 'Moderate Right'
+   } else if(politicalScore.value > -2 && politicalScore.value < 2) {
+      return 'Moderate'
+   } else if(politicalScore.value > -4 && politicalScore.value < -2) {
+      return 'Moderate Left'
+   } else if(politicalScore.value <= -4) {
+      return 'Left'
+   }
+})
+const publishedBooksMessage = computed(() => {
+  return author.books.length > 0 ? 'Yes' : 'No'
+})
 
 var allQuestions = [
     {
