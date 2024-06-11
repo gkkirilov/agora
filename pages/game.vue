@@ -2,7 +2,7 @@
     <div class="px-6 pt-5 lg:pt-14 lg:px-8">
         <div class="mx-auto max-w-2xl">
             <div class="text-center">
-                <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Tutorial!</h1>
+                <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Let's play!</h1>
                 <div class="flex justify-start gap-x-2 items-center text-lg">
                     <div class="flex items-center p-2 gap-x-1"
                         :class="{ ' bg-yellow-300 rounded z-50': infoIndex === 0 }">
