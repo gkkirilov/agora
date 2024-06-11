@@ -1,6 +1,6 @@
 export const useIndexStore = defineStore('indexStore', {
     state: () => ({
-        politicalParty: 'Moderate Left',
+        politicalParty: 'Moderate',
         money: 50,
         voters: 15,
         integrity: 100,
