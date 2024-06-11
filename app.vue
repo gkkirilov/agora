@@ -37,4 +37,27 @@ useHead({
 body {
     font-family: Signika, serif;
 }
+
+
+.slide-enter-active,
+.slide-leave-active {
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.slide-enter-from,
+.slide-leave-to {
+    opacity: 0;
+    transform: translateX(30px);
+}
+
+.list-enter-active,
+.list-leave-active {
+    transition: all 0.5s ease;
+}
+
+.list-enter-from,
+.list-leave-to {
+    opacity: 0;
+    transform: translateX(30px);
+}
 </style>

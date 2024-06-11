@@ -1,10 +1,10 @@
 <template>
-   <div class="relative isolate px-6 pt-5 lg:pt-14 lg:px-8">
-      <div class="mx-auto max-w-2xl">
-         <div class="text-center">
-            <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Political Compass!</h1>
-            <!-- Start banner -->
-            <div class="flex justify-center items-center gap-x-6 bg-gray-200 py-2.5 rounded-lg px-3">
+    <div class="relative isolate px-6 pt-5 lg:pt-14 lg:px-8">
+        <div class="mx-auto max-w-2xl">
+            <div class="text-center">
+                <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Political Compass!</h1>
+                <!-- Start banner -->
+                <!-- <div class="flex justify-center items-center gap-x-6 bg-gray-200 py-2.5 rounded-lg px-3">
                <div class="text-sm leading-6 text-gray-900">
                   <strong class="font-semibold">Current Score: {{ politicalScore }}</strong>
                   <div>-4 and below = Left</div>
@@ -13,34 +13,54 @@
                   <div>+2 to +4 = Moderate Right</div>
                   <div>4 and above = Right</div>
                </div>
-            </div>
-            <!-- End banner -->
+            </div> -->
+                <!-- End banner -->
 
-            <div v-if="!completed && selectedQuestions.length">
-               <transition name="slide-fade" mode="out-in">
-                  <p class="text-gray-600 mx-auto mt-10 text-xl" :key="currentQuestion">
-                     {{ selectedQuestions[currentQuestion].question }}
-                  </p>
-               </transition>
+                <div v-if="!completed && selectedQuestions.length">
+                    <transition v-if="!justification" name="slide-fade" mode="out-in">
+                        <p class="text-gray-600 mx-auto mt-10 text-xl" :key="currentQuestion">
+                            {{ selectedQuestions[currentQuestion].question }}
+                        </p>
+                    </transition>
 
-               <transition-group name="list" tag="div" class="mt-10 mb-4 flex flex-col gap-4 items-center justify-center">
-                  <div v-for="(answer, index) in shuffledAnswers[currentQuestion]" :key="currentQuestion + '-' + index" @click="selectAnswer(answer.position)"
-                     class="rounded-md bg-gradient-to-tr from-indigo-400 to-indigo-700 px-10 py-3 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                     {{ answer.answer }}
-                  </div>
-               </transition-group>
+                    <transition-group v-if="!hideAnswers" name="list" tag="div"
+                        class="mt-10 mb-4 flex flex-col gap-4 items-center justify-center">
+                        <div v-for="(answer, index) in shuffledAnswers[currentQuestion]"
+                            :key="currentQuestion + '-' + index" @click="selectAnswer(answer)"
+                            class="rounded-md bg-gradient-to-tr from-indigo-400 to-indigo-700 px-10 py-3 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                            {{ answer.answer }}
+                        </div>
+                    </transition-group>
+                    <div v-if="justification" class="text-gray-600 mx-auto mt-10 text-xl">
+                        {{ justification }}
+                        <div @click="changeQuestions()"
+                            class="rounded-md bg-gradient-to-tr from-indigo-400 to-indigo-700 px-10 py-3 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                            Continue
+                        </div>
+                    </div>
+                </div>
+                <div v-else-if="completed" class="text-4xl mt-20">
+                    Well done! <br> <span class="font-bold mt-4">You are {{ party }}</span>
+                    <div>
+
+                        <NuxtLink to="/game" @click="changeQuestions()"
+                    class="rounded-md bg-gradient-to-tr from-indigo-400 to-indigo-700 px-10 py-3 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                Get Started
+            </NuxtLink>
+        </div>
+                </div>
             </div>
-            <div v-else-if="completed" class="text-4xl mt-20">
-               Well done! <br> <span class="font-bold mt-4">You are {{ politicalParty }}</span>
-            </div>
-         </div>
-      </div>
-   </div>
+        </div>
+    </div>
 </template>
 
 
 <script setup>
 import { ref, onMounted } from 'vue'
+
+
+const indexStore = useIndexStore()
+const { politicalParty } = storeToRefs(indexStore)
 
 const user = useSupabaseUser()
 const politicalScore = ref(0)
@@ -48,24 +68,28 @@ const currentQuestion = ref(0)
 const completed = ref(false)
 const selectedQuestions = ref([])
 const shuffledAnswers = ref([])
+const justification = ref('')
+const hideAnswers = ref(false)
 
 
-var politicalParty =  computed(() => {
-   if (politicalScore.value >= 4) {
-         return 'Right'
-   } else if(politicalScore.value >= 2 && politicalScore.value < 4) {
-      return 'Moderate Right'
-   } else if(politicalScore.value > -2 && politicalScore.value < 2) {
-      return 'Moderate'
-   } else if(politicalScore.value > -4 && politicalScore.value <= -2) {
-      return 'Moderate Left'
-   } else if(politicalScore.value <= -4) {
-      return 'Left'
-   }
+var party = computed(() => {
+    var party = ''
+    if (politicalScore.value >= 4) {
+        party = 'Right'
+    } else if (politicalScore.value >= 2 && politicalScore.value < 4) {
+        party = 'Moderate Right'
+    } else if (politicalScore.value > -2 && politicalScore.value < 2) {
+        party = 'Moderate'
+    } else if (politicalScore.value > -4 && politicalScore.value <= -2) {
+        party = 'Moderate Left'
+    } else if (politicalScore.value <= -4) {
+        party = 'Left'
+    }
+
+    politicalParty.value = party
+    return party
 })
-const publishedBooksMessage = computed(() => {
-  return author.books.length > 0 ? 'Yes' : 'No'
-})
+
 
 var allQuestions = [
     {
@@ -659,57 +683,47 @@ var allQuestions = [
 ]
 
 function shuffle(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-  return array;
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
 }
 
 onMounted(() => {
-  selectedQuestions.value = shuffle(allQuestions).slice(0, 6);
-  selectedQuestions.value.forEach(question => {
-    shuffledAnswers.value.push(shuffle([...question.answers]));
-  });
+    selectedQuestions.value = shuffle(allQuestions).slice(0, 6);
+    selectedQuestions.value.forEach(question => {
+        shuffledAnswers.value.push(shuffle([...question.answers]));
+    });
 })
 
 function changeQuestions() {
-  if (currentQuestion.value + 1 >= selectedQuestions.value.length) {
-    completed.value = true
-  } else {
-    currentQuestion.value += 1
-  }
+    justification.value = ''
+    hideAnswers.value = false
+
+
+    if (currentQuestion.value + 1 >= selectedQuestions.value.length) {
+        completed.value = true
+    } else {
+        currentQuestion.value += 1
+    }
 }
 
-function selectAnswer(position) {
-  if (position === 'Left') {
-    politicalScore.value -= 1
-  } else if (position === 'Right') {
-    politicalScore.value += 1
-  } else if (position === 'Moderate') {
-    if (politicalScore.value > 0) {
-      politicalScore.value -= 0.5
-    } else if (politicalScore.value < 0) {
-      politicalScore.value += 0.5
+function selectAnswer(answer) {
+    if (answer.position === 'Left') {
+        politicalScore.value -= 1
+    } else if (answer.position === 'Right') {
+        politicalScore.value += 1
+    } else if (answer.position === 'Moderate') {
+        if (politicalScore.value > 0) {
+            politicalScore.value -= 0.5
+        } else if (politicalScore.value < 0) {
+            politicalScore.value += 0.5
+        }
     }
-  }
-  changeQuestions()
+
+    hideAnswers.value = true
+    justification.value = answer.justification
 }
 
 </script>
-<style>
-.slide-enter-active, .slide-leave-active {
-  transition: opacity 0.5s ease, transform 0.5s ease;
-}
-.slide-enter-from, .slide-leave-to {
-  opacity: 0;
-  transform: translateX(30px);
-}
-.list-enter-active, .list-leave-active {
-  transition: all 0.5s ease;
-}
-.list-enter-from, .list-leave-to {
-  opacity: 0;
-  transform: translateX(30px);
-}
-</style>
