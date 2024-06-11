@@ -54,7 +54,7 @@
           </transition>
         </Popover> -->
 
-        <a href="#" class="text-lg font-semibold leading-6 text-gray-900 flex">
+        <!-- <a href="#" class="text-lg font-semibold leading-6 text-gray-900 flex">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
             stroke="currentColor" class="w-5 h-5 mr-1.5 text-gray-600">
             <path stroke-linecap="round" stroke-linejoin="round"
@@ -62,12 +62,12 @@
           </svg>
 
           Scoreboard
-        </a>
+        </a> -->
         <!-- <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Marketplace</a>
         <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Company</a> -->
       </PopoverGroup>
       <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-        <NuxtLink href="/login" class="text-lg font-semibold leading-6 text-gray-900 flex ">
+        <!-- <NuxtLink href="/login" class="text-lg font-semibold leading-6 text-gray-900 flex ">
           Log in <span aria-hidden="true">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
               stroke="currentColor" class="w-4 h-4 ml-2 mt-1 text-gray-600">
@@ -75,7 +75,7 @@
             </svg>
 
           </span>
-        </NuxtLink>
+        </NuxtLink> -->
       </div>
     </nav>
     <Dialog as="div" class="lg:hidden" @close="mobileMenuOpen = false" :open="mobileMenuOpen">
@@ -108,18 +108,18 @@
                     {{ item.name }}</DisclosureButton>
                 </DisclosurePanel>
               </Disclosure> -->
-              <a href="#"
-                class="-mx-3 block rounded-lg px-3 py-2 text-xl font-semibold leading-7 text-gray-900 hover:bg-gray-50">Scoreboard</a>
+              <!-- <a href="#"
+                class="-mx-3 block rounded-lg px-3 py-2 text-xl font-semibold leading-7 text-gray-900 hover:bg-gray-50">Scoreboard</a> -->
               <!-- <a href="#"
                 class="-mx-3 block rounded-lg px-3 py-2 text-xl font-semibold leading-7 text-gray-900 hover:bg-gray-50">Marketplace</a>
               <a href="#"
                 class="-mx-3 block rounded-lg px-3 py-2 text-xl font-semibold leading-7 text-gray-900 hover:bg-gray-50">Company</a> -->
             </div>
-            <div class="py-6">
+            <!-- <div class="py-6">
               <a href="#"
                 class="-mx-3 block rounded-lg px-3 py-2.5 text-xl font-semibold leading-7 text-gray-900 hover:bg-gray-50">Log
                 in</a>
-            </div>
+            </div> -->
           </div>
         </div>
       </DialogPanel>
