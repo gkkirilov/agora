@@ -7,11 +7,11 @@
                 <!-- <div class="flex justify-center items-center gap-x-6 bg-gray-200 py-2.5 rounded-lg px-3">
                <div class="text-sm leading-6 text-gray-900">
                   <strong class="font-semibold">Current Score: {{ politicalScore }}</strong>
-                  <div>-4 and below = Left</div>
-                  <div>-4 to -2  = Moderate Left</div>
-                  <div>-2 to +2  = Moderate</div>
-                  <div>+2 to +4 = Moderate Right</div>
-                  <div>4 and above = Right</div>
+                  <div>-4 and below = Libertarian</div>
+                  <div>-4 to -2  = Liberal</div>
+                  <div>-2 to +2  = Centrist</div>
+                  <div>+2 to +4 = Conservative</div>
+                  <div>4 and above = Authoritarian</div>
                </div>
             </div> -->
                 <!-- End banner -->
@@ -34,7 +34,7 @@
                     <div v-if="justification" class="text-gray-600 mx-auto mt-10 text-xl">
                         {{ justification }}
                         <div @click="changeQuestions()"
-                            class="rounded-md bg-gradient-to-tr from-indigo-400 to-indigo-700 px-10 py-3 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                            class="mt-4 rounded-md bg-gradient-to-tr from-indigo-400 to-indigo-700 px-10 py-3 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                             Continue
                         </div>
                     </div>
@@ -56,9 +56,6 @@
 
 
 <script setup>
-import { ref, onMounted } from 'vue'
-
-
 const indexStore = useIndexStore()
 const { politicalParty } = storeToRefs(indexStore)
 
@@ -75,15 +72,15 @@ const hideAnswers = ref(false)
 var party = computed(() => {
     var party = ''
     if (politicalScore.value >= 4) {
-        party = 'Right'
+        party = 'Authoritarian'
     } else if (politicalScore.value >= 2 && politicalScore.value < 4) {
-        party = 'Moderate Right'
+        party = 'Conservative'
     } else if (politicalScore.value > -2 && politicalScore.value < 2) {
-        party = 'Moderate'
+        party = 'Centrist'
     } else if (politicalScore.value > -4 && politicalScore.value <= -2) {
-        party = 'Moderate Left'
+        party = 'Liberal'
     } else if (politicalScore.value <= -4) {
-        party = 'Left'
+        party = 'Libertarian'
     }
 
     politicalParty.value = party
@@ -714,13 +711,14 @@ function selectAnswer(answer) {
         politicalScore.value -= 1
     } else if (answer.position === 'Right') {
         politicalScore.value += 1
-    } else if (answer.position === 'Moderate') {
-        if (politicalScore.value > 0) {
-            politicalScore.value -= 0.5
-        } else if (politicalScore.value < 0) {
-            politicalScore.value += 0.5
-        }
-    }
+    } 
+    // else if (answer.position === 'Moderate') {
+    //     if (politicalScore.value > 0) {
+    //         politicalScore.value -= 0.5
+    //     } else if (politicalScore.value < 0) {
+    //         politicalScore.value += 0.5
+    //     }
+    // }
 
     hideAnswers.value = true
     justification.value = answer.justification

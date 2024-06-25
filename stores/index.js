@@ -1,10 +1,14 @@
 export const useIndexStore = defineStore('indexStore', {
     state: () => ({
         politicalParty: 'Moderate',
-        money: 50,
-        voters: 15,
-        integrity: 100,
+        money: 0,
+        voters: 0,
+        integrity: 0,
+        score: 0,
+        language: 'en'
     }),
+
+    persist: true,
 })
 
 if (import.meta.hot) {

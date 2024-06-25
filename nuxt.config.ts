@@ -11,8 +11,18 @@ export default defineNuxtConfig({
     'nuxt-headlessui',
     '@nuxtjs/google-fonts',
     '@nuxtjs/tailwindcss',
+    "@nuxtjs/i18n",
     ['@pinia/nuxt', { autoImports: ['defineStore', 'acceptHMRUpdate'] }],
+    '@pinia-plugin-persistedstate/nuxt',
   ],
+
+  i18n: {
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_redirected',
+      redirectOn: 'root' // recommended
+    }
+  },
 
   googleFonts: {
     // Options
@@ -21,10 +31,6 @@ export default defineNuxtConfig({
         wght: '300..700',
       },
     }
-  },
-  
-  imports: {
-    dirs: ['./stores'],
   },
 
   headlessui: {
@@ -39,4 +45,7 @@ export default defineNuxtConfig({
       include: ['/admin(/*)?']
     }
   },
+  piniaPersistedstate: {
+    debug: true
+  }
 })

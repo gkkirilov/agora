@@ -7,7 +7,7 @@
         </div>
         <div class="mx-auto max-w-2xl ">
             <div class="text-center">
-                <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Get elected today!</h1>
+                <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">{{$t('Get elected today!')}}</h1>
                 <p class="text-gray-600 max-w-xs mx-auto">Flashy text to show the <br class="sm:hidden"> player this
                     game means BUSINESS</p>
 
