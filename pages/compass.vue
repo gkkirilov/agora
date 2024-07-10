@@ -2,7 +2,7 @@
     <div class="relative isolate px-6 pt-5 lg:pt-14 lg:px-8">
         <div class="mx-auto max-w-2xl">
             <div class="text-center">
-                <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Political Compass!</h1>
+                <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">{{ $t('compass.title') }}</h1>
                 <!-- Start banner -->
                 <!-- <div class="flex justify-center items-center gap-x-6 bg-gray-200 py-2.5 rounded-lg px-3">
                <div class="text-sm leading-6 text-gray-900">
@@ -35,19 +35,20 @@
                         {{ justification }}
                         <div @click="changeQuestions()"
                             class="mt-4 rounded-md bg-gradient-to-tr from-indigo-400 to-indigo-700 px-10 py-3 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                            Continue
+                            {{ $t('compass.continue') }}
                         </div>
                     </div>
                 </div>
                 <div v-else-if="completed" class="text-4xl mt-20">
-                    Well done! <br> <span class="font-bold mt-4">You are {{ party }}</span>
+                    {{ $t('compass.welldone') }} <br> <span class="font-bold mt-4">{{ $t('compass.youare') }}{{
+                        $t('compass.' + party) }}</span>
                     <div>
 
                         <NuxtLink to="/game" @click="changeQuestions()"
-                    class="rounded-md bg-gradient-to-tr from-indigo-400 to-indigo-700 px-10 py-3 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                Get Started
-            </NuxtLink>
-        </div>
+                            class="rounded-md bg-gradient-to-tr from-indigo-400 to-indigo-700 px-10 py-3 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                            {{ $t('compass.getstarted') }}
+                        </NuxtLink>
+                    </div>
                 </div>
             </div>
         </div>
@@ -72,15 +73,15 @@ const hideAnswers = ref(false)
 var party = computed(() => {
     var party = ''
     if (politicalScore.value >= 4) {
-        party = 'Authoritarian'
+        party = 'authoritarian'
     } else if (politicalScore.value >= 2 && politicalScore.value < 4) {
-        party = 'Conservative'
+        party = 'conservative'
     } else if (politicalScore.value > -2 && politicalScore.value < 2) {
-        party = 'Centrist'
+        party = 'centrist'
     } else if (politicalScore.value > -4 && politicalScore.value <= -2) {
-        party = 'Liberal'
+        party = 'liberal'
     } else if (politicalScore.value <= -4) {
-        party = 'Libertarian'
+        party = 'libertarian'
     }
 
     politicalParty.value = party
@@ -196,7 +197,7 @@ var allQuestions = [
     },
     {
         "topic": "Immigration",
-        "question": "You see a poster on a railway station. A boat with black migrants from Africa is depicted with the text 'This land is ours, all migrants must return back to Africa!'. What are your thoughts about this?",
+        "question": "You see a poster on a railway station. A boat with black migrants from Africa is depicted with the text 'this land is ours, all migrants must return back to Africa!'. What are your thoughts about this?",
         "answers": [
             {
                 "position": "Left",
@@ -711,7 +712,7 @@ function selectAnswer(answer) {
         politicalScore.value -= 1
     } else if (answer.position === 'Right') {
         politicalScore.value += 1
-    } 
+    }
     // else if (answer.position === 'Moderate') {
     //     if (politicalScore.value > 0) {
     //         politicalScore.value -= 0.5

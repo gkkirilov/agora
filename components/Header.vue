@@ -3,7 +3,7 @@
     <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
       <div class="flex lg:flex-1" :class="route.path == '/' ? 'mx-auto' : ''">
         <NuxtLink href="/" class="-m-1.5 p-1.5 z-50">
-          <span class="sr-only">Agora - The election game</span>
+          <span class="sr-only">{{ $t('header.title') }}</span>
           <img class="w-auto transition-all" :class="route.path == '/' ? 'h-16 lg:h-12' : 'h-8'" src="/logo.svg"
             alt="" />
         </NuxtLink>
@@ -27,10 +27,10 @@
               <div class="px-1 py-1">
                 <MenuItem v-slot="{ active }" v-for="language in languages">
                 <button :class="[
-                  active ? 'bg-violet-500 text-white' : 'text-gray-900',
+                  locale == language.isocode ? 'bg-violet-500 text-white' : 'text-gray-900',
                   'group flex w-full items-center rounded-md px-4 py-2 text-sm',
                 ]" @click="changeLocale(language.isocode)">
-                  {{ language.name }}
+                  {{ $t(`languages.${language.isocode}`) }}
                 </button>
                 </MenuItem>
               </div>

@@ -7,18 +7,17 @@
         </div>
         <div class="mx-auto max-w-2xl ">
             <div class="text-center">
-                <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">{{$t('Get elected today!')}}</h1>
-                <p class="text-gray-600 max-w-xs mx-auto">Flashy text to show the <br class="sm:hidden"> player this
-                    game means BUSINESS</p>
+                <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">{{ $t('index.title') }}</h1>
+                <p class="text-gray-600 max-w-xs mx-auto">{{ $t('index.subtitle') }}</p>
 
                 <img src="/Voting.png" class="mx-auto  lg:max-w-96 h-auto mt-10 p-6">
                 <div class="mt-10 mb-4 flex items-center justify-center gap-x-6">
                     <NuxtLink to="/intro" class="rounded-md bg-gradient-to-tr from-indigo-500 to-indigo-800 px-10 py-3 text-4xl font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                        PLAY
+                        {{ $t('index.playButton') }}
                     </NuxtLink>
                 </div>
                 <NuxtLink to="/intro" class="text-2xl font-light leading-6 text-gray-600">
-                    Learn more
+                    {{ $t('index.learnMore') }}
                 </NuxtLink>
             </div>
         </div>

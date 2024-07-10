@@ -122,9 +122,11 @@
                         <img src="/decision.png" class="mx-auto h-auto mt-10 p-6">
 
                         {{ justification }}
-                        <div @click="changeQuestions()"
-                            class="rounded-md bg-gradient-to-tr mt-4 from-indigo-400 to-indigo-700 px-10 py-3 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                            Continue
+                        <div>
+                            <button @click="changeQuestions()"
+                                class="rounded-md bg-gradient-to-tr mt-4 from-indigo-400 to-indigo-700 px-10 py-3 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                                Continue
+                            </button>
                         </div>
                     </div>
                 </div>
