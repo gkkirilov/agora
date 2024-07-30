@@ -19,7 +19,7 @@
                 <div v-if="!completed && selectedQuestions.length">
                     <transition v-if="!justification" name="slide-fade" mode="out-in">
                         <p class="text-gray-600 mx-auto mt-10 text-xl" :key="currentQuestion">
-                            {{ selectedQuestions[currentQuestion].question }}
+                            {{ $t('compass.' + selectedQuestions[currentQuestion].question) }}
                         </p>
                     </transition>
 
@@ -28,11 +28,11 @@
                         <div v-for="(answer, index) in shuffledAnswers[currentQuestion]"
                             :key="currentQuestion + '-' + index" @click="selectAnswer(answer)"
                             class="rounded-md bg-gradient-to-tr from-indigo-400 to-indigo-700 px-10 py-3 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                            {{ answer.answer }}
+                            {{ $t('compass.' + answer.answer) }}
                         </div>
                     </transition-group>
                     <div v-if="justification" class="text-gray-600 mx-auto mt-10 text-xl">
-                        {{ justification }}
+                        {{ $t('compass.' + justification) }}
                         <div @click="changeQuestions()"
                             class="mt-4 rounded-md bg-gradient-to-tr from-indigo-400 to-indigo-700 px-10 py-3 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                             {{ $t('compass.continue') }}
@@ -40,12 +40,12 @@
                     </div>
                 </div>
                 <div v-else-if="completed" class="text-4xl mt-20">
-                    {{ $t('compass.welldone') }} <br> <span class="font-bold mt-4">{{ $t('compass.youare') }}{{
+                    {{ $t('compass.welldone') }} <br> <span class="font-bold mt-4">{{ $t('compass.youare') }} a {{
                         $t('compass.' + party) }}</span>
                     <div>
 
                         <NuxtLink to="/game" @click="changeQuestions()"
-                            class="rounded-md bg-gradient-to-tr from-indigo-400 to-indigo-700 px-10 py-3 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                            class="mt-4 rounded-md bg-gradient-to-tr from-indigo-400 to-indigo-700 px-10 py-3 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                             {{ $t('compass.getstarted') }}
                         </NuxtLink>
                     </div>
@@ -92,12 +92,12 @@ var party = computed(() => {
 var allQuestions = [
     {
         "topic": "Social Welfare",
-        "question": "Your friend has lost their job due to their company shutting down and they are about to lose their home to the bank. What should they do?",
+        "question": "question1title",
         "answers": [
             {
                 "position": "Left",
-                "answer": "Apply for a welfare program to cover the cost of their home.",
-                "justification": "Extensive welfare programs that address social inequalities are usually a left-leaning political position."
+                "answer": "answer1left",
+                "justification": "justification1left"
             },
             {
                 "position": "Moderate",
@@ -113,12 +113,12 @@ var allQuestions = [
     },
     {
         "topic": "Social Welfare",
-        "question": "You find out that your local community center, which provides meals and support for the homeless, is facing funding cuts and may have to close down. What do you do?",
+        "question": "question2title",
         "answers": [
             {
                 "position": "Left",
-                "answer": "Campaign for increased government funding and support for social programs that directly aid the homeless and vulnerable populations in your community.",
-                "justification": "A left-leaning approach to social welfare emphasizes the role of the government in providing for the needs of its citizens, especially the most vulnerable. Advocating for increased public funding for social programs reflects a belief in addressing societal issues collectively and reducing inequality."
+                "answer": "answer2left",
+                "justification": "justification2left"
             },
             {
                 "position": "Moderate",
@@ -134,12 +134,12 @@ var allQuestions = [
     },
     {
         "topic": "Healthcare",
-        "question": "You fall and break your finger - unfortunate, happens to the best of us. You know that you can go to the emergency room in your local hospital, but there's likely going to be a long wait. What do you do?",
+        "question": "question3title",
         "answers": [
             {
                 "position": "Left",
-                "answer": "Go to the emergency room and wait for your turn.",
-                "justification": "In a more left-leaning government, access to healthcare is available to everyone, regardless of social class or income. The state provides universal healthcare for its citizens and one merely needs to wait for their turn."
+                "answer": "answer3left",
+                "justification": "justification3left"
             },
             {
                 "position": "Moderate",
@@ -155,12 +155,12 @@ var allQuestions = [
     },
     {
         "topic": "Healthcare",
-        "question": "A new disease is impacting a small portion of the population. It’s survivable but requires difficult ongoing treatment. The cost of medication and care is huge and cannot be afforded by all. What do you do?",
+        "question": "question4title",
         "answers": [
             {
                 "position": "Left",
-                "answer": "Advocate for universal healthcare that covers all medical expenses, including long-term illness treatments.",
-                "justification": "Advocating for universal healthcare, where the government ensures health coverage for all citizens regardless of their financial status, aligns with left-leaning ideologies. This position emphasizes healthcare as a fundamental right and seeks to address disparities in access to care."
+                "answer": "answer4left",
+                "justification": "justification4left"
             },
             {
                 "position": "Moderate",
@@ -176,12 +176,12 @@ var allQuestions = [
     },
     {
         "topic": "Foreign policy",
-        "question": "“Wasted money!” complains your uncle, while reading a newspaper. A contribution in there claims that the EU just pledged 50 million euros to combat famine and improve sanitation in the Horn of Africa. What do you think?",
+        "question": "question5title",
         "answers": [
             {
                 "position": "Left",
-                "answer": "People in Africa deserve these funds and more. All humans on the planet deserve decent living standards. We have a moral and historical obligation to help out.",
-                "justification": "Left-wing oriented people and especially (neo)Marxists believe that resources should be redistributed according to needs, not necessarily based on merit. They also support reparations for countries that were oppressed in the past few centuries by colonizing great powers."
+                "answer": "answer5left",
+                "justification": "justification5left"
             },
             {
                 "position": "Moderate",
@@ -197,12 +197,12 @@ var allQuestions = [
     },
     {
         "topic": "Immigration",
-        "question": "You see a poster on a railway station. A boat with black migrants from Africa is depicted with the text 'this land is ours, all migrants must return back to Africa!'. What are your thoughts about this?",
+        "question": "question6title",
         "answers": [
             {
                 "position": "Left",
-                "answer": "Migrants benefit our society and economy as there are many jobs available and integration is inevitable. Europe is rich and can help people from all over Earth.",
-                "justification": "Positive and negative opinions on migration are linked to political preferences. Left-wing-oriented people are generally more supportive of migration and highlight the benefits of migration."
+                "answer": "answer6left",
+                "justification": "justification6left"
             },
             {
                 "position": "Moderate",
@@ -218,12 +218,12 @@ var allQuestions = [
     },
     {
         "topic": "Immigration",
-        "question": "There's an ongoing debate in your country about adjusting the strictness of immigration policies, such as visa issuance and granting citizenship. How do you believe the government should handle immigration?",
+        "question": "question7title",
         "answers": [
             {
                 "position": "Left",
-                "answer": "I support more open immigration policies, including easier pathways to citizenship and more humanitarian visas, to promote diversity and help those in need.",
-                "justification": "A left-leaning position typically prefers more inclusive and less restrictive immigration policies, seeing immigration as a positive element for cultural diversity and economic growth."
+                "answer": "answer7left",
+                "justification": "justification7left"
             },
             {
                 "position": "Moderate",
@@ -239,12 +239,12 @@ var allQuestions = [
     },
     {
         "topic": "Role of the State",
-        "question": "The government is planning to increase taxes on cigarettes and alcohol, and decrease value-added tax on fruits and vegetables. Do you agree with this intervention?",
+        "question": "question8title",
         "answers": [
             {
                 "position": "Left",
-                "answer": "Yes, I do. I believe that things that harm people and our society should be restricted by the state, and helping people buy vital goods such as fruit is good.",
-                "justification": "Left-wing ideology believes in a strong state that is tasked with protecting people from harm. The use of positive or negative stimuli by the state is supported as a tool to guide citizens toward well-being."
+                "answer": "answer8left",
+                "justification": "justification8left"
             },
             {
                 "position": "Moderate",
@@ -260,12 +260,12 @@ var allQuestions = [
     },
     {
         "topic": "Role of the State",
-        "question": "The prime minister announces sweeping reforms related to transportation. All drivers will need to pay a special fee when using all roads, not just highways. Whether you are a driver or not, what is your stance on this?",
+        "question": "question9title",
         "answers": [
             {
                 "position": "Left",
-                "answer": "Reinforcing the state’s budget can lead to better road maintenance and create new jobs. I would take more fees over privatisation, which almost never works.",
-                "justification": "Roads, health care, or education are public goods and services. As such, they need to be provided to all citizens and residents for free by the state. Taxes and other fees collected are redistributed and then used to cover various sectors to benefit the people. Subsidies can be used to balance the effects of fees on lower-income groups. This premise is used by the Left and it’s one of key elements of the welfare state, which has a strong position in society and limits privatisation in key sectors."
+                "answer": "answer9left",
+                "justification": "justification9left"
             },
             {
                 "position": "Moderate",
@@ -281,12 +281,12 @@ var allQuestions = [
     },
     {
         "topic": "Policy and International Relations",
-        "question": "You are walking on the street and come across an anti-USA demonstration. The protesters are criticizing the imperialistic foreign policy of the USA and its stifling world dominance. How do you feel about this?",
+        "question": "question10title",
         "answers": [
             {
                 "position": "Left",
-                "answer": "I agree with them. The USA is an aggressive country and impedes international relations with other countries such as China, India, and Russia, who also have a lot to say.",
-                "justification": "Left-leaning people usually protest imperialism and the dominance of a superpower like the USA. Instead, they prefer a balanced international system and polyphony of opinion, so they often side with other countries, who are “weaker” and cannot stand up to pressures from the USA."
+                "answer": "answer10left",
+                "justification": "justification10left"
             },
             {
                 "position": "Moderate",
@@ -302,12 +302,12 @@ var allQuestions = [
     },
     {
         "topic": "Policy and International Relations",
-        "question": "Your government is launching a referendum months ahead of a general UN vote. How do you vote and why, if the question asked is: 'Should we join a new UN Declaration on international representation of minorities?'",
+        "question": "question11title",
         "answers": [
             {
                 "position": "Left",
-                "answer": "I vote yes. We must ensure that the rights of all minorities are respected, and all members of society are well represented both domestically and abroad.",
-                "justification": "It’s important to cooperate internationally because that’s how we can better find solutions to various issues. National differences are not important, democratic values and respect for human rights and freedoms are uniting us. The left wing defends the interests of minorities and believes that the same standard should be used everywhere. Minorities should be also represented at an international level. Regional ethnic autonomy can help ensure better representation of minorities and is not seen as a threat."
+                "answer": "answer11left",
+                "justification": "justification11left"
             },
             {
                 "position": "Moderate",
@@ -323,12 +323,12 @@ var allQuestions = [
     },
     {
         "topic": "Corporate Governance",
-        "question": "Your friends are arguing. Raya claims that multinational corporations are overly good and regulating them might be controversial. Ali believes that they are evil and require strong regulation. What do you think?",
+        "question": "question12title",
         "answers": [
             {
                 "position": "Left",
-                "answer": "I agree more with Ali.",
-                "justification": "Regulating corporations is one of the key political dilemmas. Ali is more in favor of regulation, which is much closer to a left-wing understanding of the issue."
+                "answer": "answer12left",
+                "justification": "justification12left"
             },
             {
                 "position": "Moderate",
@@ -344,12 +344,12 @@ var allQuestions = [
     },
     {
         "topic": "Corporate Governance",
-        "question": "The opposition in your parliament is pushing for taxing multinational corporations in the country where they operate and generate profits, not in the countries of their primary establishment. How does that sound to you?",
+        "question": "question13title",
         "answers": [
             {
                 "position": "Left",
-                "answer": "Good. Corporations are generating big profits here, but then pay taxes somewhere else. Changing the law will force them to share their wealth with the people.",
-                "justification": "The Left believes that corporations and people involved there should pay taxes in the country from whence their incomes originate so that they contribute to the social welfare in that country and do not only generate profits there. Corporations naturally use legal ways to avoid higher taxation."
+                "answer": "answer13left",
+                "justification": "justification13left"
             },
             {
                 "position": "Moderate",
@@ -365,12 +365,12 @@ var allQuestions = [
     },
     {
         "topic": "Police Affairs",
-        "question": "Your cousin is a police officer and complains that the police should have more power. He says he could have prevented a theft if only there was no need for a warrant. What do you think about this situation?",
+        "question": "question14title",
         "answers": [
             {
                 "position": "Left",
-                "answer": "The police already have enough power and a legal monopoly on violence. We should always try to limit their power instead of trying to expand it further.",
-                "justification": "The Left usually argues that the power of the police should be limited, restricted, and strictly regulated by the law, as it can easily lead to an abuse of human rights."
+                "answer": "answer14left",
+                "justification": "justification14left"
             },
             {
                 "position": "Moderate",
@@ -386,12 +386,12 @@ var allQuestions = [
     },
     {
         "topic": "Police Affairs",
-        "question": "Two boys stole an expensive electric car and set off a police chase, which ended when a police officer fired at the stolen vehicle to stop it. One minor was injured in the shoulder. What do you think about this?",
+        "question": "question15title",
         "answers": [
             {
                 "position": "Left",
-                "answer": "The police officer should be investigated and punished. Poverty and social inequality can push young people to crime, it should not also cost them their lives.",
-                "justification": "The left wing believes societal factors such as poverty, lack of opportunities, and systemic inequalities, contribute to youth involvement in crime. From this viewpoint, addressing the root causes of crime, rather than solely relying on punitive measures, is seen as more effective and just. Additionally, emphasising community-based interventions, investment in youth programs, and police reform is viewed as essential for preventing similar incidents in the future and promoting social justice. Excessive use of force by the police is always seen in a negative light."
+                "answer": "answer15left",
+                "justification": "justification15left"
             },
             {
                 "position": "Moderate",
@@ -407,12 +407,12 @@ var allQuestions = [
     },
     {
         "topic": "National Defense",
-        "question": "Our nation is facing increased threats from external forces, and there's a big debate on how best to protect its citizens and sovereignty. What approach do you think the government should take?",
+        "question": "question16title",
         "answers": [
             {
                 "position": "Left",
-                "answer": "I think funds should be redirected from the military budget towards diplomacy and international aid.",
-                "justification": "A left-wing political position often emphasises diplomatic and non-military solutions and promotes peace through international cooperation."
+                "answer": "answer16left",
+                "justification": "justification16left"
             },
             {
                 "position": "Moderate",
@@ -428,12 +428,12 @@ var allQuestions = [
     },
     {
         "topic": "Youth Employment",
-        "question": "Youth unemployment continues to rise in many places. What do you think would be the most effective way to reduce youth unemployment in your country?",
+        "question": "question17title",
         "answers": [
             {
                 "position": "Left",
-                "answer": "Through substantial government intervention and investment in job creation programs tailored specifically for young people.",
-                "justification": "Left-wing ideology emphasises the role of government intervention to address socioeconomic inequalities and provide support for marginalised groups. It advocates for policies such as job creation programs, fair wages, and comprehensive support systems to empower young workers and create a more equitable society."
+                "answer": "answer17left",
+                "justification": "justification17left"
             },
             {
                 "position": "Moderate",
@@ -449,12 +449,12 @@ var allQuestions = [
     },
     {
         "topic": "Education",
-        "question": "Your classmate is upset about the government's plan to cut arts and humanities from schools due to budget issues, preferring to enhance STEM subjects. What's your opinion on the matter?",
+        "question": "question18title",
         "answers": [
             {
                 "position": "Left",
-                "answer": "These subjects foster critical thinking and creativity, which are just as important as science. It's about shaping well-rounded people, not just future workers.",
-                "justification": "A Left political stance typically supports a comprehensive education, emphasizing a broad curriculum with arts and humanities to promote a well-rounded, culturally literate society."
+                "answer": "answer18left",
+                "justification": "justification18left"
             },
             {
                 "position": "Moderate",
@@ -470,12 +470,12 @@ var allQuestions = [
     },
     {
         "topic": "Education",
-        "question": "Your high school is debating obligatory uniforms. Some argue it promotes equality and focuses on education rather than fashion, while others believe it stifles personal expression and individuality. Where do you stand?",
+        "question": "question19title",
         "answers": [
             {
                 "position": "Left",
-                "answer": "Oppose uniform requirements.",
-                "justification": "Advocates from the Left perspective argue that forcing students to wear uniforms is a violation of personal freedom and expression. They believe education should encourage diversity and individuality, fostering a more inclusive and expressive environment. Uniforms, they argue, might superficially level socio-economic distinctions but do little to address underlying inequalities or improve educational outcomes."
+                "answer": "answer19left",
+                "justification": "justification19left"
             },
             {
                 "position": "Moderate",
@@ -491,12 +491,12 @@ var allQuestions = [
     },
     {
         "topic": "Environmental Regulations",
-        "question": "A news headline on your friend's phone: 'Government Proposes New Law to Ban Single-Use Plastics Nationwide.' They're upset about what they see as unnecessary government meddling. What's your take on this?",
+        "question": "question20title",
         "answers": [
             {
                 "position": "Left",
-                "answer": "Good! Single-use plastics are a huge problem for our environment, ending up in oceans and harming wildlife. We need laws like this to protect our planet.",
-                "justification": "The left-leaning viewpoint often supports strong environmental regulations to combat pollution and climate change, even if it means imposing stricter rules on businesses and consumers. This stance values long-term environmental health over short-term convenience or cost savings."
+                "answer": "answer20left",
+                "justification": "justification20left"
             },
             {
                 "position": "Moderate",
@@ -512,12 +512,12 @@ var allQuestions = [
     },
     {
         "topic": "Environmental Regulations",
-        "question": "Huge amounts of perfectly good food are thrown away every day, as many products are no longer allowed to be sold to the end consumer simply because the best-before date has been exceeded. What is your opinion on this?",
+        "question": "question21title",
         "answers": [
             {
                 "position": "Left",
-                "answer": "I condemn such wasteful handling of food. Food insecurity and poverty are increasing in many places, so there should be regulations to prevent such food waste.",
-                "justification": "The left-wing perspective lies in the principles of social justice and environmental sustainability. Left-wing individuals prioritise equitable distribution of resources and reducing inequalities in society. From an environmental standpoint, they argue that food waste contributes to resource depletion and greenhouse gas emissions, exacerbating climate change and environmental degradation. Therefore, they advocate for systemic changes, such as regulations and donation programs, to ensure that surplus food is redirected to those in need rather than being discarded."
+                "answer": "answer21left",
+                "justification": "justification21left"
             },
             {
                 "position": "Moderate",
@@ -533,12 +533,12 @@ var allQuestions = [
     },
     {
         "topic": "Public Transportation",
-        "question": "You're stuck at the train station, again. The train's late, and your friend starts ranting about how bad the train system is. 'Seriously, something's gotta change,' they say. What's your take?",
+        "question": "question22title",
         "answers": [
             {
                 "position": "Left",
-                "answer": "We must upgrade the trains and railways: fast, on time, cheap for all. Fund it by taxing big corporations and the rich. Make public transport the best choice.",
-                "justification": "A left-leaning view promotes more investment in public transport infrastructure, aiming for a high-quality, environmentally friendly, and accessible system for all, funded by increased taxation on large corporations, reflecting a commitment to sustainability and social equality."
+                "answer": "answer22left",
+                "justification": "justification22left"
             },
             {
                 "position": "Moderate",
@@ -554,12 +554,12 @@ var allQuestions = [
     },
     {
         "topic": "Public Transportation",
-        "question": "You want to get to work in a climate-friendly way, but using public transport increases commuting by 90 minutes, so you use your car instead. In your opinion, should there be political intervention in such situations?",
+        "question": "question23title",
         "answers": [
             {
                 "position": "Left",
-                "answer": "Policy intervention is essential to tackle the lack of accessible and reliable public transport. Prioritizing climate action is paramount in transportation.",
-                "justification": "The left-wing perspective stems from a commitment to social equality and environmental sustainability. Transportation should remain free and accessible to all. At the same time, promoting climate-friendly transportation aligns with left-wing values of environmental stewardship and reducing carbon emissions to combat climate change, ensuring a healthier and more sustainable future for all."
+                "answer": "answer23left",
+                "justification": "justification23left"
             },
             {
                 "position": "Moderate",
@@ -575,12 +575,12 @@ var allQuestions = [
     },
     {
         "topic": "Youth Employment",
-        "question": "You've just graduated high school and are looking to earn some money before college starts, but the local job market is tough, and opportunities seem scarce. What's your plan of action?",
+        "question": "question24title",
         "answers": [
             {
                 "position": "Left",
-                "answer": "I would tap into city or state-funded youth employment programs. They help provide jobs and training to young people like me until my first full-time job.",
-                "justification": "A left-leaning approach prioritizes government initiatives aimed at providing equitable job opportunities for youth. It emphasizes the importance of accessible employment support and equal chances."
+                "answer": "answer24left",
+                "justification": "justification24left"
             },
             {
                 "position": "Moderate",
@@ -596,12 +596,12 @@ var allQuestions = [
     },
     {
         "topic": "Civic Freedom",
-        "question": "Your government is thinking about introducing strict requirements to get permits to hold protests, saying it's for safety and order. What's your take?",
+        "question": "question25title",
         "answers": [
             {
                 "position": "Left",
-                "answer": "In no way do we need stricter rules to be allowed to speak our minds. In a democracy, it's all about keeping our voice free, not fenced in.",
-                "justification": "This leans to the Left, emphasizing the value of unrestricted civic expression and collective action against what's seen as government overreach, advocating for the right to protest freely."
+                "answer": "answer25left",
+                "justification": "justification25left"
             },
             {
                 "position": "Moderate",
@@ -617,12 +617,12 @@ var allQuestions = [
     },
     {
         "topic": "Civic Freedoms/Affairs",
-        "question": "A new law is proposed in your country that requires all bloggers and social media influencers to register with the government for 'national security reasons.' Does this infringe on freedom of expression?",
+        "question": "question26title",
         "answers": [
             {
                 "position": "Left",
-                "answer": "Yes. We must protest against the law and sign petitions to discourage it from ever passing.",
-                "justification": "From a left-leaning perspective, freedom of expression is a cornerstone of democracy, and any attempt to regulate or monitor it through government registration is seen as an infringement on individual rights. Activism and public dissent are encouraged to protect these freedoms and resist government overreach."
+                "answer": "answer26left",
+                "justification": "justification26left"
             },
             {
                 "position": "Moderate",
@@ -638,12 +638,12 @@ var allQuestions = [
     },
     {
         "topic": "Technology and Privacy",
-        "question": "How do you feel about the fact that many apps require you to agree to provide your data when installing them to use the app properly?",
+        "question": "question27title",
         "answers": [
             {
                 "position": "Left",
-                "answer": "I worry about my privacy, data security, and corporate power. I find it exploitative and indecent, as I need to provide my data to stay connected to the world.",
-                "justification": "The justification for this left-wing perspective lies in concerns about privacy rights, data security, and corporate accountability. Left-leaning individuals prioritize protecting the rights and autonomy of individuals, including the right to privacy and control over personal data. They argue that the practice of apps requiring users to agree to provide their data often results in a loss of privacy and can potentially lead to exploitation by powerful tech companies. This unequal power dynamic between users and corporations is seen as detrimental to democratic values and social justice."
+                "answer": "answer27left",
+                "justification": "justification27left"
             },
             {
                 "position": "Moderate",
@@ -659,12 +659,12 @@ var allQuestions = [
     },
     {
         "topic": "Technology and Privacy",
-        "question": "Your favorite social media app has just updated its privacy policy, which now includes sharing your data with third-party companies for advertising purposes. Are you concerned about how your data might be used?",
+        "question": "question28title",
         "answers": [
             {
                 "position": "Left",
-                "answer": "Absolutely. I will delete the app and campaign for digital privacy reforms.",
-                "justification": "In a left-leaning perspective, privacy is a fundamental right. The state should protect individuals from corporate overreach, advocating for strict regulations on data usage and sharing. Collective action aims to reform policies to prioritize user privacy over corporate profit."
+                "answer": "answer28left",
+                "justification": "justification28left"
             },
             {
                 "position": "Moderate",

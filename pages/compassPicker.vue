@@ -13,7 +13,7 @@
                 <img src="/pickParty.png" class="mx-auto  lg:max-w-96 h-auto mt-10 p-6">
                 <div v-if="showAnswers" class="mt-10 mb-4 flex flex-col items-center justify-center gap-y-5">
                     <button v-for="party in parties" @click="changeParty(party)" class="rounded-md uppercase bg-gradient-to-tr from-indigo-400 to-indigo-700 px-4 py-2 text-2xl font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                        {{ party.name }}
+                        {{ $t('compass.' + party.name) }}
                     </button>
                 </div>
                 <div v-if="!showAnswers" class="mt-10 mb-4 flex flex-col items-center justify-center gap-y-6 max-w-xs mx-auto text-xl font-light text-gray-700">
@@ -44,11 +44,11 @@ const showAnswers = ref(true)
 const explanation = ref('')
 
 const parties = [
-    {name: 'Libertarian', explanation: 'Advocates for minimal government intervention and maximum individual freedom.'},
-    {name: 'Liberal', explanation: 'Supports social equality and government intervention in the economy to address social issues.'},
-    {name: 'Centrist', explanation: 'Seeks a balance between progressive and conservative policies, advocating for moderate solutions.'},
-    {name: 'Conservative', explanation: 'Emphasizes tradition, limited government, and free-market principles.'},
-    {name: 'Authoritarian', explanation: 'Favors strong central authority and limited political freedoms for the sake of order and control.'}
+    {name: 'libertarian', explanation: 'Advocates for minimal government intervention and maximum individual freedom.'},
+    {name: 'liberal', explanation: 'Supports social equality and government intervention in the economy to address social issues.'},
+    {name: 'centrist', explanation: 'Seeks a balance between progressive and conservative policies, advocating for moderate solutions.'},
+    {name: 'conservative', explanation: 'Emphasizes tradition, limited government, and free-market principles.'},
+    {name: 'authoritarian', explanation: 'Favors strong central authority and limited political freedoms for the sake of order and control.'}
 ]
 
 function changeParty(party) {

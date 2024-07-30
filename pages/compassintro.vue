@@ -2,17 +2,19 @@
     <div class="relative isolate px-6 pt-5 lg:pt-14 lg:px-8">
         <div class="mx-auto max-w-2xl ">
             <div class="text-center">
-                <h1 class="text-5xl font-bold tracking-tight text-gray-900 sm:text-6xl">{{ $t('intro.title') }}</h1>
-                <p class="text-gray-600 max-w-xs mx-auto text-xl mt-2">{{ $t('intro.description') }}</p>
+                <h1 class="text-5xl font-bold tracking-tight text-gray-900 sm:text-6xl">{{ $t('compassintro.title') }}</h1>
+                <p class="text-gray-600 max-w-xs mx-auto text-xl mt-2">{{ $t('compassintro.description') }}</p>
 
-                <img src="/Survey.png" class="mx-auto max-w-80 lg:max-w-96 h-auto mt-10 p-6">
+                <div class="my-16 flex items-center justify-center gap-x-6 text-lg max-w-sm mx-auto bg-gray-100 rounded-lg p-5">
+                    <div v-html="$t('compassintro.text')"></div>
+                </div>
                 <div class="mt-10 mb-8 flex items-center justify-center gap-x-6">
-                    <NuxtLink to="/survey" class="rounded-md uppercase bg-gradient-to-tr from-indigo-500 to-indigo-800 px-6 py-3 text-2xl font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                        {{ $t('intro.yes') }}
+                    <NuxtLink to="/compass" class="rounded-md uppercase bg-gradient-to-tr from-indigo-500 to-indigo-800 px-6 py-3 text-2xl font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                        {{ $t('compassintro.yes') }}
                     </NuxtLink>
                 </div>
                 <NuxtLink to="/compassPicker" @click="changeParty()" class="rounded-md uppercase bg-gradient-to-tr from-indigo-200 to-indigo-400 px-6 py-3 text-2xl font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                    {{ $t('intro.no') }}
+                    {{ $t('compassintro.no') }}
                 </NuxtLink>
             </div>
         </div>

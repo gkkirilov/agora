@@ -26,12 +26,12 @@
               class="absolute right-0 mt-2 w-24 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none">
               <div class="px-1 py-1">
                 <MenuItem v-slot="{ active }" v-for="language in languages">
-                <button :class="[
-                  locale == language.isocode ? 'bg-violet-500 text-white' : 'text-gray-900',
-                  'group flex w-full items-center rounded-md px-4 py-2 text-sm',
-                ]" @click="changeLocale(language.isocode)">
-                  {{ $t(`languages.${language.isocode}`) }}
-                </button>
+                  <button :class="[
+                    locale == language.isocode ? 'bg-violet-500 text-white' : 'text-gray-900 hover:bg-violet-100',
+                    'group flex w-full items-center rounded-md px-4 py-2 text-sm',
+                  ]" @click="changeLocale(language.isocode)">
+                    {{ language.name }}
+                  </button>
                 </MenuItem>
               </div>
             </MenuItems>
@@ -54,9 +54,11 @@ const { locale, setLocale } = useI18n()
 
 const languages = [
   { name: 'English', isocode: 'en' },
-  { name: 'Slovak', isocode: 'sk', },
+  { name: 'German', isocode: 'de' },
   { name: 'Czech', isocode: 'cs' },
-  { name: 'German', isocode: 'de' }
+  { name: 'Slovenian', isocode: 'sl' },
+  { name: 'Slovak', isocode: 'sk', },
+  { name: 'Bulgarian', isocode: 'bg' }
 ]
 
 const indexStore = useIndexStore()

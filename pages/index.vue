@@ -16,9 +16,9 @@
                         {{ $t('index.playButton') }}
                     </NuxtLink>
                 </div>
-                <NuxtLink to="/intro" class="text-2xl font-light leading-6 text-gray-600">
+                <a href="https://www.agoranx.eu/en/about/project" target="_blank" class="text-2xl font-light leading-6 text-gray-600">
                     {{ $t('index.learnMore') }}
-                </NuxtLink>
+                </a>
             </div>
         </div>
         <div class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-40rem)]"
