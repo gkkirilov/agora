@@ -35,7 +35,7 @@ useHead({
 }
 
 body {
-    font-family: Signika, serif;
+    font-family: Sofia Sans, serif;
 }
 
 
