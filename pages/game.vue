@@ -203,6 +203,8 @@
                         </NuxtLink>
                     </div>
                 </div>
+                {{ points }}
+                <div @click="updatePonts()">Update points</div>
             </div>
         </div>
     </div>
@@ -217,6 +219,9 @@ integrity.value = 70
 const infoIndex = ref(0)
 const isOpen = ref(true)
 
+function updatePonts() {
+    points.value += 10
+}
 
 const elections = ref(false)
 const electionsVoting = ref(false)
