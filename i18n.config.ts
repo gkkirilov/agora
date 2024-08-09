@@ -1,3 +1,5 @@
+import type JoinLeaderboard from "./pages/joinLeaderboard.vue";
+
 export default defineI18nConfig(() => ({
   legacy: false,
   locale: 'en',
@@ -22,20 +24,88 @@ export default defineI18nConfig(() => ({
         title: 'First things first!',
         description: 'Let’s figure out where you stand.',
         text: 'Time to find out your political views! <br><br> Answer 6 quick questions <br> to see where you fit. <br><br> If you prefer, you can skip the questions and choose your own.',
-        yes: 'YES, I’D LOVE TO!',
-        no: 'NO, I WANNA PLAY...'
+        yes: 'I’ll do the questionnaire!',
+        no: 'I know my alignment'
+      },
+      compassPicker: {
+        back: 'Go back',
+        title: 'Political Alignment!',
+        description: 'Choose your political alignment from the options below.',
+        continue: 'Continue',
+        back2: 'Back',
+      },
+      goal: {
+        title: "What's your goal?",
+        description: 'What would you like to change in Biscania?',
+        goal1: 'Goal 1',
+        goal2: 'Goal 2',
+        goal3: 'Goal 3',
+        write: "I'll write my own",
+        back: 'Back',
+        continue: 'Continue',
+        textareaPlaceholder: 'What would you like to change? 70 symbols max'
+      },
+
+      joinLeaderboard: {
+        title: "Join Leaderboard",
+        description: 'Add your name to the annual leaderboard of Biscania',
+        continue: "Continue",
+      },
+      leaderboard: {
+        title: "Leaderboard",
+        description: 'The best of the best',
+        again: 'Play again',
+        continue: "Continue",
+      },
+      tutorial: {
+        title: "You’re going to need allies",
+        description: 'It’s a dog-eat-dog world out there',
+        intro: "Now, to get your change to happen, you will have to get into office where you can use the government’s mechanics and resources. To do that, you need to be elected into office. You can do that alone, but it is very difficult, nigh-impossible. Instead – this looks like a good fit for your political core:",
+        intro2: "This is a political party. It’s purpose is to band people together around a single vision about how the government should be run. You can join them by going to their meetings, apply for their lists of candidates for office and get elected into a position of some power. But to do that, you will have to selected for the lists within the party itself by a",
+        majority: "majority vote.",
+        continue: "Let's talk to them",
+      },
+      tutorialQuestion: {
+        title: "Tutorial question",
+        description: 'Some small subtitle, maybe “make your choice',
+        intro: "This is the first quest. Here’s an example text: You start researching this party – have a browse through their website, read a few articles published by their members, watch some interviews they’ve done in previous years. They are a good fit for your chance to get in office, so you need to pick a way to approach them.",
+        answer1: "Send them a passionate e-mail.",
+        answer2: "Make a donation to their campaign.",
+        answer3: "Defend their articles from trolls online.",
+        explanation: "They have a donation section online where you can transfer some funds to their campaign. They can use this money to fund events and to hire more staff, which will definitely help them convince more people to vote for them. You have less money yourself now, but you have gained some supporters on your side! (they are like you, but less ambitious)",
+        continue: "Continue",
+      },
+      elections: {
+        title: "Elections are here",
+        description: 'It’s a big day for you!',
+        intro: "The time has arrived for internal elections – the party is about to vote on which candidates it places in the lists for elections. You can see how you’re doing in the stats above.",
+        explanation: "They have a donation section online where you can transfer some funds to their campaign. They can use this money to fund events and to hire more staff, which will definitely help them convince more people to vote for them. You have less money yourself now, but you have gained some supporters on your side! (they are like you, but less ambitious)",
+        continue: "Vote for yourself",
+        continue2: "Continue",
+        congrats: "Congratulations!",
+        congratsDescription: "You made the top of the list",
+      },
+      game: {
+        points: 'points',
       },
       compass: {
         title: 'Political Compass!',
         continue: 'Continue',
         welldone: 'Well done!',
-        youare: 'You are',
+        youare: 'You are ',
         getstarted: 'Get Started',
-        authoritarian: 'Far-right',
-        conservative: 'Right',
+        'far-right': 'Far-right',
+        right: 'Right',
         centrist: 'Centrist',
-        liberal: 'Left',
-        libertarian: 'Far-left',
+        left: 'Left',
+        'far-left': 'Far-left',
+        
+        'far-rightExplanation': 'Favors strong central authority and limited political freedoms for the sake of order and control.',
+        rightExplanation: 'Emphasizes tradition, limited government, and free-market principles.',
+        centristExplanation: 'Seeks a balance between progressive and conservative policies, advocating for moderate solutions.',
+        leftExplanation: 'Supports social equality and government intervention in the economy to address social issues.',
+        'far-leftExplanation': 'Advocates for minimal government intervention and maximum individual freedom.',
+
         question1title: 'Your friend has lost their job due to their company shutting down and they are about to lose their home to the bank. What should they do?',
         question2title: "You find out that your local community center, which provides meals and support for the homeless, is facing funding cuts and may have to close down. What do you do?",
         question3title: "You fall and break your finger - unfortunate, happens to the best of us. You know that you can go to the emergency room in your local hospital, but there's likely going to be a long wait. What do you do?",

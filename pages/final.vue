@@ -45,11 +45,11 @@ const showAnswers = ref(true)
 const explanation = ref('')
 
 const parties = [
-    {name: 'Libertarian', explanation: 'Advocates for minimal government intervention and maximum individual freedom.'},
-    {name: 'Liberal', explanation: 'Supports social equality and government intervention in the economy to address social issues.'},
-    {name: 'Centrist', explanation: 'Seeks a balance between progressive and conservative policies, advocating for moderate solutions.'},
-    {name: 'Conservative', explanation: 'Emphasizes tradition, limited government, and free-market principles.'},
-    {name: 'Authoritarian', explanation: 'Favors strong central authority and limited political freedoms for the sake of order and control.'}
+    {name: 'far-left', explanation: 'Advocates for minimal government intervention and maximum individual freedom.'},
+    {name: 'left', explanation: 'Supports social equality and government intervention in the economy to address social issues.'},
+    {name: 'centrist', explanation: 'Seeks a balance between progressive and conservative policies, advocating for moderate solutions.'},
+    {name: 'right', explanation: 'Emphasizes tradition, limited government, and free-market principles.'},
+    {name: 'far-right', explanation: 'Favors strong central authority and limited political freedoms for the sake of order and control.'}
 ]
 
 function changeParty(party) {

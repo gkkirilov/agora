@@ -2,16 +2,26 @@
     <div class="relative isolate px-6 pt-5 lg:pt-14 lg:px-8">
         <div class="mx-auto max-w-2xl">
             <div class="text-center">
-                <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">{{ $t('compass.title') }}</h1>
+                <h1 v-if="!completed" class="text-lg font-medium tracking-tight text-gray-600">{{ $t('compass.title') }}
+                     {{currentQuestion + 1}}/6
+                </h1>
+                <div v-if="!completed" class="flex flex-initial justify-center mt-2 gap-x-3">
+                    <div v-for="n in 6"
+                    class="px-6 py-1 rounded bg-indigo-300"
+                    :class="{                        
+                        'bg-indigo-600': currentQuestion + 1 >= n
+                    }">
+                    </div>
+                </div>
                 <!-- Start banner -->
                 <!-- <div class="flex justify-center items-center gap-x-6 bg-gray-200 py-2.5 rounded-lg px-3">
                <div class="text-sm leading-6 text-gray-900">
                   <strong class="font-semibold">Current Score: {{ politicalScore }}</strong>
-                  <div>-4 and below = Libertarian</div>
-                  <div>-4 to -2  = Liberal</div>
+                  <div>-4 and below = Far-Left</div>
+                  <div>-4 to -2  = Left</div>
                   <div>-2 to +2  = Centrist</div>
-                  <div>+2 to +4 = Conservative</div>
-                  <div>4 and above = Authoritarian</div>
+                  <div>+2 to +4 = Right</div>
+                  <div>4 and above = Far-Right</div>
                </div>
             </div> -->
                 <!-- End banner -->
@@ -40,13 +50,20 @@
                     </div>
                 </div>
                 <div v-else-if="completed" class="text-4xl mt-20">
-                    {{ $t('compass.welldone') }} <br> <span class="font-bold mt-4">{{ $t('compass.youare') }} a {{
-                        $t('compass.' + party) }}</span>
-                    <div>
+                    <div>{{ $t('compass.welldone') }} </div>
+                    <div class="font-bold mt-4">
+                        {{ $t('compass.' + party) }}</div>
+                        
+                        
+                        <div>
+                        <div class="text-lg mb-10 mx-auto mt-4 max-w-xs">
 
-                        <NuxtLink to="/game" @click="changeQuestions()"
+                            {{ $t('compass.' + party + 'Explanation') }}
+                        </div>
+
+                        <NuxtLink to="/goal" @click="changeQuestions()"
                             class="mt-4 rounded-md bg-gradient-to-tr from-indigo-400 to-indigo-700 px-10 py-3 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                            {{ $t('compass.getstarted') }}
+                            {{ $t('compass.continue') }}
                         </NuxtLink>
                     </div>
                 </div>
@@ -73,15 +90,15 @@ const hideAnswers = ref(false)
 var party = computed(() => {
     var party = ''
     if (politicalScore.value >= 4) {
-        party = 'authoritarian'
+        party = 'far-right'
     } else if (politicalScore.value >= 2 && politicalScore.value < 4) {
-        party = 'conservative'
+        party = 'right'
     } else if (politicalScore.value > -2 && politicalScore.value < 2) {
         party = 'centrist'
     } else if (politicalScore.value > -4 && politicalScore.value <= -2) {
-        party = 'liberal'
+        party = 'left'
     } else if (politicalScore.value <= -4) {
-        party = 'libertarian'
+        party = 'far-left'
     }
 
     politicalParty.value = party
