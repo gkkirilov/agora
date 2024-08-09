@@ -814,8 +814,7 @@ function changeQuestions() {
     if (currentQuestionIndex.value + 1 >= 10) {
         elections.value = true
         completed.value = true
-
-        points.value = Math.floor(voters * integrity)
+        points.value = voters.value * integrity.value
     } else {
         currentQuestionIndex.value += 1
     }
