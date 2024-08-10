@@ -63,6 +63,8 @@ export default defineI18nConfig(() => ({
         intro: "Now, to get your change to happen, you will have to get into office where you can use the government’s mechanics and resources. To do that, you need to be elected into office. You can do that alone, but it is very difficult, nigh-impossible. Instead – this looks like a good fit for your political core:",
         intro2: "This is a political party. It’s purpose is to band people together around a single vision about how the government should be run. You can join them by going to their meetings, apply for their lists of candidates for office and get elected into a position of some power. But to do that, you will have to selected for the lists within the party itself by a",
         majority: "majority vote.",
+        popupText: "This is a pop-up! It might hold text, or it might also include an image. Some popups might even have links in them.",
+        popupButton: "Got it",
         continue: "Let's talk to them",
       },
       tutorialQuestion: {
@@ -87,6 +89,12 @@ export default defineI18nConfig(() => ({
       },
       game: {
         points: 'points',
+        title: "Let's play!",
+        continue: "Continue",
+        youdidit: "You did it!",
+        readyforscore: "Ready to see your score?",
+        joinLeaderboard: "Join Leaderboard",
+        playagain: "Play Again?",
       },
       compass: {
         title: 'Political Compass!',

@@ -122,21 +122,38 @@
                         </p>
 
 
-                        <div class="flex flex-row justify-around gap-y-4 h-96 mt-8">
+                        <div v-if="electionWon" class="flex flex-row justify-around gap-y-4 h-96 mt-8">
                             <div class="text-indigo-800 gap-y-2 flex flex-col justify-end">
                                 <div class="text-2xl font-black">33%</div>
                                 <img src="/purple.png" class="h-16 w-16">
-                                <div class="bg-indigo-700 rounded h-60 w-16"></div>
+                                <div class="bg-indigo-700 rounded max-h-60 w-16 animate-rise"></div>
                             </div>
                             <div class="text-yellow-500 gap-y-2 flex flex-col justify-end">
                                 <div class="text-2xl font-black">15%</div>
                                 <img src="/yellow.png" class="h-16 w-16">
-                                <div class="bg-yellow-500 rounded h-32 w-16"></div>
+                                <div class="bg-yellow-500 rounded max-h-32 w-16 animate-rise"></div>
                             </div>
                             <div class="text-red-600 gap-y-2 flex flex-col justify-end">
                                 <div class="text-2xl font-black">28%</div>
                                 <img src="/red.png" class="h-16 w-16">
-                                <div class="bg-red-600 rounded h-48 w-16"></div>
+                                <div class="bg-red-600 rounded max-h-48 w-16 animate-rise"></div>
+                            </div>
+                        </div>
+                        <div v-else class="flex flex-row justify-around gap-y-4 h-96 mt-8">
+                            <div class="text-indigo-800 gap-y-2 flex flex-col justify-end">
+                                <div class="text-2xl font-black">26%</div>
+                                <img src="/purple.png" class="h-16 w-16">
+                                <div class="bg-indigo-700 rounded max-h-48 w-16 animate-rise"></div>
+                            </div>
+                            <div class="text-yellow-500 gap-y-2 flex flex-col justify-end">
+                                <div class="text-2xl font-black">17%</div>
+                                <img src="/yellow.png" class="h-16 w-16">
+                                <div class="bg-yellow-500 rounded max-h-32 w-16 animate-rise"></div>
+                            </div>
+                            <div class="text-red-600 gap-y-2 flex flex-col justify-end">
+                                <div class="text-2xl font-black">35%</div>
+                                <img src="/red.png" class="h-16 w-16">
+                                <div class="bg-red-600 rounded max-h-64 w-16 animate-rise"></div>
                             </div>
                         </div>
 
@@ -149,7 +166,8 @@
                     </div>
                 </div>
                 <div v-else-if="!completed">
-                    <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl my-3">Let's play!</h1>
+                    <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl my-3"> {{ $t('game.title') }}
+                    </h1>
                     <img v-show="!hideAnswers" src="/thinking.png" class="mx-auto max-w-xs h-auto mt-10 p-6">
                     <transition v-if="!justification" name="slide-fade" mode="out-in">
 
@@ -177,13 +195,15 @@
                         <div>
                             <button @click="changeQuestions()"
                                 class="rounded-md bg-gradient-to-tr mt-4 from-indigo-400 to-indigo-700 px-10 py-3 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                                Continue
+                                {{ $t('game.continue') }}
                             </button>
                         </div>
                     </div>
                 </div>
                 <div v-else class="text-4xl">
-                    You did it! <br> <span class="font-thin text-lg">Ready to see your score? </span>
+                    {{ $t('game.youdidit') }}
+                    <br> <span class="font-thin text-lg"> {{ $t('game.readyforscore') }}
+                    </span>
                     <img src="/win.png" class="mx-auto  lg:max-w-96 h-auto mt-10 px-16" />
                     <div class="my-4 font-black text-indigo-600 text-5xl">
                         {{ Math.floor(voters * integrity) }} {{ $t('game.points') }}
@@ -192,14 +212,14 @@
                     <div class="mb-4">
                         <NuxtLink to="/joinLeaderboard"
                             class="rounded-md bg-gradient-to-tr from-indigo-400 to-indigo-700 px-10 py-3 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                            Join Leaderboard
+                            {{ $t('game.joinLeaderboard') }}
                         </NuxtLink>
                     </div>
 
                     <div>
                         <NuxtLink to="/"
                             class="rounded-md bg-gradient-to-tr from-indigo-400 to-indigo-700 px-10 py-3 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                            Play Again?
+                            {{ $t('game.playagain') }}
                         </NuxtLink>
                     </div>
                 </div>
@@ -217,12 +237,9 @@ integrity.value = 70
 const infoIndex = ref(0)
 const isOpen = ref(true)
 
-function updatePonts() {
-    points.value += 10
-}
-
 const elections = ref(false)
 const electionsVoting = ref(false)
+const electionWon = ref(true)
 
 const moneyDown = ref(false)
 const moneyUp = ref(false)
@@ -861,3 +878,18 @@ function selectAnswer(answer) {
 }
 
 </script>
+
+<style>
+  @keyframes rise {
+    0% {
+      height: 0;
+    }
+    100% {
+      height: 100%;
+    }
+  }
+
+  .animate-rise {
+    animation: rise 2s ease-out forwards;
+  }
+  </style>

@@ -7,29 +7,28 @@ const isOpen = ref(false)
 
         <TransitionRoot appear :show="isOpen" as="template">
             <Dialog as="div" @close="closeModal" class="relative z-10">
-                <TransitionChild as="template" enter="duration-300 ease-out" enter-from="opacity-0" enter-to="opacity-100"
-                    leave="duration-200 ease-in" leave-from="opacity-100" leave-to="opacity-0">
+                <TransitionChild as="template" enter="duration-300 ease-out" enter-from="opacity-0"
+                    enter-to="opacity-100" leave="duration-200 ease-in" leave-from="opacity-100" leave-to="opacity-0">
                     <div class="fixed inset-0 bg-black/25" />
                 </TransitionChild>
 
                 <div class="fixed inset-0 overflow-y-auto">
                     <div class="flex min-h-full items-center justify-center p-4 text-center">
                         <TransitionChild as="template" enter="duration-300 ease-out" enter-from="opacity-0 scale-95"
-                            enter-to="opacity-100 scale-100" leave="duration-200 ease-in" leave-from="opacity-100 scale-100"
-                            leave-to="opacity-0 scale-95">
+                            enter-to="opacity-100 scale-100" leave="duration-200 ease-in"
+                            leave-from="opacity-100 scale-100" leave-to="opacity-0 scale-95">
                             <DialogPanel
                                 class="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left text-xl align-middle shadow-xl transition-all">
                                 <div class="mt-2">
                                     <div class="text-xl text-gray-500 font-lighter">
-                                        This is a pop-up! It might hold text, or it might also include an image. Some popups
-                                        might even have links in them.
+                                        {{ $t('tutorial.popupText') }}
                                     </div>
                                 </div>
 
                                 <div class="mt-4 text-center">
                                     <button type="button" @click="isOpen = false"
                                         class="rounded-md bg-gradient-to-tr from-indigo-400 to-indigo-700 px-10 py-3 text-xl uppercase font-semibold text-white shadow-sm hover:bg-indigo-500 ">
-                                        Got it
+                                        {{ $t('tutorial.popupButton') }}
                                     </button>
                                 </div>
                             </DialogPanel>
