@@ -67,8 +67,8 @@ export default defineI18nConfig(() => ({
       },
       tutorialQuestion: {
         title: "Tutorial question",
-        description: 'Some small subtitle, maybe “make your choice',
-        intro: "This is the first quest. Here’s an example text: You start researching this party – have a browse through their website, read a few articles published by their members, watch some interviews they’ve done in previous years. They are a good fit for your chance to get in office, so you need to pick a way to approach them.",
+        description: 'Make your choice',
+        intro: "This is the first quest. You start researching this party – have a browse through their website, read a few articles published by their members, watch some interviews they’ve done in previous years. They are a good fit for your chance to get in office, so you need to pick a way to approach them.",
         answer1: "Send them a passionate e-mail.",
         answer2: "Make a donation to their campaign.",
         answer3: "Defend their articles from trolls online.",
@@ -304,21 +304,41 @@ export default defineI18nConfig(() => ({
         "justification28right": "From a right-leaning viewpoint, market forces should dictate the operations of private companies, including how they use data for advertising. The emphasis is on individual choice, with the assumption that users consent to data sharing in exchange for services provided by the app. It suggests trust in the free market to innovate and provide options to consumers."
       },
       survey: {
-        question1title: 'Great!',
-        question1: 'How much do you know about the election process?',
-        question1answer1: "Not much",
-        question1answer2: "oh, definitely a lot",
-        question1answer3: "I’m very well versed",
-        question1answer4: "a bit",
-        question1answer5: "I know the basics",
-        question2title: 'Intresting',
-        question2: 'Have you ever voted?',
-        question2answer1: "Of course",
-        question2answer3: "I don't believe in voting",
-        question2answer4: "I have not",
-        question2answer2: "I rarely do",
-        question3title: 'Wonderful',
-        question3: 'You were amazing! Now onto the game!',
+        title: 'Survey',
+        title2: 'Done',
+        description: 'How much do you know about the election process?',
+
+        question0: "Does integrity matter in politics?",
+        question0yes: "Yes",
+        question0no: "No",
+        question0sometimes: "Sometimes",
+
+        question1: 'Does money play a role in politics?',
+        question1norole: 'No role',
+        question1bigrole: 'Big role',
+        question1neither: 'Neither',
+        question1itcouldbeuseful: 'It could be useful',
+
+        question2: 'Being truthful and honest with your voters can lead to losing votes.',
+        question2agree: 'Agree',
+        question2itdoesntmatter: "It doesn't matter",
+        question2disagree: 'Disagree',
+        question2idontknow: 'I don\'t know',
+
+        question3: 'Would you run for political office?',
+        question3yes: 'Yes',
+        question3no: 'No',
+
+        question4: 'How much do you think you know about the election process?',
+        question4nothingatall: 'Nothing at all',
+        question4justthebasics: 'Just the basics',
+        question4quitealot: 'Quite a lot',
+        question4im_an_expert: 'I\'m an expert',
+
+        question5: 'Do you think your vote matters?',
+        question5yes: 'Yes',
+        question5no: 'No',
+
         continue: 'Continue'
       }
     },

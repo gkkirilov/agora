@@ -203,8 +203,6 @@
                         </NuxtLink>
                     </div>
                 </div>
-                {{ points }}
-                <div @click="updatePonts()">Update points</div>
             </div>
         </div>
     </div>
