@@ -96,6 +96,16 @@ export default defineI18nConfig(() => ({
         joinLeaderboard: "Join Leaderboard",
         playagain: "Play Again?",
       },
+      info: {
+        politicalcore: 'Political Core',
+        politicalcoredescription: 'This is a reminder of what political position your views align with.',
+        money: 'Money',
+        moneydescription: 'The resources you have at your disposal – you will have to spend them wisely to get yourself elected. The party will require your support, but it won’t always place your needs first – it’s ok to be prudent and not instantly give them everything you have.',
+        voters: 'Voters',
+        votersdescription: 'The amount of people that seem willing to vote for you. The more you have, the higher the chance you get elected. Remember - you don’t need every single person to vote for you, you only need to have more than the other candidates!',
+        integrity: 'Integrity',
+        integritydescription: 'The credibility you have before the world. The higher it is, the more often people will be willing to vote for you and more weight your words carry. If you compromise your integrity on the way to office, you can lose credibility with your voters in the future or you could become a puppet for a powerful figure. Both of these outcomes will prevent you from making the changes that you want.',
+      },
       compass: {
         title: 'Political Compass!',
         continue: 'Continue',

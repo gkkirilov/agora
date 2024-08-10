@@ -43,7 +43,7 @@
 
                         {{ voters }}
                     </div>
-                    <div class="flex items-center p-2 gap-x-1" :class="{ ' bg-white rounded z-50': infoIndex === 3 }"
+                    <div class="flex items-center p-2 gap-x-1" :class="{ ' bg-white rounded z-50': infoIndex === 3 && isOpen }"
                         v-show="infoIndex >= 3">
                         <svg width="30" height="30" viewBox="0 0 30 30" class="size-6 fill-indigo-900"
                             :class="{ 'fill-green-600': integrityUp, 'fill-red-600': integrityDown }" fill="none"
@@ -70,12 +70,12 @@
                                         leave-to="opacity-0 scale-95">
                                         <DialogPanel
                                             class="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
-                                            <Dialogtitle as="h3" class="text-lg font-medium leading-6 text-gray-900">
-                                                {{ info[infoIndex].name }}
-                                            </Dialogtitle>
+                                            <DialogTitle as="h3" class="text-lg font-medium leading-6 text-gray-900">
+                                                {{ $t('info.' + info[infoIndex].name) }}
+                                            </DialogTitle>
                                             <div class="mt-2">
                                                 <p class="text-lg text-gray-500">
-                                                    {{ info[infoIndex].description }}
+                                                    {{ $t('info.' + info[infoIndex].description) }}
                                                 </p>
                                             </div>
 
@@ -249,32 +249,29 @@ const votersUp = ref(false)
 const votersDown = ref(false)
 
 function showNextInfo() {
-    infoIndex.value += 1
-    if (infoIndex.value >= 4) {
+    if (infoIndex.value + 1 >= 4) {
         isOpen.value = false
         return
     }
+
+    infoIndex.value += 1
 }
 const info = [
     {
-        name: 'Political Core',
-        description: 'This is a reminder of what political position your views align with.',
+        name: 'politicalcore',
+        description: 'politicalcoredescription',
     },
     {
-        name: 'Money',
-        description: 'The resources you have at your disposal – you will have to spend them wisely to get yourself elected. The party will require your support, but it won’t always place your needs first – it’s ok to be prudent and not instantly give them everything you have.',
+        name: 'money',
+        description: 'moneydescription',
     },
     {
-        name: 'Voters',
-        description: 'The amount of people that seem willing to vote for you. The more you have, the higher the chance you get elected. Remember - you don’t need every single person to vote for you, you only need to have more than the other candidates!',
+        name: 'voters',
+        description: 'votersdescription',
     },
     {
-        name: 'Integrity',
-        description: 'The credibility you have before the world. The higher it is, the more often people will be willing to vote for you and more weight your words carry. If you compromise your integrity on the way to office, you can lose credibility with your voters in the future or you could become a puppet for a powerful figure. Both of these outcomes will prevent you from making the changes that you want.',
-    },
-    {
-        name: 'Integrity',
-        description: 'The credibility you have before the world. The higher it is, the more often people will be willing to vote for you and more weight your words carry. If you compromise your integrity on the way to office, you can lose credibility with your voters in the future or you could become a puppet for a powerful figure. Both of these outcomes will prevent you from making the changes that you want.',
+        name: 'integrity',
+        description: 'integritydescription',
     },
 ]
 
