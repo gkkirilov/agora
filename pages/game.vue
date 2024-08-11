@@ -116,11 +116,20 @@
                         </div>
                     </div>
                     <div v-else>
-                        <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl px-14 mt-4">{{
-                            $t('elections.congrats') }}
-                        </h1>
-                        <p class="text-gray-600 max-w-xs mx-auto px-6 mt-2">{{ $t('elections.congratsDescription') }}
-                        </p>
+                        <div v-if="electionWon">
+                            <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl px-14 mt-4">{{
+                                $t('elections.congrats') }}
+                            </h1>
+                            <p class="text-gray-600 max-w-xs mx-auto px-6 mt-2">{{ $t('elections.congratsDescription') }}
+                            </p>
+                        </div>
+                        <div v-else>
+                            <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl px-14 mt-4">{{
+                                $t('elections.loss') }}
+                            </h1>
+                            <p class="text-gray-600 max-w-xs mx-auto px-6 mt-2">{{ $t('elections.lossDescription') }}
+                            </p>
+                        </div>
 
 
                         <div v-if="electionWon" class="flex flex-row justify-around gap-y-4 h-96 mt-8">
@@ -242,7 +251,7 @@ const isOpen = ref(true)
 
 const elections = ref(false)
 const electionsVoting = ref(false)
-const electionWon = ref(true)
+const electionWon = ref(false)
 
 const moneyDown = ref(false)
 const moneyUp = ref(false)
@@ -833,9 +842,12 @@ function changeQuestions() {
     hideAnswers.value = false
 
     if (currentQuestionIndex.value + 1 >= 10) {
+        points.value = voters.value * integrity.value
+        if (conditions.value >=5000) {
+            electionWon.value = false
+        }
         elections.value = true
         completed.value = true
-        points.value = voters.value * integrity.value
     } else {
         currentQuestionIndex.value += 1
     }

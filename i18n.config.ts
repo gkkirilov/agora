@@ -86,6 +86,8 @@ export default defineI18nConfig(() => ({
         continue2: "Continue",
         congrats: "Congratulations!",
         congratsDescription: "You made the top of the list",
+        loss: "Next time!",
+        lossDescription: "You almost wont it, you will get them next time!",
       },
       game: {
         points: 'points',
