@@ -11,9 +11,11 @@
                         {{ $t('intro.yes') }}
                     </NuxtLink>
                 </div>
-                <NuxtLink to="/compassPicker" @click="changeParty()" class="rounded-md uppercase bg-gradient-to-tr from-indigo-200 to-indigo-400 px-6 py-3 text-2xl font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                    {{ $t('intro.no') }}
-                </NuxtLink>
+                <div>
+                    <NuxtLink to="/compassPicker" @click="changeParty()" class="block mb-4 rounded-md uppercase bg-gradient-to-tr from-indigo-200 to-indigo-400 px-6 py-3 text-2xl font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                        {{ $t('intro.no') }}
+                    </NuxtLink>
+                </div>
             </div>
         </div>
         <div class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-40rem)]"

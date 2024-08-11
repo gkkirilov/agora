@@ -16,7 +16,7 @@
                         {{ $t('index.playButton') }}
                     </NuxtLink>
                 </div>
-                <a href="https://www.agoranx.eu/en/about/project" target="_blank" class="text-2xl font-light leading-6 text-gray-600">
+                <a href="https://www.agoranx.eu/en/about/project" target="_blank" class="block mb-4 text-2xl font-light leading-6 text-gray-600">
                     {{ $t('index.learnMore') }}
                 </a>
             </div>

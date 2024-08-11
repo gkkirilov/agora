@@ -1,10 +1,10 @@
 <template>
-  <div class="flex min-h-screen flex-col">
-    <div class="flex-1">
+  <div class="flex flex-col min-h-screen">
+    <div class="flex-1 overflow-hidden">
       <Header />
       <NuxtPage />
     </div>
-    <Footer />
+    <Footer class=""/>
   </div>
 </template>
 <script setup>
