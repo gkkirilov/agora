@@ -11,16 +11,15 @@
                     <div class="mt-2 flex items-center justify-center gap-x-6">
                         <input v-model="newNickname" type="text" name="nickname" id="nickname"
                             class="max-w-xs rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:leading-6 text-center font-black text-6xl uppercase"
-                            maxlength="4"
-                            placeholder="JOJO" />
+                            maxlength="4" placeholder="JOJO" />
                     </div>
-                    </div>
+                </div>
                 <div class="mt-10 mb-8 flex items-center justify-center gap-x-6">
                     <div @click="submitToLeaderboard" :class="{
                         'opacity-50 cursor-not-allowed': !active,
                         'cursor-pointer ': active
                     }"
-                        class=" rounded-md uppercase bg-gradient-to-tr from-indigo-500 to-indigo-800 px-6 py-3 text-2xl font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                        class="rounded-md uppercase bg-gradient-to-tr from-indigo-500 to-indigo-800 px-6 py-2 text-2xl font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                         {{ $t('joinLeaderboard.continue') }}
                     </div>
                 </div>
@@ -41,9 +40,9 @@ const active = computed(() => {
 
 async function submitToLeaderboard() {
     const { error } = await supabase
-      .from('leaderboard')
-      .insert({ nickname: newNickname.value.toUpperCase(), points: points.value || 1000 })
+        .from('leaderboard')
+        .insert({ nickname: newNickname.value.toUpperCase(), points: points.value || 1000 })
 
-      return navigateTo('/leaderboard')
+    return navigateTo('/leaderboard')
 }
 </script>

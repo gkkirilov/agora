@@ -18,7 +18,7 @@
                 </div>
                 
                 <div class="mt-10 mb-8 flex items-center justify-center gap-x-6">
-                    <NuxtLink to="/" class="rounded-md uppercase bg-gradient-to-tr from-indigo-500 to-indigo-800 px-6 py-3 text-2xl font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                    <NuxtLink to="/" class="rounded-md uppercase bg-gradient-to-tr from-indigo-500 to-indigo-800 px-6 py-2 text-2xl font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                         {{ $t('leaderboard.again') }}
                     </NuxtLink>
                 </div>

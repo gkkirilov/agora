@@ -3,6 +3,8 @@ import {
     ArrowUturnLeftIcon,
 } from '@heroicons/vue/24/outline'
 
+const indexStore = useIndexStore()
+const { goal } = storeToRefs(indexStore)
 const willWrite = ref(false)
 </script>
 
@@ -19,10 +21,10 @@ const willWrite = ref(false)
                 <div v-if="!willWrite">
                     <div class="mt-10 mb-4 flex flex-col gap-4 items-center justify-center">
                         <NuxtLink to="/tutorial" v-for="n in 3" :key="'-' + index" @click="selectAnswer"
-                            class="rounded-md bg-gradient-to-tr from-indigo-400 to-indigo-700 px-10 py-3 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 uppercase cursor-pointer">
+                            class="rounded-md bg-gradient-to-tr from-indigo-400 to-indigo-700 px-10 py-2 text-3xl font-extrabold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 uppercase cursor-pointer">
                             {{ $t('goal.goal' + n) }}
                         </NuxtLink>
-                        <div class="rounded-md bg-gradient-to-tr from-indigo-400 to-indigo-700 px-10 py-3 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 uppercase cursor-pointer"
+                        <div class="rounded-md bg-gradient-to-tr from-indigo-400 to-indigo-700 px-10 py-2 text-3xl font-extrabold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 uppercase cursor-pointer"
                             @click="willWrite = true">
                             {{ $t('goal.write') }}
                         </div>
@@ -36,13 +38,15 @@ const willWrite = ref(false)
                 </div>
                     <div>
                         <div class="mt-2">
-                            <textarea :placeholder="$t('goal.textareaPlaceholder')" rows="2" name="comment" id="comment"
-                                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm text-sm p-2 py-3 sm:leading-6" maxlength="70" />
+                            <textarea 
+                            v-model="goal"
+                            :placeholder="$t('goal.textareaPlaceholder')" rows="2" name="comment" id="comment"
+                                class="inline-block w-full max-w-xs rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm text-sm p-2 py-2 sm:leading-6" maxlength="70" />
                         </div>
                     </div>
                     <div class="mt-4">
-                        <NuxtLink to="/tutorial" @click="changeQuestions()"
-                            class="rounded-md bg-gradient-to-tr from-indigo-400 to-indigo-700 px-10 py-3 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 uppercase mt-4">
+                        <NuxtLink to="/tutorial"
+                            class="inline-block rounded-md bg-gradient-to-tr from-indigo-400 to-indigo-700 px-10 py-2 text-3xl font-extrabold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 uppercase mt-4">
                             {{ $t('goal.continue') }}
                         </NuxtLink>
                     </div>

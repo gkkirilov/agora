@@ -29,12 +29,12 @@
                     </div>
                     {{ $t('compass.' + politicalParty + 'Explanation') }}
 
-                    <NuxtLink to="/goal"
-                        class="cursor-pointer rounded-md uppercase bg-gradient-to-tr from-indigo-400 to-indigo-700 px-6 py-3 text-2xl font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                    <NuxtLink to="/biscania"
+                        class="cursor-pointer rounded-md uppercase bg-gradient-to-tr from-indigo-400 to-indigo-700 px-6 py-2 text-2xl font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                         {{ $t('compassPicker.continue') }}
                     </NuxtLink>
                     <button @click="showAnswers = true"
-                        class="cursor-pointer rounded-md uppercase bg-gradient-to-tr from-indigo-200 to-indigo-400 px-6 py-3 text-2xl font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                        class="cursor-pointer rounded-md uppercase bg-gradient-to-tr from-indigo-200 to-indigo-400 px-6 py-2 text-2xl font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                         {{ $t('compassPicker.back2') }}
                     </button>
                 </div>

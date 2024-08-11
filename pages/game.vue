@@ -82,7 +82,7 @@
 
                                             <div class="mt-4 flex justify-center">
                                                 <button type="button"
-                                                    class="rounded-md bg-gradient-to-tr from-indigo-400 to-indigo-700 px-10 py-3 text-xl uppercase font-semibold text-white shadow-sm hover:bg-indigo-500 "
+                                                    class="rounded-md bg-gradient-to-tr from-indigo-400 to-indigo-700 px-10 py-2 text-xl uppercase font-semibold text-white shadow-sm hover:bg-indigo-500 "
                                                     @click="showNextInfo">
                                                     Got it
                                                 </button>
@@ -110,7 +110,7 @@
 
                         <div class="my-10">
                             <div @click="electionsVoting = true"
-                                class="rounded-md bg-gradient-to-tr from-indigo-400 to-indigo-700 px-10 py-3 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 uppercase">
+                                class="rounded-md bg-gradient-to-tr from-indigo-400 to-indigo-700 px-10 py-2 text-3xl font-extrabold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 uppercase">
                                 {{ $t('elections.continue') }}
                             </div>
                         </div>
@@ -168,10 +168,14 @@
                         </div>
 
                         <div class="my-10">
-                            <div @click="elections = false, electionsVoting = false"
-                                class="rounded-md bg-gradient-to-tr from-indigo-400 to-indigo-700 px-10 py-3 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 uppercase">
+                            <div v-if="currentQuestionIndex != 9" @click="elections = false, electionsVoting = false"
+                                class="rounded-md bg-gradient-to-tr from-indigo-400 to-indigo-700 px-10 py-2 text-3xl font-extrabold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 uppercase">
                                 {{ $t('elections.continue2') }}
                             </div>
+                            <NuxtLink to="/complete" v-else  @click="elections = false, electionsVoting = false"
+                                class="rounded-md bg-gradient-to-tr from-indigo-400 to-indigo-700 px-10 py-2 text-3xl font-extrabold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 uppercase">
+                                {{ $t('elections.continue2') }}
+                            </NuxtLink>
                         </div>
                     </div>
                 </div>
@@ -196,7 +200,7 @@
                             :disabled="answer.followup.money < 0 && Math.abs(answer.followup.money) >= money"
                             :class="answer.followup.money < 0 && Math.abs(answer.followup.money) >= money ? 'cursor-not-allowed bg-gray-500' :
                                 'bg-gradient-to-tr from-indigo-400 to-indigo-700 hover:from-indigo-500 hover:to-indigo-800'"
-                            class="rounded-md px-10 py-3 text-lg font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                            class="rounded-md px-10 py-2 text-3xl font-extrabold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                             {{ $t('game.' + answer.option) }}
                         </button>
                     </transition-group>
@@ -206,33 +210,10 @@
                         {{ $t('game.' + justification) }}
                         <div>
                             <button @click="changeQuestions()"
-                                class="rounded-md bg-gradient-to-tr mt-4 from-indigo-400 to-indigo-700 px-10 py-3 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                                class="rounded-md bg-gradient-to-tr mt-4 from-indigo-400 to-indigo-700 px-10 py-2 text-3xl font-extrabold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                                 {{ $t('game.continue') }}
                             </button>
                         </div>
-                    </div>
-                </div>
-                <div v-else class="text-4xl">
-                    {{ $t('game.youdidit') }}
-                    <br> <span class="font-thin text-lg"> {{ $t('game.readyforscore') }}
-                    </span>
-                    <img src="/win.png" class="mx-auto  lg:max-w-96 h-auto mt-10 px-16" />
-                    <div class="my-4 font-black text-indigo-600 text-5xl">
-                        {{ Math.floor(voters * integrity) }} {{ $t('game.points') }}
-                    </div>
-
-                    <div class="mb-4">
-                        <NuxtLink to="/joinLeaderboard"
-                            class="rounded-md bg-gradient-to-tr from-indigo-400 to-indigo-700 px-10 py-3 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                            {{ $t('game.joinLeaderboard') }}
-                        </NuxtLink>
-                    </div>
-
-                    <div>
-                        <NuxtLink to="/"
-                            class="rounded-md bg-gradient-to-tr from-indigo-400 to-indigo-700 px-10 py-3 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                            {{ $t('game.playagain') }}
-                        </NuxtLink>
                     </div>
                 </div>
             </div>
@@ -252,6 +233,7 @@ const isOpen = ref(true)
 const elections = ref(false)
 const electionsVoting = ref(false)
 const electionWon = ref(false)
+const finalSurvey = ref(true)
 
 const moneyDown = ref(false)
 const moneyUp = ref(false)
@@ -843,7 +825,8 @@ function changeQuestions() {
 
     if (currentQuestionIndex.value + 1 >= 10) {
         points.value = voters.value * integrity.value
-        if (conditions.value >=5000) {
+
+        if (points.value >=5000) {
             electionWon.value = false
         }
         elections.value = true

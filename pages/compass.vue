@@ -3,12 +3,10 @@
         <div class="mx-auto max-w-2xl">
             <div class="text-center">
                 <h1 v-if="!completed" class="text-lg font-medium tracking-tight text-gray-600">{{ $t('compass.title') }}
-                     {{currentQuestion + 1}}/6
+                    {{ currentQuestion + 1 }}/6
                 </h1>
                 <div v-if="!completed" class="flex flex-initial justify-center mt-2 gap-x-3">
-                    <div v-for="n in 6"
-                    class="px-6 py-1 rounded bg-indigo-300"
-                    :class="{                        
+                    <div v-for="n in 6" class="px-6 py-1 rounded bg-indigo-300" :class="{
                         'bg-indigo-600': currentQuestion + 1 >= n
                     }">
                     </div>
@@ -37,34 +35,33 @@
                         class="mt-10 mb-4 flex flex-col gap-4 items-center justify-center">
                         <div v-for="(answer, index) in shuffledAnswers[currentQuestion]"
                             :key="currentQuestion + '-' + index" @click="selectAnswer(answer)"
-                            class="rounded-md bg-gradient-to-tr from-indigo-400 to-indigo-700 px-10 py-3 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                            class="rounded-md bg-gradient-to-tr from-indigo-400 to-indigo-700 px-10 py-2 text-lg font- text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                             {{ $t('compass.' + answer.answer) }}
                         </div>
                     </transition-group>
                     <div v-if="justification" class="text-gray-600 mx-auto mt-10 text-xl">
                         {{ $t('compass.' + justification) }}
                         <div @click="changeQuestions()"
-                            class="mt-4 rounded-md bg-gradient-to-tr from-indigo-400 to-indigo-700 px-10 py-3 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                            class="mt-4 rounded-md bg-gradient-to-tr from-indigo-400 to-indigo-700 px-10 py-2 text-lg font- text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                             {{ $t('compass.continue') }}
                         </div>
                     </div>
                 </div>
                 <div v-else-if="completed" class="text-4xl mt-20">
-                    <div>{{ $t('compass.welldone') }} </div>
                     <div class="font-bold mt-4">
                         {{ $t('compass.' + party) }}</div>
-                        
-                        
-                        <div>
-                        <div class="text-lg mb-10 mx-auto mt-4 max-w-xs">
+                    <div>
 
-                            {{ $t('compass.' + party + 'Explanation') }}
-                        </div>
+                    <img src="/profile.png" class="mx-auto  lg:max-w-96 h-auto mt-6 p-6">
 
-                        <NuxtLink to="/goal" @click="changeQuestions()"
-                            class="mt-4 rounded-md bg-gradient-to-tr from-indigo-400 to-indigo-700 px-10 py-3 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                            {{ $t('compass.continue') }}
-                        </NuxtLink>
+                    <div class="text-lg mb-10 mx-auto mt-4 max-w-xs">
+                        {{ $t('compass.' + party + 'Explanation') }}
+                    </div>
+
+                    <NuxtLink to="/biscania" @click="changeQuestions()"
+                        class="mt-4 rounded-md bg-gradient-to-tr from-indigo-400 to-indigo-700 px-5 py-2 text-lg font-bold uppercase text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                        {{ $t('compass.continue') }}
+                    </NuxtLink>
                     </div>
                 </div>
             </div>

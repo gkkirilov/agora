@@ -89,6 +89,20 @@ export default defineI18nConfig(() => ({
         loss: "Next time!",
         lossDescription: "You almost wont it, you will get them next time!",
       },
+      biscania: {
+        title: "Welcome to Biscania",
+        description: "The Jewel of the Atlantic",
+        continue: "Continue",
+      },
+      finalSurvey: {
+        title: "*Drum roll*",
+        description: "Before you see your final score, mind doing another 30-second survey?",
+        yes: "yes, i’d love to!",
+        no: "No, show me my results",
+      },
+      results: {
+        yourgoal: "During your time elected into office, you achieved your most important goal:",
+      },
       game: {
         points: 'points',
         title: "Let's play!",
