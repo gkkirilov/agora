@@ -3,8 +3,8 @@
         <div class="mx-auto max-w-2xl">
             <div class="text-center">
                 <div v-if="!completed"
-                    class="flex justify-center gap-x-2 items-center text-lg font-light bg-gray-100 rounded-md">
-                    <div class="flex items-center p-2" :class="{ ' bg-white rounded z-50': infoIndex === 0 }">
+                    class="inline-flex justify-center gap-x-2 items-center text-lg font-light bg-gray-100 rounded-md">
+                    <div class="flex items-center font-medium p-2" :class="{ ' bg-white rounded z-50': infoIndex === 0 }">
 
                         <svg width="40" height="40" viewBox="0 0 47 47" class="size-6 fill-indigo-900 mb-1" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
@@ -14,7 +14,7 @@
 
                         {{ $t('compass.' + politicalParty) }}
                     </div>
-                    <div class="flex items-center p-2 gap-x-1" :class="{ ' bg-white rounded z-50': infoIndex === 1 }"
+                    <div class="flex items-center font-medium p-2 gap-x-1" :class="{ ' bg-white rounded z-50': infoIndex === 1 }"
                         v-show="infoIndex >= 1">
                         <svg width="30" height="30" viewBox="0 0 30 30" class="size-6 fill-indigo-900 "
                             :class="{ 'fill-green-600': moneyUp, 'fill-red-600': moneyDown }" fill="none"
@@ -25,7 +25,7 @@
 
                         {{ money }}
                     </div>
-                    <div class="flex items-center p-2 gap-x-1" :class="{ ' bg-white rounded z-50': infoIndex === 2 }"
+                    <div class="flex items-center font-medium p-2 gap-x-1" :class="{ ' bg-white rounded z-50': infoIndex === 2 }"
                         v-show="infoIndex >= 2">
                         <svg width="31" height="30" viewBox="0 0 31 30" class="size-6 fill-indigo-900"
                             :class="{ 'fill-green-600': votersUp, 'fill-red-600': votersDown }" fill="none"
@@ -43,8 +43,8 @@
 
                         {{ voters }}
                     </div>
-                    <div class="flex items-center p-2 gap-x-1" :class="{ ' bg-white rounded z-50': infoIndex === 3 && isOpen }"
-                        v-show="infoIndex >= 3">
+                    <div class="flex items-center font-medium p-2 gap-x-1"
+                        :class="{ ' bg-white rounded z-50': infoIndex === 3 && isOpen }" v-show="infoIndex >= 3">
                         <svg width="30" height="30" viewBox="0 0 30 30" class="size-6 fill-indigo-900"
                             :class="{ 'fill-green-600': integrityUp, 'fill-red-600': integrityDown }" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
@@ -166,7 +166,9 @@
                     </div>
                 </div>
                 <div v-else-if="!completed">
-                    <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl my-3"> {{ $t('game.title') }}
+                    <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl my-5">
+                        {{ allQuestions[currentQuestionIndex].key.replaceAll('_', ' ') }}
+                        <!-- {{ $t('game.title') }} -->
                     </h1>
                     <img v-show="!hideAnswers" src="/thinking.png" class="mx-auto max-w-xs h-auto mt-10 p-6">
                     <transition v-if="!justification" name="slide-fade" mode="out-in">
@@ -877,16 +879,17 @@ function selectAnswer(answer) {
 </script>
 
 <style>
-  @keyframes rise {
+@keyframes rise {
     0% {
-      height: 0;
+        height: 0;
     }
-    100% {
-      height: 100%;
-    }
-  }
 
-  .animate-rise {
+    100% {
+        height: 100%;
+    }
+}
+
+.animate-rise {
     animation: rise 2s ease-out forwards;
-  }
-  </style>
+}
+</style>
