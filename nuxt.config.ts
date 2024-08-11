@@ -9,11 +9,11 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/supabase',
     'nuxt-headlessui',
-    '@nuxtjs/google-fonts',
     '@nuxtjs/tailwindcss',
     "@nuxtjs/i18n",
     ['@pinia/nuxt', { autoImports: ['defineStore', 'acceptHMRUpdate'] }],
     '@pinia-plugin-persistedstate/nuxt',
+    "@nuxt/fonts"
   ],
 
   i18n: {
@@ -21,15 +21,6 @@ export default defineNuxtConfig({
       useCookie: true,
       cookieKey: 'i18n_redirected',
       redirectOn: 'root' // recommended
-    }
-  },
-
-  googleFonts: {
-    // Options
-    families: {
-      Signika: {
-        wght: '300..700',
-      },
     }
   },
 
