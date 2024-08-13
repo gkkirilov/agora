@@ -59,7 +59,7 @@
                     </div>
 
                     <NuxtLink to="/biscania" @click="changeQuestions()"
-                        class="mt-4 rounded-md bg-gradient-to-tr from-indigo-400 to-indigo-700 px-5 py-2 text-lg font-bold uppercase text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                        class="inline-block mb-6 mt-4 rounded-md bg-gradient-to-tr from-indigo-400 to-indigo-700 px-5 py-2 text-lg font-bold uppercase text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                         {{ $t('compass.continue') }}
                     </NuxtLink>
                     </div>

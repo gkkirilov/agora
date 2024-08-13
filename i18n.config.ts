@@ -96,7 +96,9 @@ export default defineI18nConfig(() => ({
       },
       finalSurvey: {
         title: "*Drum roll*",
+        title2: "Wonderful",
         description: "Before you see your final score, mind doing another 30-second survey?",
+        description2: "You were amazing! Now, onto the score!",
         yes: "yes, i’d love to!",
         no: "No, show me my results",
       },

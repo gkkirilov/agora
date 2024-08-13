@@ -822,13 +822,12 @@ function changeQuestions() {
 
     justification.value = ''
     hideAnswers.value = false
+    points.value = voters.value * integrity.value
+    if (points.value >=5000) {
+        electionWon.value = true
+    }
 
     if (currentQuestionIndex.value + 1 >= 10) {
-        points.value = voters.value * integrity.value
-
-        if (points.value >=5000) {
-            electionWon.value = false
-        }
         elections.value = true
         completed.value = true
     } else {
