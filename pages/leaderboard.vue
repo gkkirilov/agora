@@ -2,11 +2,13 @@
     <div class="relative isolate px-6 pt-5 lg:pt-14 lg:px-8">
         <div class="mx-auto max-w-2xl ">
             <div class="text-center">
-                <h1 class="text-5xl font-bold tracking-tight text-gray-900 sm:text-6xl">{{ $t('leaderboard.title') }}</h1>
+                <h1 class="text-5xl font-bold tracking-tight text-gray-900 sm:text-6xl">{{ $t('leaderboard.title') }}
+                </h1>
                 <p class="text-gray-600 max-w-xs mx-auto text-xl mt-2">{{ $t('leaderboard.description') }}</p>
 
                 <div class="max-w-xs text-center mx-auto">
-                    <div v-for="(user, index) in users" class="ring-1 ring-gray-900/10 p-2 px-4 rounded-lg mt-4 flex justify-between">
+                    <div v-for="(user, index) in users"
+                        class="ring-1 ring-gray-900/10 p-2 px-4 rounded-lg mt-4 flex justify-between">
                         <div class="flex gap-x-2">
 
                             <div class="text-gray-600 text-base pt-0.5">{{ index + 1 }}</div>
@@ -16,9 +18,10 @@
                     </div>
 
                 </div>
-                
+
                 <div class="mt-10 mb-8 flex items-center justify-center gap-x-6">
-                    <NuxtLink to="/" class="rounded-md uppercase bg-gradient-to-tr from-indigo-500 to-indigo-800 px-6 py-2 text-2xl font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                    <NuxtLink to="/"
+                        class="rounded-md uppercase bg-gradient-to-tr from-indigo-500 to-indigo-800 px-6 py-2 text-2xl font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                         {{ $t('leaderboard.again') }}
                     </NuxtLink>
                 </div>
@@ -33,6 +36,12 @@
 </template>
 <script setup>
 const supabase = useSupabaseClient()
+const indexStore = useIndexStore()
+const { points } = storeToRefs(indexStore)
 
-var {data: users} = await supabase.from('leaderboard').select('*').limit(10).order('points', { ascending: false })
+var { data: users } = await supabase.from('leaderboard').select('*').gte('points', points.value).limit(10).order('points', { ascending: false })
+if (users.length < 10) {
+    var { data: users2 } = await supabase.from('leaderboard').select('*').lt('points', points.value).limit(10 - users.length).order('points', { ascending: false })
+    users = users.concat(users2)
+}
 </script>

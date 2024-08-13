@@ -39,10 +39,10 @@ const active = computed(() => {
 })
 
 async function submitToLeaderboard() {
-    const { error } = await supabase
+    const {data, error } = await supabase
         .from('leaderboard')
         .insert({ nickname: newNickname.value.toUpperCase(), points: points.value || 1000 })
-
+    console.log(error)
     return navigateTo('/leaderboard')
 }
 </script>
