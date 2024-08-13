@@ -24,7 +24,7 @@
                 </div>
                 <div v-if="!showAnswers"
                     class="mt-10 mb-4 flex flex-col items-center justify-center gap-y-6 max-w-xs mx-auto text-xl font-light text-gray-700">
-                    <div class="text-3xl font-semibold capitalize">
+                    <div class="text-2xl font-semibold capitalize">
                         {{ $t('compass.' + politicalParty) }}
                     </div>
                     {{ $t('compass.' + politicalParty + 'Explanation') }}

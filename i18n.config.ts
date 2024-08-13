@@ -87,7 +87,7 @@ export default defineI18nConfig(() => ({
         congrats: "Congratulations!",
         congratsDescription: "You made the top of the list",
         loss: "Next time!",
-        lossDescription: "You almost wont it, you will get them next time!",
+        lossDescription: "You almost won it, you will get them next time!",
       },
       biscania: {
         title: "Welcome to Biscania",

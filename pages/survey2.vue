@@ -28,8 +28,8 @@
                         <img src="/disco.png" class="mx-auto  lg:max-w-96 h-auto mt-6 p-6">
                     </div>
                     <div>
-                        <NuxtLink to="/joinLeaderboard" @click="changeQuestions()"
-                            class="cursor-pointer rounded-md bg-gradient-to-tr from-indigo-400 to-indigo-700 px-10 py-2 text-3xl font-extrabold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 uppercase mt-4">
+                        <NuxtLink to="/results" @click="changeQuestions()"
+                            class="cursor-pointer rounded-md bg-gradient-to-tr from-indigo-400 to-indigo-700 px-10 py-2 text-2xl font-extrabold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 uppercase mt-4">
                             {{ $t('survey.continue') }}
                         </NuxtLink>
                     </div>
