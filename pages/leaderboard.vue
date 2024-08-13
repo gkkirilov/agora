@@ -34,6 +34,5 @@
 <script setup>
 const supabase = useSupabaseClient()
 
-var {data: users} = await supabase.from('leaderboard').select('*')
-users.sort((a, b) => b.points - a.points)
+var {data: users} = await supabase.from('leaderboard').select('*').limit(10).order('points', { ascending: false })
 </script>
