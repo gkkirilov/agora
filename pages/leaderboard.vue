@@ -11,7 +11,7 @@
                         class="ring-1 ring-gray-900/10 p-2 px-4 rounded-lg mt-4 flex justify-between">
                         <div class="flex gap-x-2">
 
-                            <div class="text-gray-600 text-base pt-0.5">{{ index + 1 }}</div>
+                            <div class="text-gray-600 text-base pt-0.5">{{ user.rank }}</div>
                             <div class="text-gray-900 text-xl font-black">{{ user.nickname }}</div>
                         </div>
                         <div class="text-gray-600 text-xl font-black">{{ user.points }}</div>
@@ -40,6 +40,7 @@ const indexStore = useIndexStore()
 const { points } = storeToRefs(indexStore)
 
 var { data: users } = await supabase.from('leaderboard').select('*').gte('points', points.value).limit(10).order('points', { ascending: false })
+console.log(users)
 if (users.length < 10) {
     var { data: users2 } = await supabase.from('leaderboard').select('*').lt('points', points.value).limit(10 - users.length).order('points', { ascending: false })
     users = users.concat(users2)
