@@ -197,11 +197,14 @@
 
                         <button v-for="(answer, index) in allQuestions[currentQuestionIndex].options"
                             :key="currentQuestionIndex + '-' + index" @click="selectAnswer(answer)"
-                            :disabled="answer.followup.money < 0 && Math.abs(answer.followup.money) >= money"
-                            :class="answer.followup.money < 0 && Math.abs(answer.followup.money) >= money ? 'cursor-not-allowed bg-gray-500' :
+                            :disabled="money + answer.followup.money < 0"
+                            :class="money + answer.followup.money < 0 ? 'cursor-not-allowed bg-gray-500' :
                                 'bg-gradient-to-tr from-indigo-400 to-indigo-700 hover:from-indigo-500 hover:to-indigo-800'"
                             class="rounded-md px-6 py-2 text-base font-medium text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                             {{ $t('game.' + answer.option) }}
+                            <small class="" v-show="money + answer.followup.money < 0">
+                                <br>Not enough money
+                            </small>
                         </button>
                     </transition-group>
                     <div v-show="justification" class="text-gray-600 mx-auto mt-10 text-xl max-w-xs">
@@ -834,7 +837,7 @@ function changeQuestions() {
         currentQuestionIndex.value += 1
     }
 
-    if (currentQuestionIndex.value == 3) {
+    if (currentQuestionIndex.value == 5) {
         elections.value = true
     }
 }
@@ -844,19 +847,19 @@ function selectAnswer(answer) {
     // Highlight icon start 
     if (answer.followup.money > 0) {
         moneyUp.value = true
-    } else if (answer.followup.money <= 0) {
+    } else if (answer.followup.money < 0) {
         moneyDown.value = true
     }
 
     if (answer.followup.integrity > 0) {
         integrityUp.value = true
-    } else if (answer.followup.integrity <= 0) {
+    } else if (answer.followup.integrity < 0) {
         integrityDown.value = true
     }
 
     if (answer.followup.voters > 0) {
         votersUp.value = true
-    } else if (answer.followup.voters <= 0) {
+    } else if (answer.followup.voters < 0) {
         votersDown.value = true
     }
     // Highlight end

@@ -39,5 +39,6 @@ export default defineNuxtConfig({
   },
   piniaPersistedstate: {
     debug: true
-  }
+  },
+  compatibilityDate: '2024-08-20',
 })

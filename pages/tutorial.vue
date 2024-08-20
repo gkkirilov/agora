@@ -56,7 +56,7 @@ const isOpen = ref(false)
                 </div>
 
                 <div class="mb-10">
-                    <NuxtLink to="/tutorialQuestion"
+                    <NuxtLink to="/game"
                         class="rounded-md bg-gradient-to-tr from-indigo-400 to-indigo-700 px-4 py-2 text-xl font-extrabold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 uppercase">
                         {{ $t('tutorial.continue') }}
                     </NuxtLink>

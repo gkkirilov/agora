@@ -6,12 +6,15 @@
                 <p class="text-gray-600 max-w-xs mx-auto text-xl my-6">{{ $t('biscania.description') }}</p>
 
                 <!-- <img src="/Survey.png" > -->
+                <!-- https://www.youtube.com/embed/?playsinline=1&disablekb=1&enablejsapi=1&iv_load_policy=3&cc_load_policy=0&controls=0&rel=0&autoplay=1&mute=1&origin=https%3A%2F%2Fytch.xyz&widgetid=1 -->
                 <iframe width="315" height="560" 
-                class="mx-auto rounded"
-                 src="https://www.youtube.com/embed/MuT00mf3Css?controls=0&rel=0"
-                    title="YouTube video player" frameborder="0"
+                class="mx-auto rounded-md"
+                 src="https://www.youtube.com/embed/MuT00mf3Css?controls=0&rel=0&playsinline=1&modestbranding=1&iv_load_policy=3&cc_load_policy=0"
+                    title="YouTube video player"
+                    frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen></iframe>
+                    allowfullscreen
+                    ></iframe>
                 <div class="mt-10 mb-8 flex items-center justify-center gap-x-6">
                     <NuxtLink to="/goal"
                         class="rounded-md uppercase bg-gradient-to-tr from-indigo-500 to-indigo-800 px-6 py-2 text-2xl font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
