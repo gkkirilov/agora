@@ -2,13 +2,15 @@
     <div class="relative isolate px-6 pt-5 lg:pt-14 lg:px-8">
         <div class="mx-auto max-w-2xl">
             <div class="text-center">
-                <h1 v-if="!completed" class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">{{ $t('survey.title') }}</h1>
-                <h1 v-else class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">{{ $t('survey.title2') }}</h1>
+                <h1 v-if="!completed" class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">{{
+                    $t('survey.title') }}</h1>
+                <h1 v-else class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">{{ $t('survey.title2') }}
+                </h1>
                 <p class="text-gray-600 max-w-xs mx-auto text-xl mt-2">{{ $t('survey.description') }}</p>
 
                 <div v-if="!completed" class="flex flex-initial justify-center mt-6 gap-x-3">
                     <div v-for="n in questions.length" class="bg-[#E3D4ED] px-6 py-1 rounded"
-                        :class="{ 'bg-[#5744A8]': currentQuestion + 1 > n - 1 }">
+                        :class="[currentQuestion + 1 >= n ? 'bg-[#5744A8]' : 'bg-[#E3D4ED]']">
                     </div>
                 </div>
 
@@ -17,7 +19,8 @@
                         <span class="text-2xl">
                             {{ $t('survey.question' + currentQuestion) }}
                         </span>
-                        <div v-for="answer in questions[currentQuestion].answers" :key="currentQuestion + answer" @click="selectAnswer(answer)"
+                        <div v-for="answer in questions[currentQuestion].answers" :key="currentQuestion + answer"
+                            @click="selectAnswer(answer)"
                             class="rounded-md bg-gradient-to-tr from-[#6E74C2] to-[#5744A8] px-6 py-2 text-xl font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 uppercase cursor-pointer">
                             {{ $t('survey.question' + currentQuestion + '' + answer) }}
                         </div>
@@ -53,14 +56,14 @@ async function selectAnswer(answer) {
         completed.value = true
         const { error } = await supabase
             .from('surveys')
-            .insert({ 
-                question0: answers[0] || '',   
-                question1: answers[1] || '',   
-                question2: answers[2] || '',   
-                question3: answers[3] || '',   
-                question4: answers[4] || '',   
-                question5: answers[5] || '',   
-             })
+            .insert({
+                question0: answers[0] || '',
+                question1: answers[1] || '',
+                question2: answers[2] || '',
+                question3: answers[3] || '',
+                question4: answers[4] || '',
+                question5: answers[5] || '',
+            })
         return
     }
 
