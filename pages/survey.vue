@@ -7,8 +7,8 @@
                 <p class="text-gray-600 max-w-xs mx-auto text-xl mt-2">{{ $t('survey.description') }}</p>
 
                 <div v-if="!completed" class="flex flex-initial justify-center mt-6 gap-x-3">
-                    <div v-for="n in questions.length" class="bg-indigo-300 px-6 py-1 rounded"
-                        :class="{ 'bg-indigo-600': currentQuestion + 1 > n - 1 }">
+                    <div v-for="n in questions.length" class="bg-[#E3D4ED] px-6 py-1 rounded"
+                        :class="{ 'bg-[#5744A8]': currentQuestion + 1 > n - 1 }">
                     </div>
                 </div>
 
@@ -18,7 +18,7 @@
                             {{ $t('survey.question' + currentQuestion) }}
                         </span>
                         <div v-for="answer in questions[currentQuestion].answers" :key="currentQuestion + answer" @click="selectAnswer(answer)"
-                            class="rounded-md bg-gradient-to-tr from-indigo-400 to-indigo-700 px-6 py-2 text-xl font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 uppercase cursor-pointer">
+                            class="rounded-md bg-gradient-to-tr from-[#6E74C2] to-[#5744A8] px-6 py-2 text-xl font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 uppercase cursor-pointer">
                             {{ $t('survey.question' + currentQuestion + '' + answer) }}
                         </div>
                     </div>
@@ -29,7 +29,7 @@
                     </div>
                     <div>
                         <NuxtLink to="/compassintro" @click="changeQuestions()"
-                            class="inline-block mb-6  rounded-md bg-gradient-to-tr from-indigo-400 to-indigo-700 px-10 py-2 text-2xl font-extrabold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 uppercase mt-4">
+                            class="inline-block mb-6  rounded-md bg-gradient-to-tr from-[#6E74C2] to-[#5744A8] px-10 py-2 text-2xl font-extrabold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 uppercase mt-4">
                             {{ $t('survey.continue') }}
                         </NuxtLink>
                     </div>

@@ -238,6 +238,18 @@ export default defineI18nConfig(() => ({
         marketCrashLeftOption3justification: "Expanding welfare is what you promised, and people are glad to see consistency in your beliefs.",
         marketCrashLeftOption4title: "Wealth Tax",
         marketCrashLeftOption4justification: "Pledging to tax the rich has cost you sponsors, but at least some lower-class households are voting for you now.",
+
+        FUNDING: "FUNDING",
+        SCANDAL: "SCANDAL",
+        DISASTER: "DISASTER",
+        GOOD_MESSAGE: "GOOD MESSAGE",
+        VIDEO_BAR: "VIDEO BAR",
+        DATA_LEAK: "DATA LEAK",
+        AFRICAN_IMPORTS: "AFRICAN IMPORTS",
+        LGBT_INTERVIEW: "LGBT INTERVIEW",
+        ESPIONAGE: "ESPIONAGE",
+        MARKET_CRASH: "MARKET CRASH",
+
       },
       info: {
         politicalcore: 'Political Core',
@@ -295,7 +307,6 @@ export default defineI18nConfig(() => ({
         topic26: "Civic Freedoms/Affairs",
         topic27: "Technology and Privacy",
         topic28: "Technology and Privacy",
-
 
         question1title: 'Your friend has lost their job due to their company shutting down and they are about to lose their home to the bank. What should they do?',
         question2title: "You find out that your local community center, which provides meals and support for the homeless, is facing funding cuts and may have to close down. What do you do?",

@@ -12,13 +12,13 @@
                     <img src="/winner.png" class="mx-auto  lg:max-w-96 h-auto mt-10 px-16" />
                     <div class="mx-auto mb-4 mt-16">
                         <NuxtLink to="/survey2"
-                            class="inline-block rounded-md bg-gradient-to-tr from-indigo-400 to-indigo-700 px-3 py-2 text-xl font-extrabold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 uppercase">
+                            class="inline-block rounded-md bg-gradient-to-tr from-[#6E74C2] to-[#5744A8] px-3 py-2 text-xl font-extrabold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 uppercase">
                             {{ $t('finalSurvey.yes') }}
                         </NuxtLink>
                     </div>
                     <div class="mx-auto">
                         <NuxtLink to="/results"
-                            class="cursor-pointer inline-block rounded-md bg-gradient-to-tr from-indigo-200 to-indigo-400 px-3 py-2 text-xl font-extrabold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 uppercase">
+                            class="cursor-pointer inline-block rounded-md bg-gradient-to-tr from-[#E3D4ED] to-[#6E74C2] px-3 py-2 text-xl font-extrabold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 uppercase">
                             {{ $t('finalSurvey.no') }}
                         </NuxtLink>
                     </div>

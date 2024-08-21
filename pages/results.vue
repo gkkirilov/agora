@@ -16,13 +16,13 @@
                 </div>
                 <div class="max-w-xs mx-auto mb-4">
                     <NuxtLink to="/joinLeaderboard"
-                        class="inline-block uppercase rounded-md bg-gradient-to-tr from-indigo-400 to-indigo-700 px-5 pt-2 pb-1.5 text-2xl font-bold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                        class="inline-block uppercase rounded-md bg-gradient-to-tr from-[#6E74C2] to-[#5744A8] px-5 pt-2 pb-1.5 text-2xl font-bold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                         {{ $t('game.joinLeaderboard') }}
                     </NuxtLink>
                 </div>
                 <div class="max-w-xs mx-auto mb-10">
                     <NuxtLink to="/"
-                        class="inline-block self-center uppercase rounded-md bg-gradient-to-tr from-indigo-400 to-indigo-700 px-5 pt-2 pb-1.5 text-2xl font-bold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                        class="inline-block self-center uppercase rounded-md bg-gradient-to-tr from-[#6E74C2] to-[#5744A8] px-5 pt-2 pb-1.5 text-2xl font-bold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                         {{ $t('game.playagain') }}
                     </NuxtLink>
                 </div>

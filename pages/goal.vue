@@ -21,10 +21,10 @@ const willWrite = ref(false)
                 <div v-if="!willWrite">
                     <div class="mt-10 mb-4 flex flex-col gap-4 items-center justify-center">
                         <NuxtLink to="/tutorial" v-for="n in 3" :key="'-' + index" @click="selectAnswer"
-                            class="rounded-md bg-gradient-to-tr from-indigo-400 to-indigo-700 px-10 py-2 text-2xl font-extrabold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 uppercase cursor-pointer">
+                            class="rounded-md bg-gradient-to-tr from-[#6E74C2] to-[#5744A8] px-10 py-2 text-2xl font-extrabold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 uppercase cursor-pointer">
                             {{ $t('goal.goal' + n) }}
                         </NuxtLink>
-                        <div class="rounded-md bg-gradient-to-tr from-indigo-400 to-indigo-700 px-10 py-2 text-2xl font-extrabold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 uppercase cursor-pointer"
+                        <div class="rounded-md bg-gradient-to-tr from-[#6E74C2] to-[#5744A8] px-10 py-2 text-2xl font-extrabold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 uppercase cursor-pointer"
                             @click="willWrite = true">
                             {{ $t('goal.write') }}
                         </div>
@@ -46,7 +46,7 @@ const willWrite = ref(false)
                     </div>
                     <div class="mt-4">
                         <NuxtLink to="/tutorial"
-                            class="inline-block rounded-md bg-gradient-to-tr from-indigo-400 to-indigo-700 px-10 py-2 text-2xl font-extrabold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 uppercase mt-4">
+                            class="inline-block rounded-md bg-gradient-to-tr from-[#6E74C2] to-[#5744A8] px-10 py-2 text-2xl font-extrabold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 uppercase mt-4">
                             {{ $t('goal.continue') }}
                         </NuxtLink>
                     </div>

@@ -18,15 +18,15 @@ const showExplanation = ref(false)
 
                 <div v-if="!showExplanation"  class="mx-auto text-start mt-14 text-xl mb-10 text-center justify-center flex flex-col gap-y-5">
                     <button type="button" @click="showExplanation=true"
-                        class="text-center bg-gradient-to-tr from-indigo-400 to-indigo-700 hover:from-indigo-500 hover:to-indigo-800 rounded-md px-10 py-2 text-base font-medum text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                        class="text-center bg-gradient-to-tr from-[#6E74C2] to-[#5744A8] rounded-md px-10 py-2 text-base font-medum text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                         {{ $t('tutorialQuestion.answer1') }}
                     </button>
                     <button type="button" @click="showExplanation=true"
-                        class="text-center bg-gradient-to-tr from-indigo-400 to-indigo-700 hover:from-indigo-500 hover:to-indigo-800 rounded-md px-10 py-2 text-base font-medum text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                        class="text-center bg-gradient-to-tr from-[#6E74C2] to-[#5744A8] rounded-md px-10 py-2 text-base font-medum text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                         {{ $t('tutorialQuestion.answer2') }}
                     </button>
                     <button type="button" @click="showExplanation=true"
-                        class="text-center bg-gradient-to-tr from-indigo-400 to-indigo-700 hover:from-indigo-500 hover:to-indigo-800 rounded-md px-4 py-2 text-base font-medum text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                        class="text-center bg-gradient-to-tr from-[#6E74C2] to-[#5744A8] rounded-md px-4 py-2 text-base font-medum text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                         {{ $t('tutorialQuestion.answer3') }}
                     </button>
                 </div>
@@ -36,7 +36,7 @@ const showExplanation = ref(false)
                 </div>
                 <div v-if="showExplanation" class="mt-10">
                     <NuxtLink to="/game"
-                        class="inline-block mb-6 rounded-md bg-gradient-to-tr from-indigo-400 to-indigo-700 px-6 py-2 text-2xl font-extrabold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 uppercase">
+                        class="inline-block mb-6 rounded-md bg-gradient-to-tr from-[#6E74C2] to-[#5744A8] px-6 py-2 text-2xl font-extrabold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 uppercase">
                         {{ $t('tutorialQuestion.continue') }}
                     </NuxtLink>
                 </div>

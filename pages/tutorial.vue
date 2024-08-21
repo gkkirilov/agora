@@ -27,7 +27,7 @@ const isOpen = ref(false)
 
                                 <div class="mt-4 text-center">
                                     <button type="button" @click="isOpen = false"
-                                        class="rounded-md bg-gradient-to-tr from-indigo-400 to-indigo-700 px-10 py-2 text-xl uppercase font-semibold text-white shadow-sm hover:bg-indigo-500 ">
+                                        class="rounded-md bg-gradient-to-tr from-[#6E74C2] to-[#5744A8] px-10 py-2 text-xl uppercase font-semibold text-white shadow-sm hover:bg-indigo-500 ">
                                         {{ $t('tutorial.popupButton') }}
                                     </button>
                                 </div>
@@ -57,7 +57,7 @@ const isOpen = ref(false)
 
                 <div class="mb-10">
                     <NuxtLink to="/game"
-                        class="rounded-md bg-gradient-to-tr from-indigo-400 to-indigo-700 px-4 py-2 text-xl font-extrabold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 uppercase">
+                        class="rounded-md bg-gradient-to-tr from-[#6E74C2] to-[#5744A8] px-4 py-2 text-xl font-extrabold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 uppercase">
                         {{ $t('tutorial.continue') }}
                     </NuxtLink>
                 </div>

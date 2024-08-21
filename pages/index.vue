@@ -12,7 +12,7 @@
 
                 <img src="/Voting.png" class="mx-auto  lg:max-w-96 h-auto mt-10 p-6">
                 <div class="mt-10 mb-4 flex items-center justify-center gap-x-6">
-                    <NuxtLink to="/intro" class="rounded-md bg-gradient-to-tr from-indigo-500 to-indigo-800 px-8 py-2 text-4xl font-extrabold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                    <NuxtLink to="/intro" class="rounded-md bg-gradient-to-tr from-[#6E74C2] to-[#5744A8] px-8 py-2 text-4xl font-extrabold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                         {{ $t('index.playButton') }}
                     </NuxtLink>
                 </div>

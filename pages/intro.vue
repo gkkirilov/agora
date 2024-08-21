@@ -7,12 +7,12 @@
 
                 <img src="/Survey.png" class="mx-auto max-w-80 lg:max-w-96 h-auto mt-10 p-6">
                 <div class="mt-10 mb-5 flex items-center justify-center gap-x-6">
-                    <NuxtLink to="/survey" class="rounded-md uppercase bg-gradient-to-tr from-indigo-500 to-indigo-800 px-6 py-2 text-2xl font-bold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                    <NuxtLink to="/survey" class="rounded-md uppercase bg-gradient-to-tr from-[#6E74C2] to-[#5744A8] px-6 py-2 text-2xl font-bold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                         {{ $t('intro.yes') }}
                     </NuxtLink>
                 </div>
                 <div>
-                    <NuxtLink to="/compassintro" @click="changeParty()" class="inline-block mb-4 rounded-md uppercase bg-gradient-to-tr from-indigo-200 to-indigo-400 px-6 py-2 text-2xl font-bold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                    <NuxtLink to="/compassintro" @click="changeParty()" class="inline-block mb-4 rounded-md uppercase bg-gradient-to-tr from-[#E3D4ED] to-[#6E74C2] px-6 py-2 text-2xl font-bold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                         {{ $t('intro.no') }}
                     </NuxtLink>
                 </div>

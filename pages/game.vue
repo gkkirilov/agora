@@ -82,7 +82,7 @@
 
                                             <div class="mt-4 flex justify-center">
                                                 <button type="button"
-                                                    class="rounded-md bg-gradient-to-tr from-indigo-400 to-indigo-700 px-10 py-2 text-xl uppercase font-semibold text-white shadow-sm hover:bg-indigo-500 "
+                                                    class="rounded-md bg-gradient-to-tr from-[#6E74C2] to-[#5744A8] px-10 py-2 text-xl uppercase font-semibold text-white shadow-sm hover:bg-indigo-500 "
                                                     @click="showNextInfo">
                                                     Got it
                                                 </button>
@@ -110,7 +110,7 @@
 
                         <div class="my-10">
                             <div @click="electionsVoting = true"
-                                class="inline-block rounded-md bg-gradient-to-tr from-indigo-400 to-indigo-700 px-6 py-1.5 text-2xl font-extrabold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 uppercase">
+                                class="inline-block rounded-md bg-gradient-to-tr from-[#6E74C2] to-[#5744A8] px-6 py-1.5 text-2xl font-extrabold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 uppercase">
                                 {{ $t('elections.continue') }}
                             </div>
                         </div>
@@ -169,11 +169,11 @@
 
                         <div class="my-10">
                             <div v-if="currentQuestionIndex != 9" @click="elections = false, electionsVoting = false"
-                                class="inline-block rounded-md bg-gradient-to-tr from-indigo-400 to-indigo-700 px-4 py-1.5 text-2xl font-extrabold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 uppercase">
+                                class="inline-block rounded-md bg-gradient-to-tr from-[#6E74C2] to-[#5744A8] px-4 py-1.5 text-2xl font-extrabold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 uppercase">
                                 {{ $t('elections.continue2') }}
                             </div>
                             <NuxtLink to="/complete" v-else  @click="elections = false, electionsVoting = false"
-                                class="inline-block rounded-md bg-gradient-to-tr from-indigo-400 to-indigo-700 px-4 py-1.5 text-2xl font-extrabold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 uppercase">
+                                class="inline-block rounded-md bg-gradient-to-tr from-[#6E74C2] to-[#5744A8] px-4 py-1.5 text-2xl font-extrabold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 uppercase">
                                 {{ $t('elections.continue2') }}
                             </NuxtLink>
                         </div>
@@ -181,13 +181,12 @@
                 </div>
                 <div v-else-if="!completed">
                     <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl my-5">
-                        {{ allQuestions[currentQuestionIndex].key.replaceAll('_', ' ') }}
-                        <!-- {{ $t('game.title') }} -->
+                        {{ $t('game.' + allQuestions[currentQuestionIndex].topic) }}
                     </h1>
                     <img v-show="!hideAnswers" src="/thinking.png" class="mx-auto max-w-xs h-auto mt-10 p-6">
                     <transition v-if="!justification" name="slide-fade" mode="out-in">
 
-                        <p class="text-gray-600 mx-auto mt-10 text-lg text-left bg-gray-100 max-w-xs px-3 py-4 rounded-md">
+                        <p class="text-gray-600 mx-auto mt-10 text-lg text-left bg-gray-100 max-w-xs px-3 py-4 rounded-md leading-5">
                             {{ $t('game.' + allQuestions[currentQuestionIndex].title) }}
                         </p>
                     </transition>
@@ -199,7 +198,7 @@
                             :key="currentQuestionIndex + '-' + index" @click="selectAnswer(answer)"
                             :disabled="money + answer.followup.money < 0"
                             :class="money + answer.followup.money < 0 ? 'cursor-not-allowed bg-gray-500' :
-                                'bg-gradient-to-tr from-indigo-400 to-indigo-700 hover:from-indigo-500 hover:to-indigo-800'"
+                                'bg-gradient-to-tr from-[#6E74C2] to-[#5744A8] hover:from-[#6E74C2] hover:from-[#5744A8]'"
                             class="w-full rounded-md px-6 py-3 text-sm font-medium text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                             {{ $t('game.' + answer.option) }}
                             <small class="" v-show="money + answer.followup.money < 0">
@@ -208,12 +207,12 @@
                         </button>
                     </transition-group>
                     <div v-show="justification" class="text-gray-600 mx-auto mt-10 text-xl max-w-xs">
-                        <img src="/decision.png" class="mx-auto h-auto mt-10 p-6">
+                        <img :src="allQuestions[currentQuestionIndex].image" class="mx-auto h-auto mt-10 p-6">
 
                         {{ $t('game.' + justification) }}
                         <div>
                             <button @click="changeQuestions()"
-                                class="rounded-md bg-gradient-to-tr mt-6 from-indigo-400 to-indigo-700 px-4 py-2 text-xl font-extrabold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 uppercase">
+                                class="rounded-md bg-gradient-to-tr mt-6 from-[#6E74C2] to-[#5744A8] px-4 py-2 text-xl font-extrabold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 uppercase">
                                 {{ $t('game.continue') }}
                             </button>
                         </div>
@@ -279,8 +278,9 @@ const justification = ref('')
 
 const allQuestions = [
     {
-        "key": "FUNDING",
+        "topic": "FUNDING",
         "title": "fundingTitle",
+        "image": "/game/FUNDING.png",
         "description": "fundingDescription",
         "options": [
             {
@@ -313,7 +313,8 @@ const allQuestions = [
         ]
     },
     {
-        "key": "SCANDAL",
+        "topic": "SCANDAL",
+        "image": "/game/SCANDAL.png",
         "title": "scandalTitle",
         "description": "scandalDescription",
         "options": [
@@ -347,7 +348,8 @@ const allQuestions = [
         ]
     },
     {
-        "key": "DISASTER",
+        "topic": "DISASTER",
+        "image": "/game/DISASTER.png",
         "title": "disasterTitle",
         "description": "disasterDescription",
         "options": [
@@ -381,7 +383,8 @@ const allQuestions = [
         ]
     },
     {
-        "key": "GOOD_MESSAGE",
+        "topic": "GOOD_MESSAGE",
+        "image": "/game/GOOD_MESSAGE.png",
         "title": "goodMessageTitle",
         "description": "goodMessageDescription",
         "options": [
@@ -424,8 +427,9 @@ const allQuestions = [
         ]
     },
     {
-        "key": "VIDEO_BAR",
+        "topic": "VIDEO_BAR",
         "title": "videoBarTitle",
+        "image": "/game/VIDEO_BAR.png",
         "description": "videoBarDescription",
         "options": [
             {
@@ -467,7 +471,8 @@ const allQuestions = [
         ]
     },
     {
-        "key": "DATA_LEAK",
+        "topic": "DATA_LEAK",
+        "image": "/game/DATA_LEAK.png",
         "title": "dataLeakTitle",
         "description": "dataLeakDescription",
         "options": [
@@ -504,7 +509,8 @@ const allQuestions = [
 
 const firstQuestionsLeft = [
     {
-        "key": "AFRICAN_IMPORTS",
+        "topic": "AFRICAN_IMPORTS",
+        "image": "/game/AFRICAN_IMPORTS.png",
         "title": "africanImportsLeftTitle",
         "description": "africanImportsLeftDescription",
         "options": [
@@ -538,7 +544,8 @@ const firstQuestionsLeft = [
         ]
     },
     {
-        "key": "LGBT_INTERVIEW",
+        "topic": "LGBT_INTERVIEW",
+        "image": "/game/LGBT_INTERVIEW.png",
         "title": "lgbtInterviewLeftTitle",
         "description": "lgbtInterviewLeftDescription",
         "options": [
@@ -572,7 +579,8 @@ const firstQuestionsLeft = [
         ]
     },
     {
-        "key": "ESPIONAGE",
+        "topic": "ESPIONAGE",
+        "image": "/game/ESPIONAGE.png",
         "title": "espionageLeftTitle",
         "description": "espionageLeftDescription",
         "options": [
@@ -608,7 +616,8 @@ const firstQuestionsLeft = [
 ]
 const firstQuestionsRight = [
     {
-        "key": "AFRICAN_IMPORTS",
+        "topic": "AFRICAN_IMPORTS",
+        "image": "/game/AFRICAN_IMPORTS.png",
         "title": "africanImportsRightTitle",
         "description": "africanImportsRightDescription",
         "options": [
@@ -642,7 +651,8 @@ const firstQuestionsRight = [
         ]
     },
     {
-        "key": "LGBT_INTERVIEW",
+        "topic": "LGBT_INTERVIEW",
+        "image": "/game/LGBT_INTERVIEW.png",
         "title": "lgbtInterviewRightTitle",
         "description": "lgbtInterviewRightDescription",
         "options": [
@@ -676,7 +686,8 @@ const firstQuestionsRight = [
         ]
     },
     {
-        "key": "ESPIONAGE",
+        "topic": "ESPIONAGE",
+        "image": "/game/ESPIONAGE.png",
         "title": "espionageRightTitle",
         "description": "espionageRightDescription",
         "options": [
@@ -715,7 +726,8 @@ const firstQuestionsRight = [
 
 const secondQuestionsRight = [
     {
-        "key": "MARKET_CRASH_RIGHT",
+        "topic": "MARKET_CRASH",
+        "image": "/game/MARKET_CRASH_.png",
         "title": "marketCrashRightTitle",
         "description": "marketCrashRightDescription",
         "options": [
@@ -761,7 +773,8 @@ const secondQuestionsRight = [
 
 const secondQuestionsLeft = [
     {
-        "key": "MARKET_CRASH_LEFT",
+        "topic": "MARKET_CRASH",
+        "image": "/game/MARKET_CRASH_.png",
         "title": "marketCrashLeftTitle",
         "description": "marketCrashLeftDescription",
         "options": [

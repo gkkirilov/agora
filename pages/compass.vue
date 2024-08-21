@@ -7,8 +7,8 @@
                     <span class="ml-1">{{ currentQuestion + 1 }}/6</span>
                 </h1>
                 <div v-if="!completed" class="flex flex-initial justify-center mt-2 gap-x-3">
-                    <div v-for="n in 6" class="px-6 py-1 rounded bg-indigo-300" :class="{
-                        'bg-indigo-600': currentQuestion + 1 >= n
+                    <div v-for="n in 6" class="px-6 py-1 rounded bg-[#E3D4ED]" :class="{
+                        'bg-[#5744A8]': currentQuestion + 1 >= n
                     }">
                     </div>
                 </div>
@@ -39,14 +39,14 @@
                         class="mt-10 mb-4 flex flex-col gap-4 items-center justify-center">
                         <div v-for="(answer, index) in shuffledAnswers[currentQuestion]"
                             :key="currentQuestion + '-' + index" @click="selectAnswer(answer)"
-                            class="max-w-sm cursor-pointer rounded-md bg-gradient-to-tr from-indigo-400 to-indigo-700 px-4 py-3 text-md font- text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                            class="max-w-sm cursor-pointer rounded-md bg-gradient-to-tr from-[#6E74C2] to-[#5744A8] px-4 py-3 text-md font- text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                             {{ $t('compass.' + answer.answer) }}
                         </div>
                     </transition-group>
                     <div v-if="justification" class="text-gray-600 mx-auto mt-10 text-xl">
                         {{ $t('compass.' + justification) }}
                         <div @click="changeQuestions()"
-                            class="mt-4 mb-10 rounded-md bg-gradient-to-tr from-indigo-400 to-indigo-700 px-10 py-2 text-lg font- text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                            class="mt-4 mb-10 rounded-md bg-gradient-to-tr from-[#6E74C2] to-[#5744A8] px-10 py-2 text-lg font- text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                             {{ $t('compass.continue') }}
                         </div>
                     </div>
@@ -63,7 +63,7 @@
                     </div>
 
                     <NuxtLink to="/biscania" @click="changeQuestions()"
-                        class="inline-block mb-6 mt-4 rounded-md bg-gradient-to-tr from-indigo-400 to-indigo-700 px-5 py-2 text-lg font-bold uppercase text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                        class="inline-block mb-6 mt-4 rounded-md bg-gradient-to-tr from-[#6E74C2] to-[#5744A8] px-5 py-2 text-lg font-bold uppercase text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                         {{ $t('compass.continue') }}
                     </NuxtLink>
                     </div>

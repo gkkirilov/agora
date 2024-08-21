@@ -27,7 +27,7 @@
               <div class="px-1 py-1">
                 <MenuItem v-slot="{ active }" v-for="language in languages">
                   <button :class="[
-                    locale == language.isocode ? 'bg-violet-500 text-white' : 'text-gray-900 hover:bg-violet-100',
+                    locale == language.isocode ? 'bg-[#5744A8] text-white' : 'text-gray-900 hover:bg-violet-100',
                     'group flex w-full items-center rounded-md px-4 py-2 text-sm',
                   ]" @click="changeLocale(language.isocode)">
                     {{ language.name }}
