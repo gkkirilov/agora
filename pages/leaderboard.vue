@@ -11,12 +11,10 @@
                         class="ring-1 ring-gray-900/10 p-2 px-4 rounded-lg mt-4 flex justify-between">
                         <div class="flex gap-x-2">
                             <div class="text-gray-600 text-base pt-0.5">{{ user.rank }}</div>
-                            <div class="text-gray-900 text-xl font-black">{{ user.nickname }}</div>
+                            <div class="text-gray-900 text-xl font-black w-13">{{ user.nickname }}</div>
                         </div>
-                        <div class="text-gray-600 text-xl font-black">
-                            <img v-show="user.political_party" :src="'/party/' + user.political_party + '.svg'" class="inline size-8 mx-auto fill-red-700 w-10 mr-4" alt="">
-                            <!-- <span class="text-gray-600 text-xl font-black">
-                            </span> -->
+                        <img v-show="user.political_party" :src="'/party/' + user.political_party + '.svg'" class="inline size-8 mx-auto fill-red-700 w-10 mr-4" alt="">
+                        <div class="text-gray-600 text-xl font-black w-15">
 
                             {{ user.points }}
                         </div>
