@@ -9,7 +9,7 @@
                 <p class="text-gray-600 max-w-xs mx-auto text-xl mt-2">{{ $t('survey.description') }}</p>
 
                 <div v-if="!completed" class="flex flex-initial justify-center mt-6 gap-x-3">
-                    <div v-for="n in questions.length" class="bg-[#E3D4ED] px-6 py-1 rounded"
+                    <div v-for="n in questions.length" class="px-6 py-1 rounded"
                         :class="[currentQuestion + 1 >= n ? 'bg-[#5744A8]' : 'bg-[#E3D4ED]']">
                     </div>
                 </div>
