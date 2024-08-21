@@ -7,9 +7,10 @@
                     <span class="ml-1">{{ currentQuestion + 1 }}/6</span>
                 </h1>
                 <div v-if="!completed" class="flex flex-initial justify-center mt-2 gap-x-3">
-                    <div v-for="n in 6" class="px-6 py-1 rounded bg-[#E3D4ED]" :class="{
-                        'bg-[#5744A8]': currentQuestion + 1 >= n
-                    }">
+                    <div v-for="n in 6"
+                    :class="[currentQuestion + 1 >= n ? 'bg-[#5744A8]': 'bg-[#E3D4ED]']"
+                     class="px-6 py-1 rounded "
+                    >
                     </div>
                 </div>
                 <!-- Start banner -->
