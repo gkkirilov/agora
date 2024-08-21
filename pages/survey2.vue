@@ -29,7 +29,7 @@
                         <img src="/exitSurvey.png" class="mx-auto  lg:max-w-96 h-auto mt-6 p-6">
                     </div>
                     <div>
-                        <NuxtLink to="/results" @click="changeQuestions()"
+                        <NuxtLink to="/results"
                             class="inline-block mb-6 cursor-pointer rounded-md bg-gradient-to-tr from-[#6E74C2] to-[#5744A8] px-10 py-2 text-2xl font-extrabold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 uppercase mt-4">
                             {{ $t('survey.continue') }}
                         </NuxtLink>
