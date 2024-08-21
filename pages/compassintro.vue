@@ -5,7 +5,7 @@
                 <h1 class="text-5xl font-bold tracking-tight text-gray-900 sm:text-6xl">{{ $t('compassintro.title') }}</h1>
                 <p class="text-gray-600 max-w-xs mx-auto text-xl mt-2">{{ $t('compassintro.description') }}</p>
 
-                <div class="my-16 flex items-center justify-center gap-x-6 text-lg max-w-sm mx-auto bg-gray-100 rounded-lg p-5">
+                <div class="my-16 flex items-center justify-center gap-x-6 text-lg max-w-sm mx-auto bg-gray-100 rounded-lg p-5 text-left">
                     <div v-html="$t('compassintro.text')"></div>
                 </div>
                 <div class="mt-10 mb-8 flex items-center justify-center gap-x-6">

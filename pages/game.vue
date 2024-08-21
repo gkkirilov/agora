@@ -187,20 +187,20 @@
                     <img v-show="!hideAnswers" src="/thinking.png" class="mx-auto max-w-xs h-auto mt-10 p-6">
                     <transition v-if="!justification" name="slide-fade" mode="out-in">
 
-                        <p class="text-gray-600 mx-auto mt-10 text-xl">
+                        <p class="text-gray-600 mx-auto mt-10 text-lg text-left bg-gray-100 max-w-xs px-3 py-4 rounded-md">
                             {{ $t('game.' + allQuestions[currentQuestionIndex].title) }}
                         </p>
                     </transition>
 
                     <transition-group v-if="!hideAnswers" name="list" tag="div"
-                        class="mt-10 mb-4 flex flex-col gap-4 items-center justify-center">
+                        class="mt-10 mb-4 flex flex-col gap-4 items-center justify-center w-full max-w-xs mx-auto">
 
                         <button v-for="(answer, index) in allQuestions[currentQuestionIndex].options"
                             :key="currentQuestionIndex + '-' + index" @click="selectAnswer(answer)"
                             :disabled="money + answer.followup.money < 0"
                             :class="money + answer.followup.money < 0 ? 'cursor-not-allowed bg-gray-500' :
                                 'bg-gradient-to-tr from-indigo-400 to-indigo-700 hover:from-indigo-500 hover:to-indigo-800'"
-                            class="rounded-md px-6 py-2 text-base font-medium text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                            class="w-full rounded-md px-6 py-3 text-sm font-medium text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                             {{ $t('game.' + answer.option) }}
                             <small class="" v-show="money + answer.followup.money < 0">
                                 <br>Not enough money
@@ -504,7 +504,7 @@ const allQuestions = [
 
 const firstQuestionsLeft = [
     {
-        "key": "AFRICAN_IMPORTS_LEFT",
+        "key": "AFRICAN_IMPORTS",
         "title": "africanImportsLeftTitle",
         "description": "africanImportsLeftDescription",
         "options": [
@@ -538,7 +538,7 @@ const firstQuestionsLeft = [
         ]
     },
     {
-        "key": "LGBT_INTERVIEW_LEFT",
+        "key": "LGBT_INTERVIEW",
         "title": "lgbtInterviewLeftTitle",
         "description": "lgbtInterviewLeftDescription",
         "options": [
@@ -572,7 +572,7 @@ const firstQuestionsLeft = [
         ]
     },
     {
-        "key": "ESPIONAGE_LEFT",
+        "key": "ESPIONAGE",
         "title": "espionageLeftTitle",
         "description": "espionageLeftDescription",
         "options": [
@@ -608,7 +608,7 @@ const firstQuestionsLeft = [
 ]
 const firstQuestionsRight = [
     {
-        "key": "AFRICAN_IMPORTS_RIGHT",
+        "key": "AFRICAN_IMPORTS",
         "title": "africanImportsRightTitle",
         "description": "africanImportsRightDescription",
         "options": [
@@ -642,7 +642,7 @@ const firstQuestionsRight = [
         ]
     },
     {
-        "key": "LGBT_INTERVIEW_RIGHT",
+        "key": "LGBT_INTERVIEW",
         "title": "lgbtInterviewRightTitle",
         "description": "lgbtInterviewRightDescription",
         "options": [
@@ -676,7 +676,7 @@ const firstQuestionsRight = [
         ]
     },
     {
-        "key": "ESPIONAGE_RIGHT",
+        "key": "ESPIONAGE",
         "title": "espionageRightTitle",
         "description": "espionageRightDescription",
         "options": [
