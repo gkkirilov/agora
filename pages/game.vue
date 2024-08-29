@@ -1,5 +1,5 @@
 <template>
-    <div class="px-6 pt-5 lg:pt-14 lg:px-8">
+    <div class="px-6 pt-5 lg:pt-10 lg:px-8">
         <div class="mx-auto max-w-2xl">
             <div class="text-center">
                 <div v-if="!completed"
@@ -194,7 +194,7 @@
                     <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl my-5">
                         {{ $t('game.' + allQuestions[currentQuestionIndex].topic) }}
                     </h1>
-                    <img v-show="!hideAnswers" src="/thinking.png" class="mx-auto max-w-xs h-auto mt-10 p-6">
+                    <img v-show="!hideAnswers" src="/thinking.png" class="mx-auto max-w-xs h-auto mt-10 py-0 px-12">
                     <transition v-if="!justification" name="slide-fade" mode="out-in">
 
                         <p class="text-gray-600 mx-auto mt-10 text-lg text-left bg-gray-100 max-w-xs px-3 py-4 rounded-md leading-5">
@@ -218,12 +218,12 @@
                         </button>
                     </transition-group>
                     <div v-show="justification" class="text-gray-600 mx-auto mt-10 text-xl max-w-xs">
-                        <img :src="allQuestions[currentQuestionIndex].image" class="mx-auto h-auto mt-10 p-6">
+                        <img :src="allQuestions[currentQuestionIndex].image" class="mx-auto h-auto mt-10 p-6 px-12">
 
                         {{ $t('game.' + justification) }}
                         <div>
                             <button @click="changeQuestions()"
-                                class="rounded-md bg-gradient-to-tr mt-6 from-[#6E74C2] to-[#5744A8] px-4 py-2 text-xl font-extrabold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 uppercase">
+                                class="rounded-md bg-gradient-to-tr mt-6 mb-10 from-[#6E74C2] to-[#5744A8] px-4 py-2 text-xl font-extrabold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 uppercase">
                                 {{ $t('game.continue') }}
                             </button>
                         </div>
@@ -237,6 +237,56 @@
 <script setup>
 const indexStore = useIndexStore()
 const { politicalParty, money, voters, integrity, points } = storeToRefs(indexStore)
+const totalVoters = 3600000
+
+const partyVoters = {
+    peopleOfBiscania: 35/100 * totalVoters,
+    thePeopleVoice: 24/100 * totalVoters,
+    communistParty: 15/100 * totalVoters,
+    liberationFrontOfBiscania: 8/100 * totalVoters,
+    movementOfProgressiveDemocrats: 6/100 * totalVoters,
+
+    right: {
+        VOTERS_UP_HIGH: 42000,
+        VOTERS_UP_MID: 21000,
+        VOTERS_UP_LOW: 10500,
+        VOTERS_DOWN_HIGH: 21000,
+        VOTERS_DOWN_MID: 10500,
+        VOTERS_DOWN_LOW: 5250,
+    },
+    left: {
+        VOTERS_UP_HIGH: 66000,
+        VOTERS_UP_MID: 33000,
+        VOTERS_UP_LOW: 16500,
+        VOTERS_DOWN_HIGH: 33000,
+        VOTERS_DOWN_MID: 16500,
+        VOTERS_DOWN_LOW: 8250,
+    },
+    'far-left': {
+        VOTERS_UP_HIGH: 36000, 
+        VOTERS_UP_MID: 18000, 
+        VOTERS_UP_LOW: 9000, 
+        VOTERS_DOWN_HIGH: 18000, 
+        VOTERS_DOWN_MID: 9000, 
+        VOTERS_DOWN_LOW: 4500, 
+    },
+    'far-right': {
+        VOTERS_UP_HIGH: 24000,
+        VOTERS_UP_MID: 12000,
+        VOTERS_UP_LOW: 6000,
+        VOTERS_DOWN_HIGH: 12000,
+        VOTERS_DOWN_MID: 6000,
+        VOTERS_DOWN_LOW: 3000,
+    },
+    centrist: {
+        VOTERS_UP_HIGH: 54000,
+        VOTERS_UP_MID: 27000,
+        VOTERS_UP_LOW: 13500,
+        VOTERS_DOWN_HIGH: 27000,
+        VOTERS_DOWN_MID: 13500,
+        VOTERS_DOWN_LOW: 6750,
+    }
+}
 money.value = 50
 voters.value = 15
 integrity.value = 70
@@ -334,7 +384,7 @@ const allQuestions = [
                 "justification": "scandalOption1justification",
                 "followup": {
                     "money": 0,
-                    "voters": -50,
+                    "voters": partyVoters[politicalParty.value].VOTERS_DOWN_MID,
                     "integrity": 10
                 }
             },
@@ -343,7 +393,7 @@ const allQuestions = [
                 "justification": "scandalOption2justification",
                 "followup": {
                     "money": -200,
-                    "voters": 25,
+                    "voters": partyVoters[politicalParty.value].VOTERS_UP_LOW,
                     "integrity": 0
                 }
             },
@@ -352,7 +402,7 @@ const allQuestions = [
                 "justification": "scandalOption3justification",
                 "followup": {
                     "money": 0,
-                    "voters": -10,
+                    "voters": partyVoters[politicalParty.value].VOTERS_DOWN_LOW,
                     "integrity": 0
                 }
             }
@@ -369,7 +419,7 @@ const allQuestions = [
                 "justification": "disasterOption1justification",
                 "followup": {
                     "money": 0,
-                    "voters": 30,
+                    "voters": partyVoters[politicalParty.value].VOTERS_UP_MID,
                     "integrity": 10
                 }
             },
@@ -378,7 +428,7 @@ const allQuestions = [
                 "justification": "disasterOption2justification",
                 "followup": {
                     "money": 0,
-                    "voters": 100,
+                    "voters": partyVoters[politicalParty.value].VOTERS_UP_HIGH,
                     "integrity": -10
                 }
             },
@@ -387,7 +437,7 @@ const allQuestions = [
                 "justification": "disasterOption3justification",
                 "followup": {
                     "money": -500,
-                    "voters": 50,
+                    "voters": partyVoters[politicalParty.value].VOTERS_UP_HIGH,
                     "integrity": 10
                 }
             }
@@ -404,7 +454,7 @@ const allQuestions = [
                 "justification": "goodMessageOption1justification",
                 "followup": {
                     "money": -200,
-                    "voters": 50,
+                    "voters": partyVoters[politicalParty.value].VOTERS_UP_HIGH,
                     "integrity": -10
                 }
             },
@@ -413,7 +463,7 @@ const allQuestions = [
                 "justification": "goodMessageOption2justification",
                 "followup": {
                     "money": -400,
-                    "voters": 50,
+                    "voters": partyVoters[politicalParty.value].VOTERS_UP_MID,
                     "integrity": 20
                 }
             },
@@ -422,19 +472,10 @@ const allQuestions = [
                 "justification": "goodMessageOption3justification",
                 "followup": {
                     "money": 0,
-                    "voters": -20,
+                    "voters": partyVoters[politicalParty.value].VOTERS_UP_LOW,
                     "integrity": -10
                 }
             },
-            {
-                "option": "goodMessageOption4title",
-                "justification": "goodMessageOption4justification",
-                "followup": {
-                    "money": 0,
-                    "voters": 20,
-                    "integrity": 5
-                }
-            }
         ]
     },
     {
@@ -448,7 +489,7 @@ const allQuestions = [
                 "justification": "videoBarOption1justification",
                 "followup": {
                     "money": -300,
-                    "voters": -20,
+                    "voters": partyVoters[politicalParty.value].VOTERS_UP_HIGH,
                     "integrity": 20
                 }
             },
@@ -457,7 +498,7 @@ const allQuestions = [
                 "justification": "videoBarOption2justification",
                 "followup": {
                     "money": 0,
-                    "voters": 30,
+                    "voters": partyVoters[politicalParty.value].VOTERS_UP_MID,
                     "integrity": 5
                 }
             },
@@ -466,19 +507,10 @@ const allQuestions = [
                 "justification": "videoBarOption3justification",
                 "followup": {
                     "money": 200,
-                    "voters": 20,
+                    "voters": partyVoters[politicalParty.value].VOTERS_UP_MID,
                     "integrity": 0
                 }
             },
-            {
-                "option": "videoBarOption4title",
-                "justification": "videoBarOption4justification",
-                "followup": {
-                    "money": 500,
-                    "voters": 50,
-                    "integrity": -10
-                }
-            }
         ]
     },
     {
@@ -492,7 +524,7 @@ const allQuestions = [
                 "justification": "dataLeakOption1justification",
                 "followup": {
                     "money": 0,
-                    "voters": -50,
+                    "voters": partyVoters[politicalParty.value].VOTERS_DOWN_HIGH,
                     "integrity": 10
                 }
             },
@@ -501,7 +533,7 @@ const allQuestions = [
                 "justification": "dataLeakOption2justification",
                 "followup": {
                     "money": 0,
-                    "voters": 50,
+                    "voters": partyVoters[politicalParty.value].VOTERS_UP_LOW,
                     "integrity": -5
                 }
             },
@@ -510,7 +542,7 @@ const allQuestions = [
                 "justification": "dataLeakOption3justification",
                 "followup": {
                     "money": 0,
-                    "voters": 100,
+                    "voters": partyVoters[politicalParty.value].VOTERS_UP_HIGH,
                     "integrity": -10
                 }
             }
@@ -520,7 +552,7 @@ const allQuestions = [
 
 const firstQuestionsLeft = [
     {
-        "topic": "AFRICAN_IMPORTS",
+        "topic": "AFRICAN_IMPORTS_LEFT",
         "image": "/game/AFRICAN_IMPORTS.png",
         "title": "africanImportsLeftTitle",
         "description": "africanImportsLeftDescription",
@@ -530,7 +562,7 @@ const firstQuestionsLeft = [
                 "justification": "africanImportsLeftOption1justification",
                 "followup": {
                     "money": -200,
-                    "voters": -20,
+                    "voters": partyVoters[politicalParty.value].VOTERS_DOWN_MID,
                     "integrity": 0
                 }
             },
@@ -539,7 +571,7 @@ const firstQuestionsLeft = [
                 "justification": "africanImportsLeftOption2justification",
                 "followup": {
                     "money": 0,
-                    "voters": 50,
+                    "voters": partyVoters[politicalParty.value].VOTERS_UP_MID,
                     "integrity": 0
                 }
             },
@@ -548,14 +580,14 @@ const firstQuestionsLeft = [
                 "justification": "africanImportsLeftOption3justification",
                 "followup": {
                     "money": 0,
-                    "voters": 10,
+                    "voters": partyVoters[politicalParty.value].VOTERS_UP_LOW,
                     "integrity": 5
                 }
             }
         ]
     },
     {
-        "topic": "LGBT_INTERVIEW",
+        "topic": "LGBT_INTERVIEW_LEFT",
         "image": "/game/LGBT_INTERVIEW.png",
         "title": "lgbtInterviewLeftTitle",
         "description": "lgbtInterviewLeftDescription",
@@ -565,7 +597,7 @@ const firstQuestionsLeft = [
                 "justification": "lgbtInterviewLeftOption1justification",
                 "followup": {
                     "money": 100,
-                    "voters": 40,
+                    "voters": partyVoters[politicalParty.value].VOTERS_UP_MID,
                     "integrity": 0
                 }
             },
@@ -574,7 +606,7 @@ const firstQuestionsLeft = [
                 "justification": "lgbtInterviewLeftOption2justification",
                 "followup": {
                     "money": 0,
-                    "voters": -10,
+                    "voters": partyVoters[politicalParty.value].VOTERS_DOWN_LOW,
                     "integrity": 0
                 }
             },
@@ -583,14 +615,14 @@ const firstQuestionsLeft = [
                 "justification": "lgbtInterviewLeftOption3justification",
                 "followup": {
                     "money": -100,
-                    "voters": -30,
+                    "voters": partyVoters[politicalParty.value].VOTERS_DOWN_MID,
                     "integrity": 0
                 }
             }
         ]
     },
     {
-        "topic": "ESPIONAGE",
+        "topic": "ESPIONAGE_LEFT",
         "image": "/game/ESPIONAGE.png",
         "title": "espionageLeftTitle",
         "description": "espionageLeftDescription",
@@ -618,7 +650,7 @@ const firstQuestionsLeft = [
                 "justification": "espionageLeftOption3justification",
                 "followup": {
                     "money": 0,
-                    "voters": 50,
+                    "voters": partyVoters[politicalParty.value].VOTERS_UP_HIGH,
                     "integrity": 10
                 }
             }
@@ -627,7 +659,7 @@ const firstQuestionsLeft = [
 ]
 const firstQuestionsRight = [
     {
-        "topic": "AFRICAN_IMPORTS",
+        "topic": "AFRICAN_IMPORTS_RIGHT",
         "image": "/game/AFRICAN_IMPORTS.png",
         "title": "africanImportsRightTitle",
         "description": "africanImportsRightDescription",
@@ -637,7 +669,7 @@ const firstQuestionsRight = [
                 "justification": "africanImportsRightOption1justification",
                 "followup": {
                     "money": -200,
-                    "voters": 50,
+                    "voters": partyVoters[politicalParty.value].VOTERS_UP_MID,
                     "integrity": 0
                 }
             },
@@ -646,7 +678,7 @@ const firstQuestionsRight = [
                 "justification": "africanImportsRightOption2justification",
                 "followup": {
                     "money": 0,
-                    "voters": -20,
+                    "voters": partyVoters[politicalParty.value].VOTERS_DOWN_MID,
                     "integrity": 0
                 }
             },
@@ -655,14 +687,14 @@ const firstQuestionsRight = [
                 "justification": "africanImportsRightOption3justification",
                 "followup": {
                     "money": 0,
-                    "voters": 10,
+                    "voters": partyVoters[politicalParty.value].VOTERS_UP_LOW,
                     "integrity": 5
                 }
             }
         ]
     },
     {
-        "topic": "LGBT_INTERVIEW",
+        "topic": "LGBT_INTERVIEW_RIGHT",
         "image": "/game/LGBT_INTERVIEW.png",
         "title": "lgbtInterviewRightTitle",
         "description": "lgbtInterviewRightDescription",
@@ -672,7 +704,7 @@ const firstQuestionsRight = [
                 "justification": "lgbtInterviewRightOption1justification",
                 "followup": {
                     "money": 100,
-                    "voters": -20,
+                    "voters": partyVoters[politicalParty.value].VOTERS_DOWN_MID,
                     "integrity": 0
                 }
             },
@@ -681,7 +713,7 @@ const firstQuestionsRight = [
                 "justification": "lgbtInterviewRightOption2justification",
                 "followup": {
                     "money": 0,
-                    "voters": -10,
+                    "voters": partyVoters[politicalParty.value].VOTERS_DOWN_LOW,
                     "integrity": 0
                 }
             },
@@ -690,14 +722,14 @@ const firstQuestionsRight = [
                 "justification": "lgbtInterviewRightOption3justification",
                 "followup": {
                     "money": -100,
-                    "voters": 50,
+                    "voters": partyVoters[politicalParty.value].VOTERS_UP_HIGH,
                     "integrity": 0
                 }
             }
         ]
     },
     {
-        "topic": "ESPIONAGE",
+        "topic": "ESPIONAGE_RIGHT",
         "image": "/game/ESPIONAGE.png",
         "title": "espionageRightTitle",
         "description": "espionageRightDescription",
@@ -707,7 +739,7 @@ const firstQuestionsRight = [
                 "justification": "espionageRightOption1justification",
                 "followup": {
                     "money": 0,
-                    "voters": -30,
+                    "voters": partyVoters[politicalParty.value].VOTERS_DOWN_HIGH,
                     "integrity": -10
                 }
             },
@@ -737,7 +769,7 @@ const firstQuestionsRight = [
 
 const secondQuestionsRight = [
     {
-        "topic": "MARKET_CRASH",
+        "topic": "MARKET_CRASH_RIGHT",
         "image": "/game/MARKET_CRASH_.png",
         "title": "marketCrashRightTitle",
         "description": "marketCrashRightDescription",
@@ -756,7 +788,7 @@ const secondQuestionsRight = [
                 "justification": "marketCrashRightOption2justification",
                 "followup": {
                     "money": 200,
-                    "voters": 40,
+                    "voters": partyVoters[politicalParty.value].VOTERS_UP_LOW,
                     "integrity": 0
                 }
             },
@@ -765,26 +797,17 @@ const secondQuestionsRight = [
                 "justification": "marketCrashRightOption3justification",
                 "followup": {
                     "money": -300,
-                    "voters": 20,
+                    "voters": partyVoters[politicalParty.value].VOTERS_UP_MID,
                     "integrity": -10
                 }
             },
-            {
-                "option": "marketCrashRightOption4title",
-                "justification": "marketCrashRightOption4justification",
-                "followup": {
-                    "money": -500,
-                    "voters": 40,
-                    "integrity": -20
-                }
-            }
         ]
     }
 ]
 
 const secondQuestionsLeft = [
     {
-        "topic": "MARKET_CRASH",
+        "topic": "MARKET_CRASH_LEFT",
         "image": "/game/MARKET_CRASH_.png",
         "title": "marketCrashLeftTitle",
         "description": "marketCrashLeftDescription",
@@ -803,7 +826,7 @@ const secondQuestionsLeft = [
                 "justification": "marketCrashLeftOption2justification",
                 "followup": {
                     "money": 200,
-                    "voters": 20,
+                    "voters": partyVoters[politicalParty.value].VOTERS_UP_LOW,
                     "integrity": 0
                 }
             },
@@ -812,19 +835,10 @@ const secondQuestionsLeft = [
                 "justification": "marketCrashLeftOption3justification",
                 "followup": {
                     "money": -300,
-                    "voters": 30,
+                    "voters": partyVoters[politicalParty.value].VOTERS_UP_MID,
                     "integrity": 10
                 }
             },
-            {
-                "option": "marketCrashLeftOption4title",
-                "justification": "marketCrashLeftOption4justification",
-                "followup": {
-                    "money": -500,
-                    "voters": 50,
-                    "integrity": 20
-                }
-            }
         ]
     }
 ]
@@ -849,7 +863,7 @@ function changeQuestions() {
 
     justification.value = ''
     hideAnswers.value = false
-    points.value = voters.value * integrity.value
+    points.value = voters.value * integrity.value / totalVoters
     if (points.value >=5000) {
         electionWon.value = true
     }

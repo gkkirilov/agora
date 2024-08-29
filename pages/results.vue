@@ -1,5 +1,5 @@
 <template>
-    <div class="relative isolate px-6 pt-5 lg:pt-14 lg:px-8">
+    <div class="relative isolate px-6 pt-5 lg:pt-10 lg:px-8">
         <div class="mx-auto max-w-2xl text-center">
             <div class="text-4xl">
                 <span class="font-black">

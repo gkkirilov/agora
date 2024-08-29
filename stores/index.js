@@ -1,3 +1,4 @@
+const total = 3600000
 export const useIndexStore = defineStore('indexStore', {
     state: () => ({
         politicalParty: 'centrist',
@@ -7,7 +8,7 @@ export const useIndexStore = defineStore('indexStore', {
         points: 0,
         language: 'en',
         nickname: '',
-        goal: ''
+        goal: '',
     }),
 
     persist: true,
