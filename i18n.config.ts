@@ -251,7 +251,8 @@ export default defineI18nConfig(() => ({
         LGBT_INTERVIEW_RIGHT: "LGBT INTERVIEW",
         ESPIONAGE_LEFT: "ESPIONAGE",
         ESPIONAGE_RIGHT: "ESPIONAGE",
-        MARKET_CRASH: "MARKET CRASH",
+        MARKET_CRASH_LEFT: "MARKET CRASH",
+        MARKET_CRASH_RIGHT: "MARKET CRASH",
 
       },
       info: {

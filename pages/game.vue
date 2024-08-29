@@ -288,7 +288,7 @@ const partyVoters = {
     }
 }
 money.value = 50
-voters.value = 15
+voters.value = 0
 integrity.value = 70
 const infoIndex = ref(0)
 const isOpen = ref(true)
@@ -863,7 +863,7 @@ function changeQuestions() {
 
     justification.value = ''
     hideAnswers.value = false
-    points.value = voters.value * integrity.value / totalVoters
+    points.value = Math.floor(voters.value * integrity.value / totalVoters * 10000)
     if (points.value >=5000) {
         electionWon.value = true
     }
