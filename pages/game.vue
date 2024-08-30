@@ -240,13 +240,10 @@ const { politicalParty, money, voters, integrity, points } = storeToRefs(indexSt
 const totalVoters = 3600000
 
 const partyVoters = {
-    peopleOfBiscania: 35/100 * totalVoters,
-    thePeopleVoice: 24/100 * totalVoters,
-    communistParty: 15/100 * totalVoters,
-    liberationFrontOfBiscania: 8/100 * totalVoters,
-    movementOfProgressiveDemocrats: 6/100 * totalVoters,
+    
 
     right: {
+        neededToWin: 252000,
         VOTERS_UP_HIGH: 42000,
         VOTERS_UP_MID: 21000,
         VOTERS_UP_LOW: 10500,
@@ -255,6 +252,7 @@ const partyVoters = {
         VOTERS_DOWN_LOW: 5250,
     },
     left: {
+        neededToWin: 396000,
         VOTERS_UP_HIGH: 66000,
         VOTERS_UP_MID: 33000,
         VOTERS_UP_LOW: 16500,
@@ -263,6 +261,7 @@ const partyVoters = {
         VOTERS_DOWN_LOW: 8250,
     },
     'far-left': {
+        neededToWin: 216000,
         VOTERS_UP_HIGH: 36000, 
         VOTERS_UP_MID: 18000, 
         VOTERS_UP_LOW: 9000, 
@@ -271,6 +270,7 @@ const partyVoters = {
         VOTERS_DOWN_LOW: 4500, 
     },
     'far-right': {
+        neededToWin: 144000,
         VOTERS_UP_HIGH: 24000,
         VOTERS_UP_MID: 12000,
         VOTERS_UP_LOW: 6000,
@@ -279,6 +279,7 @@ const partyVoters = {
         VOTERS_DOWN_LOW: 3000,
     },
     centrist: {
+        neededToWin: 324000,
         VOTERS_UP_HIGH: 54000,
         VOTERS_UP_MID: 27000,
         VOTERS_UP_LOW: 13500,
@@ -863,7 +864,7 @@ function changeQuestions() {
 
     justification.value = ''
     hideAnswers.value = false
-    points.value = Math.floor(voters.value * integrity.value / totalVoters * 10000)
+    points.value = Math.floor(voters.value * integrity.value / partyVoters[politicalParty.value].neededToWin * 1000)
     if (points.value >=5000) {
         electionWon.value = true
     }
