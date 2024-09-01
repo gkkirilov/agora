@@ -4,30 +4,25 @@
             <div class="text-center">
                 <div v-if="!completed"
                     class="flex max-w-xs mx-auto justify-between gap-x-2 items-center text-lg font-light bg-gray-100 rounded-md min-w-xs">
-                    <div class="flex items-center font-medium p-2" :class="{ ' bg-white rounded z-50': infoIndex === 0 }">
-                        <svg width="40" height="40" viewBox="0 0 47 47" class="size-9 fill-indigo-900 mb-1" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M24.4774 4.89584C20.439 4.89584 17.1337 8.20115 17.1337 12.2396C17.1337 16.278 20.439 19.5833 24.4774 19.5833C28.5159 19.5833 31.8212 16.278 31.8212 12.2396C31.8212 8.20115 28.5159 4.89584 24.4774 4.89584ZM23.4256 21.5417C21.0903 21.5417 18.8955 22.4506 17.2446 24.1005C15.5937 25.7504 14.6838 27.9462 14.6838 30.2815V33.2917H23.0068V31.1268C22.1431 30.7488 21.538 29.8881 21.538 28.8854C21.538 27.5342 22.6347 26.4375 23.9859 26.4375C25.3372 26.4375 26.4338 27.5342 26.4338 28.8854C26.4338 29.8881 25.8287 30.7479 24.9651 31.1268V33.2917H33.288V30.2815C33.288 27.9462 32.3791 25.7514 30.7292 24.1005C29.0773 22.4506 26.8815 21.5417 24.5482 21.5417H23.4256ZM11.2568 35.25C11.0621 35.2473 10.8689 35.2832 10.6883 35.3558C10.5077 35.4284 10.3433 35.5361 10.2047 35.6728C10.0661 35.8094 9.95602 35.9723 9.8809 36.1518C9.80578 36.3314 9.76709 36.5241 9.76709 36.7188C9.76709 36.9134 9.80578 37.1061 9.8809 37.2857C9.95602 37.4652 10.0661 37.6281 10.2047 37.7647C10.3433 37.9014 10.5077 38.0092 10.6883 38.0817C10.8689 38.1543 11.0621 38.1903 11.2568 38.1875H11.7463V43.5729C11.7436 43.7873 11.7878 43.9997 11.8759 44.1951C11.9639 44.3906 12.0937 44.5644 12.2561 44.7044C12.4185 44.8443 12.6095 44.9471 12.8158 45.0053C13.0221 45.0636 13.2387 45.076 13.4503 45.0417H34.5158C34.7278 45.0769 34.945 45.0652 35.152 45.0074C35.3591 44.9495 35.5509 44.847 35.7139 44.7069C35.877 44.5668 36.0073 44.3927 36.0957 44.1967C36.1841 44.0008 36.2284 43.7879 36.2255 43.5729V38.1875H36.7151C36.9097 38.1903 37.103 38.1543 37.2836 38.0817C37.4642 38.0092 37.6286 37.9014 37.7672 37.7647C37.9058 37.6281 38.0158 37.4652 38.0909 37.2857C38.1661 37.1061 38.2048 36.9134 38.2048 36.7188C38.2048 36.5241 38.1661 36.3314 38.0909 36.1518C38.0158 35.9723 37.9058 35.8094 37.7672 35.6728C37.6286 35.5361 37.4642 35.4284 37.2836 35.3558C37.103 35.2832 36.9097 35.2473 36.7151 35.25H34.7568H13.2151H11.2568Z" />
-                        </svg>
-
+                    <div class="flex items-center font-medium p-2"
+                        :class="{ ' bg-white rounded z-50': infoIndex === 0 }">
+                        <img src="/icons/partyIcon.svg" class="size-9 mb-1" />
                         {{ $t('compass.' + politicalParty) }}
                     </div>
                     <div class="flex flex-row gap-x-2">
-                        
-                        <div class="flex items-center flex-col text-sm font-medium p-2 gap-x-1" :class="{ ' bg-white rounded z-50': infoIndex === 1 }"
-                            v-show="infoIndex >= 1">
-                            <svg width="30" height="30" viewBox="0 0 30 30"
-                            class="size-7  fill-indigo-900"
-                            :class="{ '!fill-green-600': moneyUp, '!fill-red-600': moneyDown }" fill="none"
+
+                        <div class="flex items-center flex-col text-sm font-medium p-2 gap-x-1"
+                            :class="{ ' bg-white rounded z-50': infoIndex === 1 }" v-show="infoIndex >= 1">
+                            <svg width="30" height="30" viewBox="0 0 30 30" class="size-7  fill-indigo-900"
+                                :class="{ '!fill-green-600': moneyUp, '!fill-red-600': moneyDown }" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
                                     d="M3.75 4.95001C3.06 4.95001 2.5 5.51001 2.5 6.20001V18.7C2.5 19.39 3.06 19.95 3.75 19.95H26.25C26.94 19.95 27.5 19.39 27.5 18.7V6.20001C27.5 5.51001 26.94 4.95001 26.25 4.95001H3.75ZM6.14014 7.45001H23.8599C23.9531 7.71289 24.1039 7.95166 24.3011 8.1489C24.4984 8.34613 24.7371 8.49688 25 8.59015V16.3099C24.7371 16.4031 24.4984 16.5539 24.3011 16.7511C24.1039 16.9484 23.9531 17.1871 23.8599 17.45H6.14014C6.04687 17.1871 5.89612 16.9484 5.69888 16.7511C5.50164 16.5539 5.26288 16.4031 5 16.3099V8.59015C5.26288 8.49688 5.50164 8.34613 5.69888 8.1489C5.89612 7.95166 6.04687 7.71289 6.14014 7.45001ZM15 8.70001C14.0054 8.70001 13.0516 9.0951 12.3483 9.79836C11.6451 10.5016 11.25 11.4555 11.25 12.45C11.25 13.4446 11.6451 14.3984 12.3483 15.1017C13.0516 15.8049 14.0054 16.2 15 16.2C15.9946 16.2 16.9484 15.8049 17.6516 15.1017C18.3549 14.3984 18.75 13.4446 18.75 12.45C18.75 11.4555 18.3549 10.5016 17.6516 9.79836C16.9484 9.0951 15.9946 8.70001 15 8.70001ZM8.75 11.2C8.06 11.2 7.5 11.7588 7.5 12.45C7.5 13.1413 8.06 13.7 8.75 13.7C9.44 13.7 10 13.1413 10 12.45C10 11.7588 9.44 11.2 8.75 11.2ZM21.25 11.2C20.56 11.2 20 11.7588 20 12.45C20 13.1413 20.56 13.7 21.25 13.7C21.94 13.7 22.5 13.1413 22.5 12.45C22.5 11.7588 21.94 11.2 21.25 11.2ZM4.98779 22.45L24.0356 27.4109C24.7044 27.5847 25.3853 27.1825 25.5591 26.515L26.6187 22.45H24.0356L23.7402 23.5755C23.179 23.6243 22.6722 23.9235 22.356 24.3885L14.9097 22.45H4.98779Z" />
                             </svg>
                             {{ money }}
                         </div>
-                        <div class="flex items-center flex-col text-sm font-medium p-2 gap-x-1" :class="{ ' bg-white rounded z-50': infoIndex === 2 }"
-                            v-show="infoIndex >= 2">
+                        <div class="flex items-center flex-col text-sm font-medium p-2 gap-x-1"
+                            :class="{ ' bg-white rounded z-50': infoIndex === 2 }" v-show="infoIndex >= 2">
                             <svg width="31" height="30" viewBox="0 0 31 30" class="size-7 fill-indigo-900"
                                 :class="{ '!fill-green-600': votersUp, 'fill-red-600': votersDown }" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -119,7 +114,8 @@
                             <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl px-14 mt-4">{{
                                 $t('elections.congrats') }}
                             </h1>
-                            <p class="text-gray-600 max-w-xs mx-auto px-6 mt-2">{{ $t('elections.congratsDescription') }}
+                            <p class="text-gray-600 max-w-xs mx-auto px-6 mt-2">{{ $t('elections.congratsDescription')
+                                }}
                             </p>
                         </div>
                         <div v-else>
@@ -136,21 +132,25 @@
                                 <div class="text-2xl font-black">33%</div>
                                 <img src="/purple.png" class="h-16 w-16">
                                 <div class="bg-indigo-700 rounded max-h-60 w-16 animate-rise">
-                                    <img v-show="currentQuestionIndex > 8" :src="'/partyWhite/' + politicalParty + '.svg'" class="stroke-white size-9 mt-2 mx-auto text-white fill-white" alt="">
+                                    <img v-show="currentQuestionIndex > 8"
+                                        :src="'/partyWhite/' + politicalParty + '.svg'"
+                                        class="stroke-white size-9 mt-2 mx-auto text-white fill-white" alt="">
                                 </div>
                             </div>
                             <div class="text-yellow-500 gap-y-2 flex flex-col justify-end">
                                 <div class="text-2xl font-black">15%</div>
                                 <img src="/yellow.png" class="h-16 w-16">
                                 <div class="bg-yellow-500 rounded max-h-32 w-16 animate-rise">
-                                    <img v-show="currentQuestionIndex > 8" src="/partyWhite/far-right.svg" class="stroke-white size-9 mt-2 mx-auto text-white fill-white" alt="">
+                                    <img v-show="currentQuestionIndex > 8" src="/partyWhite/far-right.svg"
+                                        class="stroke-white size-9 mt-2 mx-auto text-white fill-white" alt="">
                                 </div>
                             </div>
                             <div class="text-red-600 gap-y-2 flex flex-col justify-end">
                                 <div class="text-2xl font-black">28%</div>
                                 <img src="/red.png" class="h-16 w-16">
                                 <div class="bg-red-600 rounded max-h-48 w-16 animate-rise">
-                                    <img v-show="currentQuestionIndex > 8" src="/partyWhite/far-left.svg" class="stroke-white size-9 mt-2 mx-auto text-white fill-white" alt="">
+                                    <img v-show="currentQuestionIndex > 8" src="/partyWhite/far-left.svg"
+                                        class="stroke-white size-9 mt-2 mx-auto text-white fill-white" alt="">
                                 </div>
                             </div>
                         </div>
@@ -159,21 +159,25 @@
                                 <div class="text-2xl font-black">26%</div>
                                 <img src="/purple.png" class="h-16 w-16">
                                 <div class="bg-indigo-700 rounded max-h-48 w-16 animate-rise">
-                                    <img v-show="currentQuestionIndex > 8" :src="'/partyWhite/' + politicalParty + '.svg'" class="stroke-white size-9 mt-2 mx-auto text-white fill-white" alt="">
+                                    <img v-show="currentQuestionIndex > 8"
+                                        :src="'/partyWhite/' + politicalParty + '.svg'"
+                                        class="stroke-white size-9 mt-2 mx-auto text-white fill-white" alt="">
                                 </div>
                             </div>
                             <div class="text-yellow-500 gap-y-2 flex flex-col justify-end">
                                 <div class="text-2xl font-black">17%</div>
                                 <img src="/yellow.png" class="h-16 w-16">
                                 <div class="bg-yellow-500 rounded max-h-32 w-16 animate-rise">
-                                    <img v-show="currentQuestionIndex > 8" src="/partyWhite/far-right.svg" class="stroke-white size-9 mt-2 mx-auto text-white fill-white" alt="">
+                                    <img v-show="currentQuestionIndex > 8" src="/partyWhite/far-right.svg"
+                                        class="stroke-white size-9 mt-2 mx-auto text-white fill-white" alt="">
                                 </div>
                             </div>
                             <div class="text-red-600 gap-y-2 flex flex-col justify-end">
                                 <div class="text-2xl font-black">35%</div>
                                 <img src="/red.png" class="h-16 w-16">
                                 <div class="bg-red-600 rounded max-h-64 w-16 animate-rise">
-                                    <img v-show="currentQuestionIndex > 8" src="/partyWhite/far-left.svg" class="stroke-white size-9 mt-2 mx-auto text-white fill-white" alt="">
+                                    <img v-show="currentQuestionIndex > 8" src="/partyWhite/far-left.svg"
+                                        class="stroke-white size-9 mt-2 mx-auto text-white fill-white" alt="">
                                 </div>
                             </div>
                         </div>
@@ -183,7 +187,7 @@
                                 class="inline-block cursor-pointer rounded-md bg-gradient-to-tr from-[#6E74C2] to-[#5744A8] px-4 py-1.5 text-2xl font-extrabold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 uppercase">
                                 {{ $t('elections.continue2') }}
                             </div>
-                            <NuxtLink to="/complete" v-else  @click="elections = false, electionsVoting = false"
+                            <NuxtLink to="/complete" v-else @click="elections = false, electionsVoting = false"
                                 class="inline-block cursor-pointer rounded-md bg-gradient-to-tr from-[#6E74C2] to-[#5744A8] px-4 py-1.5 text-2xl font-extrabold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 uppercase">
                                 {{ $t('elections.continue2') }}
                             </NuxtLink>
@@ -197,7 +201,8 @@
                     <img v-show="!hideAnswers" src="/thinking.png" class="mx-auto max-w-xs h-auto mt-10 py-0 px-12">
                     <transition v-if="!justification" name="slide-fade" mode="out-in">
 
-                        <p class="text-gray-600 mx-auto mt-10 text-lg text-left bg-gray-100 max-w-xs px-3 py-4 rounded-md leading-5">
+                        <p
+                            class="text-gray-600 mx-auto mt-10 text-lg text-left bg-gray-100 max-w-xs px-3 py-4 rounded-md leading-5">
                             {{ $t('game.' + allQuestions[currentQuestionIndex].title) }}
                         </p>
                     </transition>
@@ -207,8 +212,7 @@
 
                         <button v-for="(answer, index) in allQuestions[currentQuestionIndex].options"
                             :key="currentQuestionIndex + '-' + index" @click="selectAnswer(answer)"
-                            :disabled="money + answer.followup.money < 0"
-                            :class="money + answer.followup.money < 0 ? 'cursor-not-allowed bg-gray-500' :
+                            :disabled="money + answer.followup.money < 0" :class="money + answer.followup.money < 0 ? 'cursor-not-allowed bg-gray-500' :
                                 'bg-gradient-to-tr from-[#6E74C2] to-[#5744A8]'"
                             class="w-full rounded-md px-6 py-3 text-sm font-medium text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                             {{ $t('game.' + answer.option) }}
@@ -237,11 +241,8 @@
 <script setup>
 const indexStore = useIndexStore()
 const { politicalParty, money, voters, integrity, points } = storeToRefs(indexStore)
-const totalVoters = 3600000
 
 const partyVoters = {
-    
-
     right: {
         neededToWin: 252000,
         VOTERS_UP_HIGH: 42000,
@@ -262,12 +263,12 @@ const partyVoters = {
     },
     'far-left': {
         neededToWin: 216000,
-        VOTERS_UP_HIGH: 36000, 
-        VOTERS_UP_MID: 18000, 
-        VOTERS_UP_LOW: 9000, 
-        VOTERS_DOWN_HIGH: 18000, 
-        VOTERS_DOWN_MID: 9000, 
-        VOTERS_DOWN_LOW: 4500, 
+        VOTERS_UP_HIGH: 36000,
+        VOTERS_UP_MID: 18000,
+        VOTERS_UP_LOW: 9000,
+        VOTERS_DOWN_HIGH: 18000,
+        VOTERS_DOWN_MID: 9000,
+        VOTERS_DOWN_LOW: 4500,
     },
     'far-right': {
         neededToWin: 144000,
@@ -297,7 +298,6 @@ const isOpen = ref(true)
 const elections = ref(false)
 const electionsVoting = ref(false)
 const electionWon = ref(false)
-const finalSurvey = ref(true)
 
 const moneyDown = ref(false)
 const moneyUp = ref(false)
@@ -314,6 +314,7 @@ function showNextInfo() {
 
     infoIndex.value += 1
 }
+
 const info = [
     {
         name: 'politicalcore',
@@ -480,41 +481,6 @@ const allQuestions = [
         ]
     },
     {
-        "topic": "VIDEO_BAR",
-        "title": "videoBarTitle",
-        "image": "/game/VIDEO_BAR.png",
-        "description": "videoBarDescription",
-        "options": [
-            {
-                "option": "videoBarOption1title",
-                "justification": "videoBarOption1justification",
-                "followup": {
-                    "money": -300,
-                    "voters": partyVoters[politicalParty.value].VOTERS_UP_HIGH,
-                    "integrity": 20
-                }
-            },
-            {
-                "option": "videoBarOption2title",
-                "justification": "videoBarOption2justification",
-                "followup": {
-                    "money": 0,
-                    "voters": partyVoters[politicalParty.value].VOTERS_UP_MID,
-                    "integrity": 5
-                }
-            },
-            {
-                "option": "videoBarOption3title",
-                "justification": "videoBarOption3justification",
-                "followup": {
-                    "money": 200,
-                    "voters": partyVoters[politicalParty.value].VOTERS_UP_MID,
-                    "integrity": 0
-                }
-            },
-        ]
-    },
-    {
         "topic": "DATA_LEAK",
         "image": "/game/DATA_LEAK.png",
         "title": "dataLeakTitle",
@@ -551,7 +517,189 @@ const allQuestions = [
     }
 ]
 
-const firstQuestionsLeft = [
+
+const firstHalfQuestions = [
+    {
+        "topic": "FUNDING",
+        "title": "fundingTitle",
+        "image": "/game/FUNDING.png",
+        "description": "fundingDescription",
+        "options": [
+            {
+                "option": "fundingOption1title",
+                "justification": "fundingOption1justification",
+                "followup": {
+                    "money": 1000,
+                    "voters": 0,
+                    "integrity": -20
+                }
+            },
+            {
+                "option": "fundingOption2title",
+                "justification": "fundingOption2justification",
+                "followup": {
+                    "money": 500,
+                    "voters": 0,
+                    "integrity": 0
+                }
+            },
+            {
+                "option": "fundingOption3title",
+                "justification": "fundingOption3justification",
+                "followup": {
+                    "money": 300,
+                    "voters": 0,
+                    "integrity": 5
+                }
+            }
+        ]
+    },
+    {
+        "topic": "SCANDAL",
+        "image": "/game/SCANDAL.png",
+        "title": "scandalTitle",
+        "description": "scandalDescription",
+        "options": [
+            {
+                "option": "scandalOption1title",
+                "justification": "scandalOption1justification",
+                "followup": {
+                    "money": 0,
+                    "voters": partyVoters[politicalParty.value].VOTERS_DOWN_MID,
+                    "integrity": 10
+                }
+            },
+            {
+                "option": "scandalOption2title",
+                "justification": "scandalOption2justification",
+                "followup": {
+                    "money": -200,
+                    "voters": partyVoters[politicalParty.value].VOTERS_UP_LOW,
+                    "integrity": 0
+                }
+            },
+            {
+                "option": "scandalOption3title",
+                "justification": "scandalOption3justification",
+                "followup": {
+                    "money": 0,
+                    "voters": partyVoters[politicalParty.value].VOTERS_DOWN_LOW,
+                    "integrity": 0
+                }
+            }
+        ]
+    },
+    {
+        "topic": "DISASTER",
+        "image": "/game/DISASTER.png",
+        "title": "disasterTitle",
+        "description": "disasterDescription",
+        "options": [
+            {
+                "option": "disasterOption1title",
+                "justification": "disasterOption1justification",
+                "followup": {
+                    "money": 0,
+                    "voters": partyVoters[politicalParty.value].VOTERS_UP_MID,
+                    "integrity": 10
+                }
+            },
+            {
+                "option": "disasterOption2title",
+                "justification": "disasterOption2justification",
+                "followup": {
+                    "money": 0,
+                    "voters": partyVoters[politicalParty.value].VOTERS_UP_HIGH,
+                    "integrity": -10
+                }
+            },
+            {
+                "option": "disasterOption3title",
+                "justification": "disasterOption3justification",
+                "followup": {
+                    "money": -500,
+                    "voters": partyVoters[politicalParty.value].VOTERS_UP_HIGH,
+                    "integrity": 10
+                }
+            }
+        ]
+    },
+    {
+        "topic": "VIDEO_BAR",
+        "title": "videoBarTitle",
+        "image": "/game/VIDEO_BAR.png",
+        "description": "videoBarDescription",
+        "options": [
+            {
+                "option": "videoBarOption1title",
+                "justification": "videoBarOption1justification",
+                "followup": {
+                    "money": -300,
+                    "voters": partyVoters[politicalParty.value].VOTERS_UP_HIGH,
+                    "integrity": 20
+                }
+            },
+            {
+                "option": "videoBarOption2title",
+                "justification": "videoBarOption2justification",
+                "followup": {
+                    "money": 0,
+                    "voters": partyVoters[politicalParty.value].VOTERS_UP_MID,
+                    "integrity": 5
+                }
+            },
+            {
+                "option": "videoBarOption3title",
+                "justification": "videoBarOption3justification",
+                "followup": {
+                    "money": 200,
+                    "voters": partyVoters[politicalParty.value].VOTERS_UP_MID,
+                    "integrity": 0
+                }
+            },
+        ]
+    },
+]
+
+var secondHalfQuestions = [
+    {
+        "topic": "GOOD_MESSAGE",
+        "image": "/game/GOOD_MESSAGE.png",
+        "title": "goodMessageTitle",
+        "description": "goodMessageDescription",
+        "options": [
+            {
+                "option": "goodMessageOption1title",
+                "justification": "goodMessageOption1justification",
+                "followup": {
+                    "money": -200,
+                    "voters": partyVoters[politicalParty.value].VOTERS_UP_HIGH,
+                    "integrity": -10
+                }
+            },
+            {
+                "option": "goodMessageOption2title",
+                "justification": "goodMessageOption2justification",
+                "followup": {
+                    "money": -400,
+                    "voters": partyVoters[politicalParty.value].VOTERS_UP_MID,
+                    "integrity": 20
+                }
+            },
+            {
+                "option": "goodMessageOption3title",
+                "justification": "goodMessageOption3justification",
+                "followup": {
+                    "money": 0,
+                    "voters": partyVoters[politicalParty.value].VOTERS_UP_LOW,
+                    "integrity": -10
+                }
+            },
+        ]
+    },
+]
+
+const firstHalfQuestionsLeft = [
     {
         "topic": "AFRICAN_IMPORTS_LEFT",
         "image": "/game/AFRICAN_IMPORTS.png",
@@ -658,42 +806,7 @@ const firstQuestionsLeft = [
         ]
     }
 ]
-const firstQuestionsRight = [
-    {
-        "topic": "AFRICAN_IMPORTS_RIGHT",
-        "image": "/game/AFRICAN_IMPORTS.png",
-        "title": "africanImportsRightTitle",
-        "description": "africanImportsRightDescription",
-        "options": [
-            {
-                "option": "africanImportsRightOption1title",
-                "justification": "africanImportsRightOption1justification",
-                "followup": {
-                    "money": -200,
-                    "voters": partyVoters[politicalParty.value].VOTERS_UP_MID,
-                    "integrity": 0
-                }
-            },
-            {
-                "option": "africanImportsRightOption2title",
-                "justification": "africanImportsRightOption2justification",
-                "followup": {
-                    "money": 0,
-                    "voters": partyVoters[politicalParty.value].VOTERS_DOWN_MID,
-                    "integrity": 0
-                }
-            },
-            {
-                "option": "africanImportsRightOption3title",
-                "justification": "africanImportsRightOption3justification",
-                "followup": {
-                    "money": 0,
-                    "voters": partyVoters[politicalParty.value].VOTERS_UP_LOW,
-                    "integrity": 5
-                }
-            }
-        ]
-    },
+const firstHalfQuestionsRight = [
     {
         "topic": "LGBT_INTERVIEW_RIGHT",
         "image": "/game/LGBT_INTERVIEW.png",
@@ -768,7 +881,7 @@ const firstQuestionsRight = [
 
 
 
-const secondQuestionsRight = [
+const secondHalfQuestionsRight = [
     {
         "topic": "MARKET_CRASH_RIGHT",
         "image": "/game/MARKET_CRASH_.png",
@@ -803,10 +916,45 @@ const secondQuestionsRight = [
                 }
             },
         ]
-    }
+    },
+    {
+        "topic": "AFRICAN_IMPORTS_RIGHT",
+        "image": "/game/AFRICAN_IMPORTS.png",
+        "title": "africanImportsRightTitle",
+        "description": "africanImportsRightDescription",
+        "options": [
+            {
+                "option": "africanImportsRightOption1title",
+                "justification": "africanImportsRightOption1justification",
+                "followup": {
+                    "money": -200,
+                    "voters": partyVoters[politicalParty.value].VOTERS_UP_MID,
+                    "integrity": 0
+                }
+            },
+            {
+                "option": "africanImportsRightOption2title",
+                "justification": "africanImportsRightOption2justification",
+                "followup": {
+                    "money": 0,
+                    "voters": partyVoters[politicalParty.value].VOTERS_DOWN_MID,
+                    "integrity": 0
+                }
+            },
+            {
+                "option": "africanImportsRightOption3title",
+                "justification": "africanImportsRightOption3justification",
+                "followup": {
+                    "money": 0,
+                    "voters": partyVoters[politicalParty.value].VOTERS_UP_LOW,
+                    "integrity": 5
+                }
+            }
+        ]
+    },
 ]
 
-const secondQuestionsLeft = [
+const secondHalfQuestionsLeft = [
     {
         "topic": "MARKET_CRASH_LEFT",
         "image": "/game/MARKET_CRASH_.png",
@@ -845,11 +993,11 @@ const secondQuestionsLeft = [
 ]
 
 if (politicalParty.value == 'right' || politicalParty.value == 'far-right') {
-    allQuestions.splice(3, 0, ...firstQuestionsRight)
-    allQuestions.splice(8, 0, ...secondQuestionsRight)
+    allQuestions.splice(3, 0, ...firstHalfQuestionsRight)
+    allQuestions.splice(8, 0, ...secondHalfQuestionsRight)
 } else {
-    allQuestions.splice(3, 0, ...firstQuestionsLeft)
-    allQuestions.splice(8, 0, ...secondQuestionsLeft)
+    allQuestions.splice(3, 0, ...firstHalfQuestionsLeft)
+    allQuestions.splice(8, 0, ...secondHalfQuestionsLeft)
 }
 
 function changeQuestions() {
@@ -865,7 +1013,7 @@ function changeQuestions() {
     justification.value = ''
     hideAnswers.value = false
     points.value = Math.floor(voters.value * integrity.value / partyVoters[politicalParty.value].neededToWin * 1000)
-    if (points.value >=5000) {
+    if (points.value >= 5000) {
         electionWon.value = true
     }
 

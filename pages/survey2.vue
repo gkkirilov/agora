@@ -1,5 +1,5 @@
 <template>
-    <div class="relative isolate px-6 pt-5 lg:pt-10 lg:px-8">
+    <div class="relative isolate px-6 pt-5 lg:px-8">
         <div class="mx-auto max-w-2xl">
             <div class="text-center">
                 <h1 v-if="!completed" class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">{{ $t('survey.title') }}</h1>

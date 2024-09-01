@@ -1,20 +1,11 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  css: ['~/assets/main.css'],
   devtools: { enabled: true },
 
   app: {
     pageTransition: { name: 'page', mode: 'out-in' }
   },
-  modules: [
-    '@nuxtjs/supabase',
-    'nuxt-headlessui',
-    '@nuxtjs/tailwindcss',
-    "@nuxtjs/i18n",
-    ['@pinia/nuxt', { autoImports: ['defineStore', 'acceptHMRUpdate'] }],
-    '@pinia-plugin-persistedstate/nuxt',
-    "@nuxt/fonts"
-  ],
+  modules: ['@nuxtjs/supabase', 'nuxt-headlessui', '@nuxtjs/tailwindcss', "@nuxtjs/i18n", ['@pinia/nuxt', { autoImports: ['defineStore', 'acceptHMRUpdate'] }], '@pinia-plugin-persistedstate/nuxt', "@nuxt/fonts",],
 
   i18n: {
     detectBrowserLanguage: {

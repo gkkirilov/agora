@@ -1,6 +1,6 @@
 <template>
   <header class="bg-white">
-    <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between px-6 sm:px-10 py-4" aria-label="Global">
       <div class="flex lg:flex-1" :class="route.path == '/' ? 'mx-auto' : ''">
         <NuxtLink href="/" class="-m-1.5 p-1.5 z-50">
           <span class="sr-only">{{ $t('header.title') }}</span>

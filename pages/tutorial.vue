@@ -3,7 +3,7 @@ const isOpen = ref(false)
 </script>
 
 <template>
-    <div class="relative isolate px-6 pt-5 lg:pt-10 lg:px-8">
+    <div class="relative isolate px-6 pt-5 lg:px-8">
 
         <TransitionRoot appear :show="isOpen" as="template">
             <Dialog as="div" @close="closeModal" class="relative z-10">
