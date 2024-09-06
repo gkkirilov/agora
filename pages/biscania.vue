@@ -1,5 +1,5 @@
 <template>
-    <div class="relative isolate px-6 pt-5 lg:pt-14 lg:px-8">
+    <div class="relative isolate px-6 pt-5 lg:px-8">
         <div class="mx-auto max-w-2xl ">
             <div class="text-center">
                 <h1 class="text-5xl font-bold tracking-tight text-gray-900 sm:text-6xl">{{ $t('biscania.title') }}</h1>
@@ -7,14 +7,13 @@
 
                 <!-- <img src="/Survey.png" > -->
                 <!-- https://www.youtube.com/embed/?playsinline=1&disablekb=1&enablejsapi=1&iv_load_policy=3&cc_load_policy=0&controls=0&rel=0&autoplay=1&mute=1&origin=https%3A%2F%2Fytch.xyz&widgetid=1 -->
-                <iframe width="315" height="560" 
-                class="mx-auto rounded-md"
-                 src="https://www.youtube.com/embed/MuT00mf3Css?controls=0&rel=0&playsinline=1&modestbranding=1&iv_load_policy=3&cc_load_policy=0"
-                    title="YouTube video player"
-                    frameborder="0"
+
+                <iframe width="315" height="560" class="mx-auto rounded-md"
+                    src="https://www.youtube.com/embed/q4ywxNHuYCM?controls=0&rel=0&playsinline=1&modestbranding=1&iv_load_policy=3&cc_load_policy=0"
+                    title="YouTube video player" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen
-                    ></iframe>
+                    allowfullscreen />
+
                 <div class="mt-10 mb-8 flex items-center justify-center gap-x-6">
                     <NuxtLink to="/goal"
                         class="rounded-md uppercase bg-gradient-to-tr from-[#6E74C2] to-[#5744A8] px-6 py-2 text-2xl font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
@@ -31,4 +30,15 @@
     </div>
 </template>
 <script setup>
+
+const isLoaded = ref(false)
+const isPlaying = ref(false)
+const video = ref()
+function play() {
+    video.value?.player.playVideo()
+}
+function stateChange(state) {
+    isPlaying.value = state.data === 1
+}
+
 </script>
