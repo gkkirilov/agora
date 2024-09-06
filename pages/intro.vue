@@ -12,7 +12,7 @@
                     </NuxtLink>
                 </div>
                 <div>
-                    <NuxtLink to="/compassintro" @click="changeParty()" class="inline-block mb-4 rounded-md uppercase bg-gradient-to-tr from-[#E3D4ED] to-[#6E74C2] px-6 py-2 text-2xl font-bold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                    <NuxtLink to="/compassintro" class="inline-block mb-4 rounded-md uppercase bg-gradient-to-tr from-[#E3D4ED] to-[#6E74C2] px-6 py-2 text-2xl font-bold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                         {{ $t('intro.no') }}
                     </NuxtLink>
                 </div>

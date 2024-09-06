@@ -481,6 +481,41 @@ const allQuestions = [
         ]
     },
     {
+        "topic": "VIDEO_BAR",
+        "title": "videoBarTitle",
+        "image": "/game/VIDEO_BAR.png",
+        "description": "videoBarDescription",
+        "options": [
+            {
+                "option": "videoBarOption1title",
+                "justification": "videoBarOption1justification",
+                "followup": {
+                    "money": -300,
+                    "voters": partyVoters[politicalParty.value].VOTERS_UP_HIGH,
+                    "integrity": 20
+                }
+            },
+            {
+                "option": "videoBarOption2title",
+                "justification": "videoBarOption2justification",
+                "followup": {
+                    "money": 0,
+                    "voters": partyVoters[politicalParty.value].VOTERS_UP_MID,
+                    "integrity": 5
+                }
+            },
+            {
+                "option": "videoBarOption3title",
+                "justification": "videoBarOption3justification",
+                "followup": {
+                    "money": 200,
+                    "voters": partyVoters[politicalParty.value].VOTERS_UP_MID,
+                    "integrity": 0
+                }
+            },
+        ]
+    },
+    {
         "topic": "DATA_LEAK",
         "image": "/game/DATA_LEAK.png",
         "title": "dataLeakTitle",
@@ -517,189 +552,7 @@ const allQuestions = [
     }
 ]
 
-
-const firstHalfQuestions = [
-    {
-        "topic": "FUNDING",
-        "title": "fundingTitle",
-        "image": "/game/FUNDING.png",
-        "description": "fundingDescription",
-        "options": [
-            {
-                "option": "fundingOption1title",
-                "justification": "fundingOption1justification",
-                "followup": {
-                    "money": 1000,
-                    "voters": 0,
-                    "integrity": -20
-                }
-            },
-            {
-                "option": "fundingOption2title",
-                "justification": "fundingOption2justification",
-                "followup": {
-                    "money": 500,
-                    "voters": 0,
-                    "integrity": 0
-                }
-            },
-            {
-                "option": "fundingOption3title",
-                "justification": "fundingOption3justification",
-                "followup": {
-                    "money": 300,
-                    "voters": 0,
-                    "integrity": 5
-                }
-            }
-        ]
-    },
-    {
-        "topic": "SCANDAL",
-        "image": "/game/SCANDAL.png",
-        "title": "scandalTitle",
-        "description": "scandalDescription",
-        "options": [
-            {
-                "option": "scandalOption1title",
-                "justification": "scandalOption1justification",
-                "followup": {
-                    "money": 0,
-                    "voters": partyVoters[politicalParty.value].VOTERS_DOWN_MID,
-                    "integrity": 10
-                }
-            },
-            {
-                "option": "scandalOption2title",
-                "justification": "scandalOption2justification",
-                "followup": {
-                    "money": -200,
-                    "voters": partyVoters[politicalParty.value].VOTERS_UP_LOW,
-                    "integrity": 0
-                }
-            },
-            {
-                "option": "scandalOption3title",
-                "justification": "scandalOption3justification",
-                "followup": {
-                    "money": 0,
-                    "voters": partyVoters[politicalParty.value].VOTERS_DOWN_LOW,
-                    "integrity": 0
-                }
-            }
-        ]
-    },
-    {
-        "topic": "DISASTER",
-        "image": "/game/DISASTER.png",
-        "title": "disasterTitle",
-        "description": "disasterDescription",
-        "options": [
-            {
-                "option": "disasterOption1title",
-                "justification": "disasterOption1justification",
-                "followup": {
-                    "money": 0,
-                    "voters": partyVoters[politicalParty.value].VOTERS_UP_MID,
-                    "integrity": 10
-                }
-            },
-            {
-                "option": "disasterOption2title",
-                "justification": "disasterOption2justification",
-                "followup": {
-                    "money": 0,
-                    "voters": partyVoters[politicalParty.value].VOTERS_UP_HIGH,
-                    "integrity": -10
-                }
-            },
-            {
-                "option": "disasterOption3title",
-                "justification": "disasterOption3justification",
-                "followup": {
-                    "money": -500,
-                    "voters": partyVoters[politicalParty.value].VOTERS_UP_HIGH,
-                    "integrity": 10
-                }
-            }
-        ]
-    },
-    {
-        "topic": "VIDEO_BAR",
-        "title": "videoBarTitle",
-        "image": "/game/VIDEO_BAR.png",
-        "description": "videoBarDescription",
-        "options": [
-            {
-                "option": "videoBarOption1title",
-                "justification": "videoBarOption1justification",
-                "followup": {
-                    "money": -300,
-                    "voters": partyVoters[politicalParty.value].VOTERS_UP_HIGH,
-                    "integrity": 20
-                }
-            },
-            {
-                "option": "videoBarOption2title",
-                "justification": "videoBarOption2justification",
-                "followup": {
-                    "money": 0,
-                    "voters": partyVoters[politicalParty.value].VOTERS_UP_MID,
-                    "integrity": 5
-                }
-            },
-            {
-                "option": "videoBarOption3title",
-                "justification": "videoBarOption3justification",
-                "followup": {
-                    "money": 200,
-                    "voters": partyVoters[politicalParty.value].VOTERS_UP_MID,
-                    "integrity": 0
-                }
-            },
-        ]
-    },
-]
-
-var secondHalfQuestions = [
-    {
-        "topic": "GOOD_MESSAGE",
-        "image": "/game/GOOD_MESSAGE.png",
-        "title": "goodMessageTitle",
-        "description": "goodMessageDescription",
-        "options": [
-            {
-                "option": "goodMessageOption1title",
-                "justification": "goodMessageOption1justification",
-                "followup": {
-                    "money": -200,
-                    "voters": partyVoters[politicalParty.value].VOTERS_UP_HIGH,
-                    "integrity": -10
-                }
-            },
-            {
-                "option": "goodMessageOption2title",
-                "justification": "goodMessageOption2justification",
-                "followup": {
-                    "money": -400,
-                    "voters": partyVoters[politicalParty.value].VOTERS_UP_MID,
-                    "integrity": 20
-                }
-            },
-            {
-                "option": "goodMessageOption3title",
-                "justification": "goodMessageOption3justification",
-                "followup": {
-                    "money": 0,
-                    "voters": partyVoters[politicalParty.value].VOTERS_UP_LOW,
-                    "integrity": -10
-                }
-            },
-        ]
-    },
-]
-
-const firstHalfQuestionsLeft = [
+const firstQuestionsLeft = [
     {
         "topic": "AFRICAN_IMPORTS_LEFT",
         "image": "/game/AFRICAN_IMPORTS.png",
@@ -806,7 +659,42 @@ const firstHalfQuestionsLeft = [
         ]
     }
 ]
-const firstHalfQuestionsRight = [
+const firstQuestionsRight = [
+    {
+        "topic": "AFRICAN_IMPORTS_RIGHT",
+        "image": "/game/AFRICAN_IMPORTS.png",
+        "title": "africanImportsRightTitle",
+        "description": "africanImportsRightDescription",
+        "options": [
+            {
+                "option": "africanImportsRightOption1title",
+                "justification": "africanImportsRightOption1justification",
+                "followup": {
+                    "money": -200,
+                    "voters": partyVoters[politicalParty.value].VOTERS_UP_MID,
+                    "integrity": 0
+                }
+            },
+            {
+                "option": "africanImportsRightOption2title",
+                "justification": "africanImportsRightOption2justification",
+                "followup": {
+                    "money": 0,
+                    "voters": partyVoters[politicalParty.value].VOTERS_DOWN_MID,
+                    "integrity": 0
+                }
+            },
+            {
+                "option": "africanImportsRightOption3title",
+                "justification": "africanImportsRightOption3justification",
+                "followup": {
+                    "money": 0,
+                    "voters": partyVoters[politicalParty.value].VOTERS_UP_LOW,
+                    "integrity": 5
+                }
+            }
+        ]
+    },
     {
         "topic": "LGBT_INTERVIEW_RIGHT",
         "image": "/game/LGBT_INTERVIEW.png",
@@ -881,7 +769,7 @@ const firstHalfQuestionsRight = [
 
 
 
-const secondHalfQuestionsRight = [
+const secondQuestionsRight = [
     {
         "topic": "MARKET_CRASH_RIGHT",
         "image": "/game/MARKET_CRASH_.png",
@@ -916,45 +804,10 @@ const secondHalfQuestionsRight = [
                 }
             },
         ]
-    },
-    {
-        "topic": "AFRICAN_IMPORTS_RIGHT",
-        "image": "/game/AFRICAN_IMPORTS.png",
-        "title": "africanImportsRightTitle",
-        "description": "africanImportsRightDescription",
-        "options": [
-            {
-                "option": "africanImportsRightOption1title",
-                "justification": "africanImportsRightOption1justification",
-                "followup": {
-                    "money": -200,
-                    "voters": partyVoters[politicalParty.value].VOTERS_UP_MID,
-                    "integrity": 0
-                }
-            },
-            {
-                "option": "africanImportsRightOption2title",
-                "justification": "africanImportsRightOption2justification",
-                "followup": {
-                    "money": 0,
-                    "voters": partyVoters[politicalParty.value].VOTERS_DOWN_MID,
-                    "integrity": 0
-                }
-            },
-            {
-                "option": "africanImportsRightOption3title",
-                "justification": "africanImportsRightOption3justification",
-                "followup": {
-                    "money": 0,
-                    "voters": partyVoters[politicalParty.value].VOTERS_UP_LOW,
-                    "integrity": 5
-                }
-            }
-        ]
-    },
+    }
 ]
 
-const secondHalfQuestionsLeft = [
+const secondQuestionsLeft = [
     {
         "topic": "MARKET_CRASH_LEFT",
         "image": "/game/MARKET_CRASH_.png",
@@ -993,11 +846,11 @@ const secondHalfQuestionsLeft = [
 ]
 
 if (politicalParty.value == 'right' || politicalParty.value == 'far-right') {
-    allQuestions.splice(3, 0, ...firstHalfQuestionsRight)
-    allQuestions.splice(8, 0, ...secondHalfQuestionsRight)
+    allQuestions.splice(3, 0, ...firstQuestionsRight)
+    allQuestions.splice(8, 0, ...secondQuestionsRight)
 } else {
-    allQuestions.splice(3, 0, ...firstHalfQuestionsLeft)
-    allQuestions.splice(8, 0, ...secondHalfQuestionsLeft)
+    allQuestions.splice(3, 0, ...firstQuestionsLeft)
+    allQuestions.splice(8, 0, ...secondQuestionsLeft)
 }
 
 function changeQuestions() {
