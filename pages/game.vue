@@ -99,7 +99,7 @@ const selectAnswer = (answer) => {
 
 <template>
   <div class="px-6 pt-5 lg:pt-10 lg:px-8">
-    <div class="mx-auto max-w-2xl">
+    <div class="mx-auto max-w-xs">
       <div class="text-center">
         <InfoDisplay
           v-if="!state.completed"
@@ -108,7 +108,7 @@ const selectAnswer = (answer) => {
           :voters="voters"
           :integrity="integrity"
           v-bind="state"
-        />
+        />  
 
         <template v-if="state.elections">
           <ElectionsComponent
@@ -125,7 +125,7 @@ const selectAnswer = (answer) => {
         </template>
 
         <template v-else-if="!state.completed">
-          <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl my-5">
+          <h1 class="text-4xl font-bold tracking-tight text-gray-900 my-5">
             {{ $t(`game.${allQuestions[state.currentQuestionIndex].topic}`) }}
           </h1>
           

@@ -54,7 +54,7 @@ const handleShowPostElection = () => {
   <div v-if="elections" class="text-center">
     <!-- Pre-elections screen -->
     <div v-if="!electionsVoting">
-      <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl px-4 mt-4">
+      <h1 class="text-4xl font-bold tracking-tight text-gray-900 px-4 mt-4">
         {{ t('elections.title') }}
       </h1>
       <p class="text-gray-600 max-w-xs mx-auto px-6 mt-2">{{ t('elections.description') }}</p>
@@ -69,7 +69,7 @@ const handleShowPostElection = () => {
 
     <!-- Ongoing elections screen -->
     <div v-else-if="!showPostElectionScreen">
-      <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl px-14 mt-4">
+      <h1 class="text-4xl font-bold tracking-tight text-gray-900 px-4 mt-4">
         {{ electionWon ? t('elections.congrats') : t('elections.loss') }}
       </h1>
       <p class="text-gray-600 max-w-xs mx-auto px-6 mt-2">
@@ -100,7 +100,7 @@ const handleShowPostElection = () => {
 
     <!-- Post-elections screen (only for first election) -->
     <div v-else-if="isFirstElection && showPostElectionScreen">
-      <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl px-14 mt-4">
+      <h1 class="text-4xl font-bold tracking-tight text-gray-900 px-4 mt-4">
         {{ electionWon ? t('elections.win1title') : t('elections.loss1') }}
       </h1>
       <p class="text-gray-600 max-w-xs mx-auto px-6 mt-2">

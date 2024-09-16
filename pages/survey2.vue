@@ -8,8 +8,8 @@
                 <p v-else class="text-gray-600 max-w-xs px-10 mx-auto text-xl mt-2">{{ $t('finalSurvey.description2') }}</p>
 
                 <div v-if="!completed" class="flex flex-initial justify-center mt-6 gap-x-3">
-                    <div v-for="n in questions.length" class="bg-[#E3D4ED] px-6 py-1 rounded"
-                        :class="{ 'bg-[#5744A8]': currentQuestion + 1 > n - 1 }">
+                    <div v-for="n in questions.length" class="px-6 py-1 rounded"
+                        :class="[currentQuestion + 1 >= n ? 'bg-[#5744A8]' : 'bg-[#E3D4ED]']">
                     </div>
                 </div>
 
@@ -94,11 +94,4 @@ var questions = ref([
         answers: ['yes', 'no']
     }
 ])
-// 1) – Yes / No / Sometimes 
-// 2) – No role / Big role / Neither / It could be useful 
-// 3) – Agree / It doesn’t matter / Disagree / I don’t know 
-// 4) – Nothing at all / Just the basics / Quite a lot / I’m an expert 
-// 5) – Yes / No 
-// 6) – Yes / No
-
 </script>
