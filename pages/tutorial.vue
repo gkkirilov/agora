@@ -1,5 +1,8 @@
 <script setup>
 const isOpen = ref(false)
+
+const indexStore = useIndexStore()
+const { politicalParty, money, voters, integrity, points } = storeToRefs(indexStore)
 </script>
 
 <template>
@@ -43,16 +46,29 @@ const isOpen = ref(false)
                 </h1>
                 <p class="text-gray-600 max-w-xs mx-auto px-6 mt-2">{{ $t('tutorial.description') }}</p>
 
-                <div class="mx-auto text-start mt-14 text-xl">
-                    {{ $t('tutorial.intro') }}
+                <div class="mx-auto text-start mt-10 text-lg mb-10 bg-gray-100 p-5 rounded-lg">
+                    <div class="mb-4 leading-5">{{ $t('tutorial.intro1') }}</div>
+                    
+                    <div class="mb-4 leading-5">{{ $t('tutorial.intro2') }}</div>
+                    
+                    <div class="mb-4 leading-5">{{ $t('tutorial.intro3') }}</div>
+                    
+                    <div class="leading-5">{{ $t('tutorial.intro4') }}</div>
                 </div>
-                <img src="/goal.png" class="mx-auto  lg:max-w-96 h-auto mt-10 px-16">
+                 <img class="px-8 max-w-xs mx-auto" :src="'/partyLogo/' + politicalParty + '.png'" alt="">
 
-                <div class="mx-auto text-start mt-14 text-xl mb-10">
-                    {{ $t('tutorial.intro2') }}
-                    <span class="underline text-indigo-800 font-bold" @click="isOpen = true">
-                        {{ $t('tutorial.majority') }}
-                    </span>
+                <div class="mx-auto text-start mt-10 text-lg mb-10 bg-gray-100 p-4 rounded-lg">
+                    <div class="mb-4 leading-5">{{ $t('tutorial.voting1') }}</div>
+                    
+                    <div class="mb-4 leading-5">{{ $t('tutorial.voting2') }}</div>
+                    
+                    <div class="mb-4 leading-5">{{ $t('tutorial.voting3') }}</div>
+                    
+                    <div class="leading-5">{{ $t('tutorial.voting4') }}
+                        <span class="underline text-indigo-800 font-bold" @click="isOpen = true">
+                            {{ $t('tutorial.majority') }}
+                        </span>
+                    </div>
                 </div>
 
                 <div class="mb-10">

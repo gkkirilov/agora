@@ -1,5 +1,3 @@
-import type JoinLeaderboard from "./pages/joinLeaderboard.vue";
-
 export default defineI18nConfig(() => ({
   legacy: false,
   locale: 'en',
@@ -8,6 +6,13 @@ export default defineI18nConfig(() => ({
       header: {
         title: 'Agora - The election game'
       },
+      footer: {
+        home: "Home",
+        credits: "Credits",
+        about: "About",
+        copyright: '© 2024, All Rights Reserved by the Agora NextGen Partnership'
+      },
+
       index: {
         title: 'Get elected today!',
         subtitle: 'Flashy text to show the player this game means BUSINESS',
@@ -19,6 +24,31 @@ export default defineI18nConfig(() => ({
         description: 'First, mind taking a quick survey? It’ll really help us out!',
         yes: 'YES, I’D LOVE TO!',
         no: 'NO, I WANNA PLAY...'
+      },
+      credits: {
+        title: 'Meet the Team',
+        description: 'The brains and brawn behind AGORA: The Election Game',
+
+        team: "The Team",
+        
+        game_designer: "GAME DESIGNER",
+        developer: "DEVELOPER",
+        ui_designer: "UI DESIGNER",
+        narrative_designer: "NARRATIVE DESIGNER",
+        project_manager: "PROJECT MANAGER",
+        community_manager: "COMMUNITY MANAGER",
+
+        partners: "The Partners",
+
+        AUSTRIA: "AUSTRIA",
+        BULGARIA: "BULGARIA",
+        SLOVENIA: "SLOVENIA",
+        SLOVAKIA: "SLOVAKIA",
+        CZECH_REPUBLIC: "CZECH REPUBLIC",
+
+        resources: "Resources",
+
+        license: "This learning tool is published under licence CC BY-NC-SA 3.0."
       },
       compassintro: {
         title: 'First things first!',
@@ -37,9 +67,14 @@ export default defineI18nConfig(() => ({
       goal: {
         title: "What's your goal?",
         description: 'What would you like to change in Biscania?',
-        goal1: 'Goal 1',
-        goal2: 'Goal 2',
-        goal3: 'Goal 3',
+
+        goal1: "I'll ensure more young people are heard!",
+        goal2: "I'll fight for better education!",
+        goal3: "I'll push for more innovation!",
+        goalsuccess1: "You have established a mechanism for young people to more actively participate in Biscania's democracy.",
+        goalsuccess2: 'You are now forming a new committee on education and setting goals for improvement.',
+        goalsuccess3: 'You are now working with a committee on policies to stimulate innovation in Biscania.',
+        
         write: "I'll write my own",
         back: 'Back',
         continue: 'Continue',
@@ -60,8 +95,14 @@ export default defineI18nConfig(() => ({
       tutorial: {
         title: "You’re going to need allies",
         description: 'It’s a dog-eat-dog world out there',
-        intro: "Now, to get your change to happen, you will have to get into office where you can use the government’s mechanics and resources. To do that, you need to be elected into office. You can do that alone, but it is very difficult, nigh-impossible. Instead – this looks like a good fit for your political core:",
-        intro2: "This is a political party. It’s purpose is to band people together around a single vision about how the government should be run. You can join them by going to their meetings, apply for their lists of candidates for office and get elected into a position of some power. But to do that, you will have to selected for the lists within the party itself by a",
+        intro1: "Now, to get your change to happen, you will have to get into office where you can use the government’s mechanics and resources.",
+        intro2: "To do that, you need to be elected into office.",
+        intro3: "You can do that alone, but it is very difficult, nigh-impossible.",
+        intro4: "Instead – this looks like a good fit for your political core:",
+        voting1: "This is a political party.",
+        voting2: "It’s purpose is to band people together around a single vision about how the government should be run.",
+        voting3: "You can join them by going to their meetings, apply for their lists of candidates for office and get elected into a position of some power.",
+        voting4: "But to do that, you will have to selected for the lists within the party itself by a",
         majority: "majority vote.",
         popupText: "This is a pop-up! It might hold text, or it might also include an image. Some popups might even have links in them.",
         popupButton: "Got it",
@@ -88,6 +129,18 @@ export default defineI18nConfig(() => ({
         congratsDescription: "You made the top of the list",
         loss: "Next time!",
         lossDescription: "You almost won it, you will get them next time!",
+
+        loss1: "Chin up!",
+        loss1Description: "Let’s try that one more time",
+        loss1Text1: "While you normally don’t have to be at the top of your party to proceed forward, for this simulation we need you at the top of your game!",
+        loss1Text2: "So let’s try again - are you ready?",
+        goback: "Take me back",
+
+        win1title: "Onto the Nationals",
+        win1description: "Let’s try to get into Parliament!",
+        win1text1: "Congratulations, you’re the most popular member of your party! It’s now time to get into Parliament. It should be a piece of cake, right? ",
+        win1text2: "Right?",
+        letsgo: "Let’s go!",
       },
       biscania: {
         title: "Welcome to Biscania",

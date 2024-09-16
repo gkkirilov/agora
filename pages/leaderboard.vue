@@ -42,7 +42,7 @@ const supabase = useSupabaseClient()
 const indexStore = useIndexStore()
 const { points } = storeToRefs(indexStore)
 
-var { data: users } = await supabase.from('leaderboard').select('*').gte('points', points.value).limit(10).order('points', { ascending: false })
+var { data: users } = await supabase.from('leaderboard').select('*').lte('points', points.value).limit(10).order('points', { ascending: false })
 console.log(users)
 if (users.length < 10) {
     var { data: users2 } = await supabase.from('leaderboard').select('*').lt('points', points.value).limit(10 - users.length).order('points', { ascending: false })

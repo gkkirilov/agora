@@ -9,11 +9,11 @@
                     <div v-html="$t('compassintro.text')"></div>
                 </div>
                 <div class="mt-10 mb-8 flex items-center justify-center gap-x-6">
-                    <NuxtLink to="/compass" class="rounded-md uppercase bg-gradient-to-tr from-[#6E74C2] to-[#5744A8] px-6 py-2 text-2xl font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                    <NuxtLink to="/compass" class="rounded-md uppercase bg-gradient-to-tr from-[#6E74C2] to-[#5744A8] px-6 py-2 text-xl font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                         {{ $t('compassintro.yes') }}
                     </NuxtLink>
                 </div>
-                <NuxtLink to="/compassPicker" class="inline-block mb-10 rounded-md uppercase bg-gradient-to-tr from-[#E3D4ED] to-[#6E74C2] px-6 py-2 text-2xl font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                <NuxtLink to="/compassPicker" class="inline-block mb-10 rounded-md uppercase bg-gradient-to-tr from-[#E3D4ED] to-[#6E74C2] px-6 py-2 text-xl font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                     {{ $t('compassintro.no') }}
                 </NuxtLink>
             </div>

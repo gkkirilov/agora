@@ -9,6 +9,7 @@ export const useIndexStore = defineStore('indexStore', {
         language: 'en',
         nickname: '',
         goal: '',
+        customGoal: '',
     }),
 
     persist: true,

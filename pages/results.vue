@@ -11,8 +11,8 @@
                 <div class="my-14 font-black text-indigo-600 text-5xl">
                     {{ points }} {{ $t('game.points') }}
                 </div>
-                <div v-if="goal != ''" class="text-2xl my-16 max-w-xs mx-auto">
-                    {{ $t('results.yourgoal')}} <span class="font-extrabold">{{ goal }}</span>
+                <div v-if="goal != ''" class="text-lg text-left my-16 max-w-xs mx-auto bg-gray-100 p-4 rounded-lg">
+                    {{ $t('results.yourgoal')}} <span class="font-extrabold">{{ goal == 4 ? customGoal : $t('goal.goalsuccess' + goal) }}</span>
                 </div>
                 <div class="max-w-xs mx-auto mb-4">
                     <NuxtLink to="/joinLeaderboard"
@@ -37,5 +37,5 @@
 </template>
 <script setup>
 const indexStore = useIndexStore()
-const { points, goal } = storeToRefs(indexStore)
+const { points, goal, customGoal } = storeToRefs(indexStore)
 </script>
