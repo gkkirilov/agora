@@ -46,7 +46,7 @@ const { politicalParty, money, voters, integrity, points } = storeToRefs(indexSt
                 </h1>
                 <p class="text-gray-600 max-w-xs mx-auto px-6 mt-2">{{ $t('tutorial.description') }}</p>
 
-                <div class="mx-auto text-start mt-10 text-lg mb-10 bg-gray-100 p-5 rounded-lg">
+                <div class="mx-auto text-start mt-10 text-lg mb-10 bg-gray-100 p-5 rounded-lg text-gray-600">
                     <div class="mb-4 leading-5">{{ $t('tutorial.intro1') }}</div>
                     
                     <div class="mb-4 leading-5">{{ $t('tutorial.intro2') }}</div>
@@ -57,7 +57,7 @@ const { politicalParty, money, voters, integrity, points } = storeToRefs(indexSt
                 </div>
                  <img class="px-8 max-w-xs mx-auto" :src="'/partyLogo/' + politicalParty + '.png'" alt="">
 
-                <div class="mx-auto text-start mt-10 text-lg mb-10 bg-gray-100 p-4 rounded-lg">
+                <div class="mx-auto text-start mt-10 text-lg mb-10 bg-gray-100 p-4 rounded-lg text-gray-600">
                     <div class="mb-4 leading-5">{{ $t('tutorial.voting1') }}</div>
                     
                     <div class="mb-4 leading-5">{{ $t('tutorial.voting2') }}</div>

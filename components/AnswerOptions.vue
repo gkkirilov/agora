@@ -20,7 +20,7 @@ const isDisabled = (cost) => props.currentMoney + cost < 0
 </script>
 
 <template>
-  <div class="mt-8 space-y-4  max-w-xs mx-auto">
+  <div class="my-8 space-y-4  max-w-xs mx-auto">
     <button v-for="(option, index) in options" :key="index" @click="emit('select', option)"
       :disabled="isDisabled(option.followup.money)" :class="isDisabled(option.followup.money) ? 'cursor-not-allowed bg-gray-500' :
         'bg-gradient-to-tr from-[#6E74C2] to-[#5744A8]'"

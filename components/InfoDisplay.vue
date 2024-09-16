@@ -36,7 +36,7 @@
                 </clipPath>
               </defs>
             </svg>
-            {{ voters }}
+            {{ displayedVoters }}
           </div>
           <div class="flex items-center flex-col text-sm font-medium p-2 gap-x-1 cursor-pointer"
             :class="{ ' bg-white rounded z-50': infoIndex === 3 && isOpen }" v-show="infoIndex >= 3"
@@ -93,7 +93,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { TransitionRoot, TransitionChild, Dialog, DialogPanel, DialogTitle } from '@headlessui/vue'
 
 const props = defineProps({
@@ -107,6 +107,7 @@ const props = defineProps({
   votersDown: Boolean,
   integrityUp: Boolean,
   integrityDown: Boolean,
+  isFirstElection: Boolean, // Add this prop
 })
 
 const infoIndex = ref(0)
@@ -130,6 +131,10 @@ const info = [
     description: 'integritydescription',
   },
 ]
+
+const displayedVoters = computed(() => {
+  return props.isFirstElection ? Math.floor(props.voters / 100) : props.voters
+})
 
 const showInfo = (index) => {
   infoIndex.value = index;
