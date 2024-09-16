@@ -9,7 +9,7 @@
                 <div class="max-w-xs text-center mx-auto">
                     <div v-for="(user, index) in leaderboard"
                         class="ring-1 ring-gray-900/10 p-2 px-4 rounded-lg mt-4 flex justify-between"
-                        :class="{ 'bg-yellow-400': user.rank === 1, 'bg-orange-200': user.rank === 2, 'bg-gray-200': user.rank === 3 }">
+                        :class="{ 'border-yellow-400 border-2': user.rank === 1, 'border-amber-800/40 border-2': user.rank === 2, 'border-gray-200 border-2': user.rank === 3 }">
                         <div class="flex gap-x-2">
                             <div class="text-gray-600 text-base pt-0.5">{{ user.rank }}</div>
                             <div class="text-gray-900 text-xl font-black w-13">{{ user.nickname }}</div>
