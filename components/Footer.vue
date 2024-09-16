@@ -8,12 +8,9 @@
                 <NuxtLink to="/credits" class="inline-block">
                     {{ $t('footer.credits') }}
                 </NuxtLink>
-                <a href="https://www.agoranx.eu/en/about/project" target="_blank" class="block mb-4 text-2xl font-light leading-6 text-gray-600">
+                <a href="https://www.agoranx.eu/en/about/project" target="_blank" class="inline-block">
                     {{ $t('footer.about') }}
-                    </a>
-                <NuxtLink to="/about" class="inline-block">
-                    {{ $t('footer.about') }}
-                </NuxtLink>
+                </a>
             </div>
             <div class="flex gap-x-3">
                 <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-indigo-500 my-0.5">
