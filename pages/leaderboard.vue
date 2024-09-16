@@ -7,13 +7,15 @@
                 <p class="text-gray-600 max-w-xs mx-auto text-xl mt-2">{{ $t('leaderboard.description') }}</p>
 
                 <div class="max-w-xs text-center mx-auto">
-                    <div v-for="(user, index) in users"
-                        class="ring-1 ring-gray-900/10 p-2 px-4 rounded-lg mt-4 flex justify-between">
+                    <div v-for="(user, index) in leaderboard"
+                        class="ring-1 ring-gray-900/10 p-2 px-4 rounded-lg mt-4 flex justify-between"
+                        :class="{ 'bg-yellow-400': user.rank === 1, 'bg-orange-200': user.rank === 2, 'bg-gray-200': user.rank === 3 }">
                         <div class="flex gap-x-2">
                             <div class="text-gray-600 text-base pt-0.5">{{ user.rank }}</div>
                             <div class="text-gray-900 text-xl font-black w-13">{{ user.nickname }}</div>
                         </div>
-                        <img v-show="user.political_party" :src="'/party/' + user.political_party + '.svg'" class="inline size-8 mx-auto fill-red-700 w-10 mr-4" alt="">
+                        <img v-show="user.political_party" :src="'/party/' + user.political_party + '.svg'"
+                            class="inline size-8 mx-auto fill-red-700 w-10 mr-4" alt="">
                         <div class="text-gray-600 text-xl font-black w-15">
 
                             {{ user.points }}
@@ -41,11 +43,24 @@
 const supabase = useSupabaseClient()
 const indexStore = useIndexStore()
 const { points } = storeToRefs(indexStore)
+const leaderboard = ref([])
 
-var { data: users } = await supabase.from('leaderboard').select('*').lte('points', points.value).limit(10).order('points', { ascending: false })
-console.log(users)
-if (users.length < 10) {
-    var { data: users2 } = await supabase.from('leaderboard').select('*').lt('points', points.value).limit(10 - users.length).order('points', { ascending: false })
-    users = users.concat(users2)
+try {
+    var { data: users } = await supabase.from('leaderboard').select('*').lte('points', points.value).limit(10).order('points', { ascending: false })
+    leaderboard.value = users
+
+    if (users[0].rank > 3) {
+        console.log('here');
+        var { data: top3 } = await supabase.from('leaderboard').select('*').lt('rank', 4).order('rank')
+        console.log(top3);
+        leaderboard.value.unshift(...top3)
+    }
+    if (users.length < 10) {
+        var { data: users2 } = await supabase.from('leaderboard').select('*').lt('points', points.value).limit(10 - users.length).order('points', { ascending: false })
+        users = leaderboard.value.concat(users2)
+    }
+
+} catch (error) {
+    console.log(error);
 }
 </script>
