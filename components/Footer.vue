@@ -8,6 +8,9 @@
                 <NuxtLink to="/credits" class="inline-block">
                     {{ $t('footer.credits') }}
                 </NuxtLink>
+                <a href="https://www.agoranx.eu/en/about/project" target="_blank" class="block mb-4 text-2xl font-light leading-6 text-gray-600">
+                    {{ $t('footer.about') }}
+                    </a>
                 <NuxtLink to="/about" class="inline-block">
                     {{ $t('footer.about') }}
                 </NuxtLink>

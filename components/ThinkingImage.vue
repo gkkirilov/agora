@@ -23,7 +23,7 @@ const imageSource = computed(() => imageSources[props.index % imageSources.lengt
     <img 
       :src="imageSource" 
       alt="Thinking politician" 
-      class="mx-auto w-64 h-64 object-cover rounded-full shadow-lg"
+      class="mx-auto w-64 h-64 object-cover"
     />
   </div>
 </template>
