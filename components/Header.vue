@@ -9,7 +9,7 @@
         </NuxtLink>
       </div>
       <ClientOnly>
-        <!-- <Menu as="div" class="relative inline-block text-left z-50 lg:block" :class="route.path == '/' ? 'hidden' : ''">
+        <Menu as="div" class="relative inline-block text-left z-50 lg:block" :class="route.path == '/' ? 'hidden' : ''">
           <div>
             <MenuButton
               class="inline-flex w-full justify-center items-center rounded-md px-2 py-2 text-sm font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75 group">
@@ -36,7 +36,7 @@
               </div>
             </MenuItems>
           </transition>
-        </Menu> -->
+        </Menu>
       </ClientOnly>
     </nav>
   </header>

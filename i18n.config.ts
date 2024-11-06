@@ -648,7 +648,7 @@ export default defineI18nConfig(() => ({
         continue: 'Continue'
       }
     },
-    "de": {
+    de: {
       "header": {
         "title": "Agora - Das Wahlsimulationsspiel"
       },
@@ -2601,7 +2601,7 @@ export default defineI18nConfig(() => ({
         "justification25moderate": "Ta odgovor odraža desničarsko stališče, ki daje prednost ohranjanju reda in podpira strukturirane procese, vključno z dovoljenji za proteste. Svoboda izražanja pride po varnosti skupnosti.",
         "justification26moderate": "Z vidika desničarja je nacionalna varnost na prvem mestu in ukrepi, ki pomagajo zaščititi državo, se štejejo za nujne, tudi če zahtevajo nekatere žrtve v osebnih svoboščinah. Tu verjamemo, da bi takšna registracija lahko preprečila zlorabe spletnih platform, da bi prednost dala varnosti države pred individualnimi svoboščinami v digitalnih prostorih.",
         "justification27moderate": "Utemeljitev za to desničarsko perspektivo temelji na načelih individualne svobode in prostotržnega gospodarstva. Desničarji dajejo prednost osebni avtonomiji in prostovoljnemu izmenjavanju, verjamejo, da bi morali imeti posamezniki svobodo, da sprejemajo svoje odločitve glede aplikacij, ki jih uporabljajo, in podatkov, ki jih delijo. Trdijo, da je zahteva po zbiranju podatkov uporabnikov posledica tržnih sil in odraža pogodbeno dogovor med uporabniki in razvijalci aplikacij. Z tega vidika bi se vladno posredovanje za regulacijo ali omejevanje praks zbiranja podatkov videlo kot nepotrebno poseganje v prosti trg in potencialno škodljivo za inovacije in gospodarsko rast.",
-        "justification28moderate": "Z vidika desničarja bi morale tržne sile narekovati delovanje zasebnih podjetij, vključno s tem, kako uporabljajo podatke za oglaševanje. Poudarek je na individualni izbiri, pri čemer se predvideva, da uporabniki privolijo v deljenje podatkov v zameno za storitve, ki jih nudi aplikacija. To predlaga zaupanje v prosti trg za inovacije in zagotavljanje možnosti za potrošnike."
+        "justification28moderate": "Z vidika desničarja bi morale tržne sile narekovati delovanje zasebnih podjetij, vključno s tem, kako uporabljajo podatke za oglaševanje. Poudarek je na individualni izbiri, pri čemer se predvideva, da uporabniki privolijo v deljenje podatkov v zameno za storitve, ki jih nudi aplikacija. To predlaga zaupanje v prosti trg za inovacije in zagotavljanje možnosti za potrošnike.",
   
         "answer1right": "Poberite se in pojdite na vse razgovore za službo, ki jih lahko najdete.",
         "answer2right": "Spodbujajte lokalna podjetja in člane skupnosti, da prispevajo k centru in prostovoljno darujejo svoj čas, kar poudarja samostojnost in rešitve, ki jih vodi skupnost.",
@@ -2659,7 +2659,6 @@ export default defineI18nConfig(() => ({
         "justification26right": "Z vidika desničarja je nacionalna varnost na prvem mestu in ukrepi, ki pomagajo zaščititi državo, se štejejo za nujne, tudi če zahtevajo nekatere žrtve v osebnih svoboščinah. Tu verjamemo, da bi takšna registracija lahko preprečila zlorabe spletnih platform, da bi prednost dala varnosti države pred individualnimi svoboščinami v digitalnih prostorih.",
         "justification27right": "Utemeljitev za to desničarsko perspektivo temelji na načelih individualne svobode in prostotržnega gospodarstva. Desničarji dajejo prednost osebni avtonomiji in prostovoljnemu izmenjavanju, verjamejo, da bi morali imeti posamezniki svobodo, da sprejemajo svoje odločitve glede aplikacij, ki jih uporabljajo, in podatkov, ki jih delijo. Trdijo, da je zahteva po zbiranju podatkov uporabnikov posledica tržnih sil in odraža pogodbeno dogovor med uporabniki in razvijalci aplikacij. Z tega vidika bi se vladno posredovanje za regulacijo ali omejevanje praks zbiranja podatkov videlo kot nepotrebno poseganje v prosti trg in potencialno škodljivo za inovacije in gospodarsko rast.",
         "justification28right": "Z desničarskega vidika bi morale tržne sile narekovati delovanje zasebnih podjetij, vključno s tem, kako uporabljajo podatke za oglaševanje. Poudarek je na individualni izbiri, pri čemer se predvideva, da uporabniki privolijo v deljenje podatkov v zameno za storitve, ki jih nudi aplikacija. To predlaga zaupanje v prosti trg za inovacije in zagotavljanje možnosti za potrošnike."
-
       },
     },
     sk: {
@@ -3665,7 +3664,7 @@ export default defineI18nConfig(() => ({
         voters: 'Избиратели',
         votersdescription: 'Броят на хората, които изглежда искат да гласуват за вас. Колкото повече имате, толкова по-голям шанс имате да бъдете избрани. Не забравяйте - не ви трябват всички да гласуват за вас, нужно е само да имате повече от другите кандидати!',
         integrity: 'Интегритет',
-        integritydescription: 'Достоверността, която имате пред света. Колкото по-висока е тя, толкова по-често хората ще бъдат готови да гласуват за вас и вашите думи ще имат по-голяма тежест. Ако компрометирате своя интегритет по пътя към офиса, можете да загубите доверие у избирателите си в бъдеще или можете да станете марионетка на могъща личност. И двете тези резултати ще попречат на вас да направите промените, които искате.",
+        integritydescription: 'Достоверността, която имате пред света. Колкото по-висока е тя, толкова по-често хората ще бъдат готови да гласуват за вас и вашите думи ще имат по-голяма тежест. Ако компрометирате своя интегритет по пътя към офиса, можете да загубите доверие у избирателите си в бъдеще или можете да станете марионетка на могъща личност. И двете тези резултати ще попречат на вас да направите промените, които искате.'
       },
       compass: {
         title: 'Политически въпросник:',
