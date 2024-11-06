@@ -14,10 +14,6 @@ export default defineNuxtConfig({
       redirectOn: 'root' // recommended
     }
   },
-  runtimeConfig: {
-    OPENAI_API_KEY: 'sk-wPOppHvW2ATA_V1Zq6UUV_nMG0ehnblbJ1_rDnRpEVT3BlbkFJgUFFfxkTyIHH-naIEciKIyD_oU0IJo4g3DGYEuFcMA'
-  },
-
   headlessui: {
     prefix: ''
   },
