@@ -4,9 +4,9 @@ export default defineEventHandler(async (event) => {
     const supabase = serverSupabaseServiceRole(event)
 
     var response = await supabase
-    .from('leaderboard')
+    .from('newsletter_subscriptions')
     .select('*')
-    .gt('points', 4500)
+    .limit(10)
 
     return response
 })
