@@ -4,7 +4,7 @@ export default defineEventHandler(async (event) => {
     const supabase = serverSupabaseServiceRole(event)
 
     var response = await supabase
-    .from('newsletter_subscriptions')
+    .from('leaderboard')
     .select('*')
     .limit(10)
 
